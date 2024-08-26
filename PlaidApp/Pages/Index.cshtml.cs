@@ -1,19 +1,19 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace PlaidApp.Pages;
+using System.Threading.Tasks;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly PlaidService _plaidService;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(PlaidService plaidService)
     {
-        _logger = logger;
+        _plaidService = plaidService;
     }
 
-    public void OnGet()
-    {
+    public string LinkToken { get; private set; }
 
+    public async Task OnGet()
+    {
+        LinkToken = await _plaidService.CreateLinkTokenAsync();
     }
 }

@@ -1,10 +1,46 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaid Login</title>
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+</head>
+<body>
+    <h1>Plaid Login</h1>
+    <p>This is the Plaid Login page.</p>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <!-- Plaid Dashboard Button -->
+    <button id="linkButton">Connect your bank</button>
+
+    <script type="text/javascript">
+        var linkToken = "@Model.LinkToken";
+
+        var handler = Plaid.create({
+            token: linkToken,
+            onSuccess: function(public_token, metadata) {
+                // Send the public_token to your server to exchange for an access token
+                console.log('Public Token: ' + public_token);
+                console.log('Account ID: ' + metadata.accounts[0].id);
+            },
+            onExit: function(err, metadata) {
+                // The user exited the Link flow.
+                if (err != null) {
+                    // The user encountered a Plaid API error.
+                    console.error(err);
+                }
+            },
+            onEvent: function(eventName, metadata) {
+                // Optionally capture events from the Link flow to assist with analytics
+                console.log(eventName, metadata);
+            }
+        });
+
+        document.getElementById('linkButton').onclick = function() {
+            handler.open();
+        };
+    </script>
+</body>
+</html>
