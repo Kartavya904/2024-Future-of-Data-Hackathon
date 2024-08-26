@@ -11,7 +11,7 @@ public class PlaidService
     public async Task<string> CreateLinkTokenAsync()
     {
         var client = new RestClient(plaidEnvironment);
-        var request = new RestRequest("/link/token/create", Method.Post); // Use 'Method.Post' for the POST method
+        var request = new RestRequest("/link/token/create", Method.Post);
         request.AddJsonBody(new
         {
             client_id = clientId,
@@ -23,13 +23,22 @@ public class PlaidService
             {
                 client_user_id = "unique_user_id" // Generate a unique user ID for your users
             },
-            products = new[] { "auth", "transactions" },
-            redirect_uri = "http://localhost:5000/"
+            products = new[] { "auth", "transactions" }
         });
 
         RestResponse response = await client.ExecuteAsync(request);
-        var jsonResponse = JObject.Parse(response.Content);
 
-        return jsonResponse["link_token"]?.ToString();
+        if (response.IsSuccessful)
+        {
+            var jsonResponse = JObject.Parse(response.Content);
+            return jsonResponse["link_token"]?.ToString();
+        }
+        else
+        {
+            // Handle errors, log the issue, or throw an exception with detailed information
+            var errorResponse = JObject.Parse(response.Content);
+            string errorMessage = errorResponse["error_message"]?.ToString();
+            throw new ApplicationException($"Error creating link token: {errorMessage}");
+        }
     }
 }
