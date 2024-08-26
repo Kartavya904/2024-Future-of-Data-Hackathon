@@ -1,0 +1,64 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+.scaffolding/
+
+# Visual Studio Code settings and workspace files
+.vscode/
+
+# Configuration files
+appsettings*.json
+
+# Ignore dependency directories
+node_modules/
+packages/
+
+# Resharper files
+*.ReSharper
+*.ReSharper.user
+_ReSharper.Caches/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Ignore Git merge files
+*.orig
+
+# DotNet Framework-specific files
+*.vspscc
+*.vssscc
+
+# Ignore the .NET runtime caches
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# Ignore compiled libraries
+*.dll
+*.exe
+*.so
+*.dylib
+*.pdb
+
+# Ignore test logs
+TestResult*

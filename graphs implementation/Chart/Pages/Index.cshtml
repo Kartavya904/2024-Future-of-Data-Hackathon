@@ -1,0 +1,310 @@
+﻿@page
+@model IndexModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Display Hello World -->
+    <h1>Hello World</h1>
+
+    <!-- Line Chart -->
+    <h2>Line Chart</h2>
+    <canvas id="lineChart" width="400" height="200"></canvas>
+
+    <!-- Bar Chart -->
+    <h2>Bar Chart</h2>
+    <canvas id="barChart" width="400" height="200"></canvas>
+
+    <!-- Pie Chart -->
+    <h2>Pie Chart</h2>
+    <canvas id="pieChart" width="200" height="100"></canvas>
+
+    <!-- 3D Scatter Plot -->
+    <h2>3D Scatter Plot</h2>
+    <div id="scatter3dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 3D Surface Plot -->
+    <h2>3D Surface Plot</h2>
+    <div id="surface3dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 3D Line Plot -->
+    <h2>3D Line Plot</h2>
+    <div id="line3dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 3D Mesh Plot -->
+    <h2>3D Mesh Plot</h2>
+    <div id="mesh3dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 3D Bubble Chart -->
+    <h2>3D Bubble Chart</h2>
+    <div id="bubble3dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 4D Scatter Plot -->
+    <h2>4D Scatter Plot</h2>
+    <div id="scatter4dChart" style="width:600px;height:400px;"></div>
+
+    <!-- 4D Bubble Chart -->
+    <h2>4D Bubble Chart</h2>
+    <div id="bubble4dChart" style="width:600px;height:400px;"></div>
+
+    <script>
+        // Line Chart
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                datasets: [{
+                    label: 'List 1',
+                    borderColor: 'blue',
+                    data: @Html.Raw(Json.Serialize(Model.List1))
+                },
+                {
+                    label: 'List 2',
+                    borderColor: 'red',
+                    data: @Html.Raw(Json.Serialize(Model.List2))
+                },
+                {
+                    label: 'List 3',
+                    borderColor: 'green',
+                    data: @Html.Raw(Json.Serialize(Model.List3))
+                }]
+            },
+            options: {}
+        });
+
+        // Bar Chart
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                datasets: [{
+                    label: 'List 1',
+                    backgroundColor: 'rgba(0, 123, 255, 0.7)',
+                    data: @Html.Raw(Json.Serialize(Model.List1))
+                },
+                {
+                    label: 'List 2',
+                    backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                    data: @Html.Raw(Json.Serialize(Model.List2))
+                },
+                {
+                    label: 'List 3',
+                    backgroundColor: 'rgba(255, 205, 86, 0.7)',
+                    data: @Html.Raw(Json.Serialize(Model.List3))
+                }]
+            },
+            options: {}
+        });
+
+        // Pie Chart
+        var ctxPie = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Segment 1', 'Segment 2', 'Segment 3', 'Segment 4', 'Segment 5'],
+                datasets: [{
+                    label: 'Pie Chart Example',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)'
+                    ],
+                    data: [10, 20, 30, 15, 25]  // Example data for the pie chart
+                }]
+            },
+            options: {}
+        });
+
+        // 3D Scatter Plot
+        var scatter3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            mode: 'markers',
+            marker: {
+                size: 12,
+                color: 'rgb(255, 0, 0)',
+                opacity: 0.8
+            },
+            type: 'scatter3d'
+        }];
+        var scatter3dLayout = {
+            title: '3D Scatter Plot',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('scatter3dChart', scatter3dData, scatter3dLayout);
+
+        // 3D Surface Plot
+        var surface3dData = [{
+            z: [
+                [8.83, 8.89, 8.81, 8.87, 8.9, 8.87],
+                [8.89, 8.94, 8.85, 8.94, 8.96, 8.92],
+                [8.84, 8.9, 8.82, 8.92, 8.93, 8.91],
+                [8.79, 8.85, 8.79, 8.9, 8.94, 8.92],
+                [8.79, 8.88, 8.81, 8.9, 8.95, 8.92],
+                [8.8, 8.82, 8.78, 8.91, 8.95, 8.92]
+            ],
+            type: 'surface'
+        }];
+        var surface3dLayout = {
+            title: '3D Surface Plot',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('surface3dChart', surface3dData, surface3dLayout);
+
+        // 3D Line Plot
+        var line3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            mode: 'lines',
+            line: {
+                color: 'blue',
+                width: 5
+            },
+            type: 'scatter3d'
+        }];
+        var line3dLayout = {
+            title: '3D Line Plot',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('line3dChart', line3dData, line3dLayout);
+
+        // 3D Mesh Plot
+        var mesh3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            type: 'mesh3d'
+        }];
+        var mesh3dLayout = {
+            title: '3D Mesh Plot',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('mesh3dChart', mesh3dData, mesh3dLayout);
+
+        // 3D Bubble Chart
+        var bubble3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            mode: 'markers',
+            marker: {
+                size: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
+                color: 'rgb(127, 127, 255)',
+                opacity: 0.8
+            },
+            type: 'scatter3d'
+        }];
+        var bubble3dLayout = {
+            title: '3D Bubble Chart',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('bubble3dChart', bubble3dData, bubble3dLayout);
+
+        // 4D Scatter Plot
+        var scatter4dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            mode: 'markers',
+            marker: {
+                size: @Html.Raw(Json.Serialize(Model.List4)),  // Fourth dimension represented by size
+                color: @Html.Raw(Json.Serialize(Model.List4)), // Fourth dimension represented by color
+                colorscale: 'Viridis',
+                opacity: 0.8
+            },
+            type: 'scatter3d'
+        }];
+        var scatter4dLayout = {
+            title: '4D Scatter Plot',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('scatter4dChart', scatter4dData, scatter4dLayout);
+
+        // 4D Bubble Chart
+        var bubble4dData = [{
+            x: @Html.Raw(Json.Serialize(Model.List1)),
+            y: @Html.Raw(Json.Serialize(Model.List2)),
+            z: @Html.Raw(Json.Serialize(Model.List3)),
+            mode: 'markers',
+            marker: {
+                size: @Html.Raw(Json.Serialize(Model.List4)),  // Fourth dimension represented by size
+                color: @Html.Raw(Json.Serialize(Model.List4)), // Fourth dimension represented by color
+                colorscale: 'Viridis',
+                opacity: 0.8
+            },
+            type: 'scatter3d'
+        }];
+        var bubble4dLayout = {
+            title: '4D Bubble Chart',
+            autosize: false,
+            width: 600,
+            height: 400,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('bubble4dChart', bubble4dData, bubble4dLayout);
+    </script>
+</body>
+</html>
