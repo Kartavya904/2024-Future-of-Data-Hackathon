@@ -68,7 +68,7 @@ public class PlaidService
         }
     }
 
-    public async Task<string> GetUserNameAsync(string accessToken)
+    public async Task<JArray> GetAccountInfoAsync(string accessToken)
     {
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/auth/get", Method.Post);
@@ -84,45 +84,14 @@ public class PlaidService
         if (response.IsSuccessful)
         {
             var jsonResponse = JObject.Parse(response.Content);
-            var accounts = jsonResponse["accounts"];
-            string userName = accounts[0]["name"]?.ToString(); // Assuming the first account is sufficient for this example
-            return userName;
+            var accounts = (JArray)jsonResponse["accounts"];
+            return accounts;
         }
         else
         {
             var errorResponse = JObject.Parse(response.Content);
             string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error retrieving user name: {errorMessage}");
-        }
-    }
-}
-
-public partial class Program
-{
-    public static async Task Main(string[] args)
-    {
-        try
-        {
-            PlaidService plaidService = new PlaidService();
-
-            // Step 1: Create a Link Token
-            string linkToken = await plaidService.CreateLinkTokenAsync();
-            Console.WriteLine($"Link Token: {linkToken}");
-
-            // Simulate obtaining the public token (you would get this from the Plaid Link flow in a real application)
-            string publicToken = "PUBLIC_TOKEN_FROM_PLAID_LINK"; // Replace with actual public token
-
-            // Step 2: Exchange the public token for an access token
-            string accessToken = await plaidService.ExchangePublicTokenForAccessTokenAsync(publicToken);
-            Console.WriteLine($"Access Token: {accessToken}");
-
-            // Step 3: Retrieve and display the user's name
-            string userName = await plaidService.GetUserNameAsync(accessToken);
-            Console.WriteLine($"User Name: {userName}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
+            throw new ApplicationException($"Error retrieving account information: {errorMessage}");
         }
     }
 }
