@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{0AA6E28F-5659-467E-9AD5-7514B97B4E57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{39D8DAA5-9E09-4C56-89B3-CF125B0836C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{017FED88-A7C2-4DA3-BD32-74712661442B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AA6E28F-5659-467E-9AD5-7514B97B4E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA6E28F-5659-467E-9AD5-7514B97B4E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA6E28F-5659-467E-9AD5-7514B97B4E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA6E28F-5659-467E-9AD5-7514B97B4E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017FED88-A7C2-4DA3-BD32-74712661442B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017FED88-A7C2-4DA3-BD32-74712661442B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017FED88-A7C2-4DA3-BD32-74712661442B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017FED88-A7C2-4DA3-BD32-74712661442B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{017FED88-A7C2-4DA3-BD32-74712661442B} = {39D8DAA5-9E09-4C56-89B3-CF125B0836C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B56BE79-B6F7-40DD-890C-9A40A3D15F1F}
+	EndGlobalSection
+EndGlobal

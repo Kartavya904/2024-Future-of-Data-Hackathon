@@ -44,6 +44,15 @@ public class PlaidService
 
     public async Task<string> ExchangePublicTokenForAccessTokenAsync(string publicToken)
     {
+        // Validate the public token
+        if (string.IsNullOrWhiteSpace(publicToken))
+        {
+            throw new ArgumentException("Public token must be a non-empty string", nameof(publicToken));
+        }
+
+        // Log the public token for debugging purposes (consider masking this in production)
+        Console.WriteLine($"Public Token: {publicToken}");
+
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/item/public_token/exchange", Method.Post);
         request.AddJsonBody(new
@@ -58,7 +67,12 @@ public class PlaidService
         if (response.IsSuccessful)
         {
             var jsonResponse = JObject.Parse(response.Content);
-            return jsonResponse["access_token"]?.ToString();
+            var accessToken = jsonResponse["access_token"]?.ToString();
+
+            // Log the access token for debugging (consider masking this in production)
+            Console.WriteLine($"Access Token: {accessToken}");
+
+            return accessToken;
         }
         else
         {
@@ -70,6 +84,12 @@ public class PlaidService
 
     public async Task<JArray> GetAccountInfoAsync(string accessToken)
     {
+        // Validate the access token
+        if (string.IsNullOrWhiteSpace(accessToken))
+        {
+            throw new ArgumentException("Access token must be a non-empty string", nameof(accessToken));
+        }
+
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/auth/get", Method.Post);
         request.AddJsonBody(new
@@ -85,6 +105,10 @@ public class PlaidService
         {
             var jsonResponse = JObject.Parse(response.Content);
             var accounts = (JArray)jsonResponse["accounts"];
+
+            // Log the number of accounts retrieved
+            Console.WriteLine($"Number of accounts retrieved: {accounts.Count}");
+
             return accounts;
         }
         else
