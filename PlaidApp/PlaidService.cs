@@ -9,7 +9,7 @@ public class PlaidService
     private readonly string secret = "0c58732fb84497c0993bfe0fea28d1";
     private readonly string plaidEnvironment = "https://sandbox.plaid.com"; // Change to production URL if needed
 
-    public async Task<string> CreateLinkTokenAsync()
+    public async Task<string?> CreateLinkTokenAsync()
     {
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/link/token/create", Method.Post);
@@ -29,20 +29,24 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
+            var jsonResponse = JObject.Parse(response.Content!);
             return jsonResponse["link_token"]?.ToString();
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error creating link token: {errorMessage}");
+            var errorMessage = "Error creating link token.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 
-    public async Task<string> ExchangePublicTokenForAccessTokenAsync(string publicToken)
+    public async Task<string?> ExchangePublicTokenForAccessTokenAsync(string publicToken)
     {
         // Validate the public token
         if (string.IsNullOrWhiteSpace(publicToken))
@@ -64,9 +68,9 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
+            var jsonResponse = JObject.Parse(response.Content!);
             var accessToken = jsonResponse["access_token"]?.ToString();
 
             // Log the access token for debugging (consider masking this in production)
@@ -76,9 +80,13 @@ public class PlaidService
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error exchanging public token: {errorMessage}");
+            var errorMessage = "Error exchanging public token.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 
@@ -101,10 +109,15 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
-            var accounts = (JArray)jsonResponse["accounts"];
+            var jsonResponse = JObject.Parse(response.Content!);
+            var accounts = (JArray?)jsonResponse["accounts"];
+
+            if (accounts == null)
+            {
+                throw new ApplicationException("No accounts were retrieved.");
+            }
 
             // Log the number of accounts retrieved
             Console.WriteLine($"Number of accounts retrieved: {accounts.Count}");
@@ -113,9 +126,13 @@ public class PlaidService
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error retrieving account information: {errorMessage}");
+            var errorMessage = "Error retrieving account information.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 }
