@@ -1,0 +1,8 @@
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.csproj.AssemblyReference.cache
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.AssemblyInfoInputs.cache
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.AssemblyInfo.cs
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.csproj.CoreCompileInputs.cache
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.RazorAssemblyInfo.cache
+C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net7.0\FinVest.RazorAssemblyInfo.cs

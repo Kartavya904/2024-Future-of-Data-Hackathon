@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tmo1d5jdhXQ=",
+  "dgSpecHash": "Rnb8oVZD55I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\Finvest\\FinVest.csproj",
+  "projectFilePath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\karta\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\karta\\.nuget\\packages\\restsharp\\111.4.1\\restsharp.111.4.1.nupkg.sha512"
