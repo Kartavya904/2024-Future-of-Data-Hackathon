@@ -1,22 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add Clerk services
-builder.Services.AddClerk(options =>
-{
-    options.ApiKey = "your_clerk_api_key";
-});
-
+// Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<PlaidService>();
 
 var app = builder.Build();
 
-// Add Clerk middleware
-app.UseClerk();
-
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -24,7 +17,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapRazorPages();

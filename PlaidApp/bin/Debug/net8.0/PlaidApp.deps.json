@@ -1,0 +1,92 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "PlaidApp/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Plaid.Net": "1.2.5",
+          "RestSharp": "111.4.1"
+        },
+        "runtime": {
+          "PlaidApp.dll": {}
+        }
+      },
+      "CuttingEdge.Conditions/1.2.0": {
+        "runtime": {
+          "lib/NET35/CuttingEdge.Conditions.dll": {
+            "assemblyVersion": "1.2.0.11174",
+            "fileVersion": "1.2.0.11174"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
+          }
+        }
+      },
+      "Plaid.Net/1.2.5": {
+        "dependencies": {
+          "CuttingEdge.Conditions": "1.2.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net46/Plaid.Net.dll": {
+            "assemblyVersion": "1.2.5.0",
+            "fileVersion": "1.2.5.0"
+          }
+        }
+      },
+      "RestSharp/111.4.1": {
+        "runtime": {
+          "lib/net8.0/RestSharp.dll": {
+            "assemblyVersion": "111.4.1.0",
+            "fileVersion": "111.4.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PlaidApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CuttingEdge.Conditions/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TgasBGHEYgvvpROsw5aoxG36uvAqm9sdfgWQe4kd6Z03Rz69lldCjLDjLLdJB8WfwzDMt6N1psn7oR+xLriwYw==",
+      "path": "cuttingedge.conditions/1.2.0",
+      "hashPath": "cuttingedge.conditions.1.2.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "Plaid.Net/1.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0HE7rumQzjt0DZzhvFEJXnc0oxJv1s21thdKx0oRq2Py3VyNhdSXUnTVXOxBE5Md0H6CZ605HbBATtDIGK2Ztg==",
+      "path": "plaid.net/1.2.5",
+      "hashPath": "plaid.net.1.2.5.nupkg.sha512"
+    },
+    "RestSharp/111.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MhrBdwqYd+ezd3xD+c6eaAVcLJoWI+2TBH7rqX149nbYRkPJJfK/UbrgJVfKN9ZMehOFzo2PmKIZjS1ATnxEAQ==",
+      "path": "restsharp/111.4.1",
+      "hashPath": "restsharp.111.4.1.nupkg.sha512"
+    }
+  }
+}
