@@ -12,6 +12,13 @@
     <h1>Plaid Login</h1>
     <p>This is the Plaid Login page.</p>
 
+    <p>Username: user_good<br>Password: pass_good<br>If prompted for 2FA, select Mobile phone ending 1111.<br>Code: 1234</p>
+    
+    <!-- Form to hold the anti-forgery token -->
+    <form id="plaidForm">
+        @Html.AntiForgeryToken()
+    </form>
+
     <!-- Plaid Dashboard Button -->
     <button id="linkButton">Connect your bank</button>
 
@@ -21,19 +28,31 @@
         var handler = Plaid.create({
             token: linkToken,
             onSuccess: function(public_token, metadata) {
-                // Send the public_token to your server to exchange for an access token
-                console.log('Public Token: ' + public_token);
-                console.log('Account ID: ' + metadata.accounts[0].id);
+                // Get the anti-forgery token from the form
+                var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                // Send the public_token to the server to exchange for an access token
+                fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': token
+                    },
+                    body: JSON.stringify({ publicToken: public_token })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Reload the page to display the account information
+                    location.reload();
+                })
+                .catch(error => console.error('Error:', error));
             },
             onExit: function(err, metadata) {
-                // The user exited the Link flow.
                 if (err != null) {
-                    // The user encountered a Plaid API error.
                     console.error(err);
                 }
             },
             onEvent: function(eventName, metadata) {
-                // Optionally capture events from the Link flow to assist with analytics
                 console.log(eventName, metadata);
             }
         });
@@ -42,5 +61,27 @@
             handler.open();
         };
     </script>
+
+    @if (Model.Accounts != null)
+    {
+        <h2>Account Information</h2>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Account Number</th>
+                <th>Routing Number</th>
+                <th>Type</th>
+            </tr>
+            @foreach (var account in Model.Accounts)
+            {
+                <tr>
+                    <td>@account["name"]</td>
+                    <td>@account["account_id"]</td>
+                    <td>@account["routing"]</td>
+                    <td>@account["type"]</td>
+                </tr>
+            }
+        </table>
+    }
 </body>
 </html>

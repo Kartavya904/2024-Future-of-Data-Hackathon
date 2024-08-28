@@ -9,7 +9,7 @@ public class PlaidService
     private readonly string secret = "0c58732fb84497c0993bfe0fea28d1";
     private readonly string plaidEnvironment = "https://sandbox.plaid.com"; // Change to production URL if needed
 
-    public async Task<string> CreateLinkTokenAsync()
+    public async Task<string?> CreateLinkTokenAsync()
     {
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/link/token/create", Method.Post);
@@ -29,21 +29,34 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
+            var jsonResponse = JObject.Parse(response.Content!);
             return jsonResponse["link_token"]?.ToString();
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error creating link token: {errorMessage}");
+            var errorMessage = "Error creating link token.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 
-    public async Task<string> ExchangePublicTokenForAccessTokenAsync(string publicToken)
+    public async Task<string?> ExchangePublicTokenForAccessTokenAsync(string publicToken)
     {
+        // Validate the public token
+        if (string.IsNullOrWhiteSpace(publicToken))
+        {
+            throw new ArgumentException("Public token must be a non-empty string", nameof(publicToken));
+        }
+
+        // Log the public token for debugging purposes (consider masking this in production)
+        Console.WriteLine($"Public Token: {publicToken}");
+
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/item/public_token/exchange", Method.Post);
         request.AddJsonBody(new
@@ -55,21 +68,36 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
-            return jsonResponse["access_token"]?.ToString();
+            var jsonResponse = JObject.Parse(response.Content!);
+            var accessToken = jsonResponse["access_token"]?.ToString();
+
+            // Log the access token for debugging (consider masking this in production)
+            Console.WriteLine($"Access Token: {accessToken}");
+
+            return accessToken;
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error exchanging public token: {errorMessage}");
+            var errorMessage = "Error exchanging public token.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 
-    public async Task<string> GetUserNameAsync(string accessToken)
+    public async Task<JArray> GetAccountInfoAsync(string accessToken)
     {
+        // Validate the access token
+        if (string.IsNullOrWhiteSpace(accessToken))
+        {
+            throw new ArgumentException("Access token must be a non-empty string", nameof(accessToken));
+        }
+
         var client = new RestClient(plaidEnvironment);
         var request = new RestRequest("/auth/get", Method.Post);
         request.AddJsonBody(new
@@ -81,48 +109,30 @@ public class PlaidService
 
         RestResponse response = await client.ExecuteAsync(request);
 
-        if (response.IsSuccessful)
+        if (response.IsSuccessful && !string.IsNullOrEmpty(response.Content))
         {
-            var jsonResponse = JObject.Parse(response.Content);
-            var accounts = jsonResponse["accounts"];
-            string userName = accounts[0]["name"]?.ToString(); // Assuming the first account is sufficient for this example
-            return userName;
+            var jsonResponse = JObject.Parse(response.Content!);
+            var accounts = (JArray?)jsonResponse["accounts"];
+
+            if (accounts == null)
+            {
+                throw new ApplicationException("No accounts were retrieved.");
+            }
+
+            // Log the number of accounts retrieved
+            Console.WriteLine($"Number of accounts retrieved: {accounts.Count}");
+
+            return accounts;
         }
         else
         {
-            var errorResponse = JObject.Parse(response.Content);
-            string errorMessage = errorResponse["error_message"]?.ToString();
-            throw new ApplicationException($"Error retrieving user name: {errorMessage}");
-        }
-    }
-}
-
-public partial class Program
-{
-    public static async Task Main(string[] args)
-    {
-        try
-        {
-            PlaidService plaidService = new PlaidService();
-
-            // Step 1: Create a Link Token
-            string linkToken = await plaidService.CreateLinkTokenAsync();
-            Console.WriteLine($"Link Token: {linkToken}");
-
-            // Simulate obtaining the public token (you would get this from the Plaid Link flow in a real application)
-            string publicToken = "PUBLIC_TOKEN_FROM_PLAID_LINK"; // Replace with actual public token
-
-            // Step 2: Exchange the public token for an access token
-            string accessToken = await plaidService.ExchangePublicTokenForAccessTokenAsync(publicToken);
-            Console.WriteLine($"Access Token: {accessToken}");
-
-            // Step 3: Retrieve and display the user's name
-            string userName = await plaidService.GetUserNameAsync(accessToken);
-            Console.WriteLine($"User Name: {userName}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
+            var errorMessage = "Error retrieving account information.";
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                var errorResponse = JObject.Parse(response.Content!);
+                errorMessage = errorResponse["error_message"]?.ToString() ?? errorMessage;
+            }
+            throw new ApplicationException(errorMessage);
         }
     }
 }
