@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FinVest</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
         body {
-            background-color: #292959;
+            background-color: #122953;
+            font-family: 'Poppins', sans-serif;
+            color: #f0f0f0;
         }
 
         .navbar {
-            background-color: #292959;
+            background-color: #2A2A6A;
         }
 
         .navbar-brand, .navbar-nav .nav-link {
-            color: white;
-            font-weight: bold;
+            color: #ffffff;
+            font-weight: 600;
         }
 
         .navbar-brand img {
@@ -25,10 +28,34 @@
             margin-right: 10px;
         }
 
-        .slogan {
-            color: black;
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .navbar-brand .icon-text {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 600;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #76c7c0;
+            text-decoration: underline;
+        }
+
+        .slogan {
+            color: #76c7c0;
+            font-size: 28px;
+            font-weight: 600;
             text-align: center;
             margin-left: auto;
             margin-right: auto;
@@ -46,21 +73,43 @@
         .btn-light {
             color: #292959;
             background-color: white;
-            border-color: white;
+            border-radius: 5px;
+            border-color: #292959;
+            padding: 8px 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .btn-light:hover {
-            background-color: #dcdcdc;
-            color: #292959;
+            background-color: #76c7c0;
+            color: white;
+            border-color: #76c7c0;
+        }
+
+        footer {
+            background-color: #2A2A6A;
+            padding: 20px 0;
+            color: #ccc;
+            text-align: center;
+        }
+
+        footer a {
+            color: #76c7c0;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-brand d-flex align-items-center" asp-area="" asp-page="/Index">
-                    <img src="~/images/logo.png" alt="FinVest Logo" /> FinVest
+                    <img src="~/images/logo.png" alt="FinVest Logo" />
+                    <span class="icon-text">FinVest</span>
                 </a>
                 <div class="slogan">
                     Budget Smart, Invest Sharp
@@ -78,7 +127,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer">
         <div class="container">
             &copy; 2024 - FinVest - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
