@@ -115,7 +115,7 @@
                     Budget Smart, Invest Sharp
                 </div>
                 <div class="login-signup-links">
-                    <a class="btn btn-light" asp-area="" asp-page="/SignUp">Sign Up</a>
+                    <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</a>
                     <a class="btn btn-light" asp-area="" asp-page="/Login">Log In</a>
                 </div>
             </div>
@@ -133,9 +133,60 @@
         </div>
     </footer>
 
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <!-- Google Sign-Up Button -->
+                        <div id="googleSignUpButton"></div>
+
+                        <!-- Email Sign-Up Button -->
+                        <button class="btn btn-outline-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#emailSignUpModal">
+                            Sign Up with Email Address
+                        </button>
+
+                        <!-- Phone Number Sign-Up Button -->
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#phoneSignUpModal">
+                            Sign Up with Phone Number
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Include the Google API JavaScript library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <!-- Initialize Google Sign-In -->
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token: " + response.credential);
+            // Send this token to your server to validate the user and create a session
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "YOUR_GOOGLE_CLIENT_ID", // Replace with your actual Google Client ID
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("googleSignUpButton"),
+                { theme: "outline", size: "large" } // Customize button appearance
+            );
+        };
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
