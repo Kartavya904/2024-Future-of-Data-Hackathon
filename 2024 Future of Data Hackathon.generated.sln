@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{93C13AAC-0905-4B86-A53D-FF5341D48827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{E752B187-986A-447C-A58F-DF3144BDD74D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{97D1AC12-9A3B-487F-91A5-712F3C1D0314}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{50F34B96-73EF-43D7-A1C7-3725DFD28BA9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{9F333AE4-570B-43FD-AD48-E81D871A6C7C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +17,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93C13AAC-0905-4B86-A53D-FF5341D48827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93C13AAC-0905-4B86-A53D-FF5341D48827}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93C13AAC-0905-4B86-A53D-FF5341D48827}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93C13AAC-0905-4B86-A53D-FF5341D48827}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E752B187-986A-447C-A58F-DF3144BDD74D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E752B187-986A-447C-A58F-DF3144BDD74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E752B187-986A-447C-A58F-DF3144BDD74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E752B187-986A-447C-A58F-DF3144BDD74D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C72C41F9-5EA0-4FC2-9F07-F00651B1FB53} = {50F34B96-73EF-43D7-A1C7-3725DFD28BA9}
+		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642} = {9F333AE4-570B-43FD-AD48-E81D871A6C7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1531F579-9D0E-4280-B05A-CB9B0BF8C744}

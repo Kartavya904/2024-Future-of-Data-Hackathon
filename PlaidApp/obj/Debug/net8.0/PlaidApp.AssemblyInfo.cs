@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlaidApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62dcb2d88b3d5dcc3792a921481f385aa24a79f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4821440d64602c670b00d4ef4fdaefc000fd24a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlaidApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlaidApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
