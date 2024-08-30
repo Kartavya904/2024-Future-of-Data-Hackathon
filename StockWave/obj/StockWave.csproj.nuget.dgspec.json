@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karta\\Downloads\\stock_finvest\\StockWave\\StockWave.csproj": {}
+    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karta\\Downloads\\stock_finvest\\StockWave\\StockWave.csproj": {
+    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karta\\Downloads\\stock_finvest\\StockWave\\StockWave.csproj",
+        "projectUniqueName": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj",
         "projectName": "StockWave",
-        "projectPath": "C:\\Users\\karta\\Downloads\\stock_finvest\\StockWave\\StockWave.csproj",
-        "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karta\\Downloads\\stock_finvest\\StockWave\\obj\\",
+        "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj",
+        "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\StockWave\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\karta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\skhar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -47,12 +47,24 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
-            "Newtonsoft.Json": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -66,6 +78,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -74,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
