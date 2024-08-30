@@ -25,22 +25,45 @@
             color: #76c7c0;
             font-weight: bold;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
             background-color: #2A2A6A;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
         }
 
-        .profile-info dt {
-            font-weight: bold;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
             color: #76c7c0;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
 
-        .profile-info dd {
-            margin-bottom: 15px;
+        .card h3 i {
+            margin-right: 10px;
+            color: #f0f0f0;
+        }
+
+        .card p {
+            margin-bottom: 0;
+            color: #f0f0f0;
         }
     </style>
 </head>
@@ -48,41 +71,41 @@
     <div class="container content">
         <h2>Your Profile Information</h2>
         <div class="profile-info">
-            <dl>
-                <dt>Username:</dt>
-                <dd>@Model.Username</dd>
+            <div class="card">
+                <h3><i class="bi bi-person"></i>Username:</h3>
+                <p>@Model.Username</p>
+            </div>
 
-                <dt>Full Name:</dt>
-                <dd>@Model.FullName</dd>
+            <div class="card">
+                <h3><i class="bi bi-currency-dollar"></i>Preferred Currency:</h3>
+                <p>@Model.Currency</p>
+            </div>
 
-                <dt>Email:</dt>
-                <dd>@Model.Email</dd>
+            <div class="card">
+                <h3><i class="bi bi-cash-stack"></i>Annual Income:</h3>
+                <p>@Model.AnnualIncome</p>
+            </div>
 
-                <dt>Phone Number:</dt>
-                <dd>@Model.PhoneNumber</dd>
+            <div class="card">
+                <h3><i class="bi bi-exclamation-triangle"></i>Risk Tolerance:</h3>
+                <p>@Model.RiskTolerance</p>
+            </div>
 
-                <dt>Date of Birth:</dt>
-                <dd>@Model.DateOfBirth.ToShortDateString()</dd>
+            <div class="card">
+                <h3><i class="bi bi-graph-up"></i>Investment Experience:</h3>
+                <p>@Model.InvestmentExperience</p>
+            </div>
 
-                <dt>Country of Residence:</dt>
-                <dd>@Model.Country</dd>
-
-                <dt>Preferred Currency:</dt>
-                <dd>@Model.Currency</dd>
-
-                <dt>Annual Income:</dt>
-                <dd>@Model.AnnualIncome</dd>
-
-                <dt>Risk Tolerance:</dt>
-                <dd>@Model.RiskTolerance</dd>
-
-                <dt>Investment Experience:</dt>
-                <dd>@Model.InvestmentExperience</dd>
-
-                <dt>Investment Goals:</dt>
-                <dd>@Model.InvestmentGoals</dd>
-            </dl>
+            <div class="card">
+                <h3><i class="bi bi-bullseye"></i>Investment Goals:</h3>
+                <p>@Model.InvestmentGoals</p>
+            </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
