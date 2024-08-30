@@ -10,7 +10,7 @@ namespace StockWave.Controllers
     public class StockController : Controller
     {
         private static readonly string API_KEY = "7472XEMETXL0GFZF"; // Replace with your actual API key
-        private static readonly string BASE_URL = "https://www.alphavantage.co/query";
+        private static readonly string BASE_URL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=7472XEMETXL0GFZF";
 
         public async Task<IActionResult> Index(string symbol = "ES1!")
         {

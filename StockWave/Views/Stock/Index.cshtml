@@ -1,4 +1,4 @@
-@model Dictionary<string, Dictionary<string, string>>
+﻿@model Dictionary<string, Dictionary<string, string>>
 
 @{
     ViewData["Title"] = "StockWave - Stock Data";
@@ -7,6 +7,7 @@
 <h2>Stock Data</h2>
 
 <canvas id="stockChart" width="400" height="200"></canvas>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -15,14 +16,14 @@
 
         @if (Model != null && Model.Any())
         {
-            @foreach (var entry in Model)
+            @foreach (var entry in Model.OrderByDescending(e => e.Key)) // Order by date/time descending
             {
                 <text>labels.unshift("@entry.Key");</text>
-                <text>dataPoints.unshift(@entry.Value["1. open"])</text>;
+                <text>dataPoints.unshift(@entry.Value["4. close"])</text>; // Use "4. close" for the closing price
             }
         }
 
-        if(labels.length > 0 && dataPoints.length > 0){
+        if (labels.length > 0 && dataPoints.length > 0) {
             const data = {
                 labels: labels,
                 datasets: [{
@@ -30,13 +31,35 @@
                     backgroundColor: 'rgba(0, 119, 204, 0.3)',
                     borderColor: 'rgba(0, 119, 204, 0.6)',
                     data: dataPoints,
+                    fill: false,
+                    tension: 0.1 // Smoothens the line a little
                 }]
             };
 
             const config = {
                 type: 'line',
                 data: data,
-                options: {}
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'minute',
+                                tooltipFormat: 'MMM D, YYYY, h:mm a'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Price (USD)'
+                            }
+                        }
+                    }
+                }
             };
 
             const stockChart = new Chart(
