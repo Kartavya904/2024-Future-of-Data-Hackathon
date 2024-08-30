@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{FB355B24-C6D9-4EF2-A20F-A4F70E07A2D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{97D1AC12-9A3B-487F-91A5-712F3C1D0314}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{F00EB5CF-27AF-4C5C-BE30-863527D02188}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{9F333AE4-570B-43FD-AD48-E81D871A6C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockWave", "StockWave\StockWave.csproj", "{B92C07A8-46ED-4CDA-83E2-D1AE0788ACED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{1CC62AAD-48C2-439E-AD23-1C75DD919748}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +19,28 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5294B5FD-C695-4BF9-8BF6-956D9F75AB87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97D1AC12-9A3B-487F-91A5-712F3C1D0314}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB355B24-C6D9-4EF2-A20F-A4F70E07A2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB355B24-C6D9-4EF2-A20F-A4F70E07A2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB355B24-C6D9-4EF2-A20F-A4F70E07A2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB355B24-C6D9-4EF2-A20F-A4F70E07A2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00EB5CF-27AF-4C5C-BE30-863527D02188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00EB5CF-27AF-4C5C-BE30-863527D02188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00EB5CF-27AF-4C5C-BE30-863527D02188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00EB5CF-27AF-4C5C-BE30-863527D02188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B92C07A8-46ED-4CDA-83E2-D1AE0788ACED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B92C07A8-46ED-4CDA-83E2-D1AE0788ACED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B92C07A8-46ED-4CDA-83E2-D1AE0788ACED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B92C07A8-46ED-4CDA-83E2-D1AE0788ACED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D69D5D00-DEC0-4026-A22E-D8FEA5D16642} = {9F333AE4-570B-43FD-AD48-E81D871A6C7C}
+		{A67C3FB9-BFCD-4854-A211-4951BA2C7DAB} = {1CC62AAD-48C2-439E-AD23-1C75DD919748}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1531F579-9D0E-4280-B05A-CB9B0BF8C744}
