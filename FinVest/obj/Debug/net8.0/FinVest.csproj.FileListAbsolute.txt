@@ -138,6 +138,7 @@ C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.pdb
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.genruntimeconfig.cache
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\ref\FinVest.dll
+<<<<<<< HEAD
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.Core.dll
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\DnsClient.dll
@@ -151,3 +152,7 @@ C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+=======
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\CuttingEdge.Conditions.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\Plaid.Net.dll
+>>>>>>> 54afbb5c215fe27f99e204834199cb30297af1d2
