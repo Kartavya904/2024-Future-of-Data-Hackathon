@@ -53,7 +53,7 @@
         }
 
         .icon-text:hover {
-        color: #76c7c0;
+            color: #76c7c0;
         }
 
         .slogan {
@@ -88,6 +88,22 @@
             background-color: #76c7c0;
             color: white;
             border-color: #76c7c0;
+        }
+
+        .profile-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #76c7c0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            outline: none;
         }
 
         footer {
@@ -136,7 +152,8 @@
                 <div class="slogan">
                     Budget Smart, Invest Sharp
                 </div>
-                <div class="login-signup-links">
+                <div id="navbarContent" class="login-signup-links">
+                    <!-- Default: Sign Up and Log In buttons -->
                     <a class="btn btn-light" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
                     <a class="btn btn-light" href="javascript:void(0)" onclick="showLogin()">Log In</a>
                 </div>
@@ -299,7 +316,26 @@
     </div>
 
     <!-- JavaScript Functions -->
-    <script>
+   <script>
+        let logged = 0; // Global variable to track if the user is logged in
+
+        const users = {}; // Object to store users (simulates a JSON file)
+        
+        function checkLoginStatus() {
+            if (logged === 1) {
+                const fullName = "John Doe"; // Replace with actual logic to retrieve the full name
+                const initials = fullName.split(' ').map(name => name[0]).join('');
+                document.getElementById('navbarContent').innerHTML = `
+                    <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
+                `;
+            } else {
+                document.getElementById('navbarContent').innerHTML = `
+                    <a class="btn btn-light" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
+                    <a class="btn btn-light" href="javascript:void(0)" onclick="showLogin()">Log In</a>
+                `;
+            }
+        }
+
         function showSignUp() {
             const signUpModal = new bootstrap.Modal(document.getElementById('signUpModal'));
             signUpModal.show();
@@ -316,21 +352,70 @@
         }
 
         function signUp() {
-            // After successful sign-up, close the modal and open the additional info modal
+            // Gather the email and password
+            const email = document.getElementById('sign-up-email').value;
+            const password = document.getElementById('sign-up-password').value;
+
+            // Close the sign-up modal and open the additional info modal
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
             signUpModal.hide();
-            showAdditionalInfo();
-        }
 
-        function login() {
-            // Your login logic here
-            alert('Login button clicked');
+            // Store the initial sign-up information
+            users[email] = { password: password };
+
+            // Set logged to 1 since the user has signed up
+            logged = 1;
+
+            // Show additional info modal
+            showAdditionalInfo();
+
+            // Update the navbar to reflect login status
+            checkLoginStatus();
         }
 
         function submitAdditionalInfo() {
-            // After submission, you can either close the modal or redirect the user to another page
-            const additionalInfoModal = bootstrap.Modal.getInstance(document.getElementById('additionalInfoModal'));
-            additionalInfoModal.hide();
+            // Retrieve all form data
+            const username = document.getElementById('username').value;
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('sign-up-email').value; // Assuming this is the same as the one entered initially
+            const phoneNumber = document.getElementById('phone-number').value;
+            const dateOfBirth = document.getElementById('dob').value;
+            const country = document.getElementById('country').value;
+            const currency = document.getElementById('currency').value;
+            const annualIncome = document.getElementById('annual-income').value;
+            const riskTolerance = document.getElementById('risk-tolerance').value;
+            const investmentExperience = document.getElementById('investment-experience').value;
+            const investmentGoals = document.getElementById('investment-goals').value;
+
+            // Redirect to the Finances page with the data as query parameters
+            const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
+            console.log(url);
+            window.location.href = url;
+        }
+
+        function login() {
+            // Gather login credentials
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check if the user exists and the password matches
+            if (users[email] && users[email].password === password) {
+                // Login successful, set logged to 1
+                logged = 1;
+
+                // Update the navbar to show the user's initials
+                const fullName = "John Doe"; // Replace with actual logic to retrieve the full name
+                const initials = fullName.split(' ').map(name => name[0]).join('');
+                document.getElementById('navbarContent').innerHTML = `
+                    <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
+                `;
+                
+                // Redirect to Finances page
+                window.location.href = "/Finances";
+            } else {
+                // Login failed, show an error message
+                alert('Invalid email or password.');
+            }
         }
 
         function switchToLogin() {
@@ -344,8 +429,10 @@
             loginModal.hide();
             showSignUp();
         }
-    </script>
 
+        // Check the login status on page load
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
