@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "CuttingEdge.Conditions/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/NET35/CuttingEdge.Conditions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/NET35/CuttingEdge.Conditions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -13,6 +26,19 @@
           "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Plaid.Net/1.2.5": {
+        "type": "package",
+        "dependencies": {
+          "CuttingEdge.Conditions": "1.2.0",
+          "Newtonsoft.Json": "8.0.2"
+        },
+        "compile": {
+          "lib/net46/Plaid.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Plaid.Net.dll": {}
         }
       },
       "RestSharp/111.4.1": {
@@ -31,6 +57,25 @@
     }
   },
   "libraries": {
+    "CuttingEdge.Conditions/1.2.0": {
+      "sha512": "TgasBGHEYgvvpROsw5aoxG36uvAqm9sdfgWQe4kd6Z03Rz69lldCjLDjLLdJB8WfwzDMt6N1psn7oR+xLriwYw==",
+      "type": "package",
+      "path": "cuttingedge.conditions/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cuttingedge.conditions.1.2.0.nupkg.sha512",
+        "cuttingedge.conditions.nuspec",
+        "lib/NET35/Code Snippets/ReSharper/CuttingEdge.Conditions Live Templates for ReSharper.xml",
+        "lib/NET35/Code Snippets/Visual Studio/Visual Basic/My Code Snippets/ensures.snippet",
+        "lib/NET35/Code Snippets/Visual Studio/Visual Basic/My Code Snippets/requires.snippet",
+        "lib/NET35/Code Snippets/Visual Studio/Visual C-Sharp/My Code Snippets/ensures.snippet",
+        "lib/NET35/Code Snippets/Visual Studio/Visual C-Sharp/My Code Snippets/requires.snippet",
+        "lib/NET35/CuttingEdge.Conditions.dll",
+        "lib/NET35/CuttingEdge.Conditions.xml",
+        "lib/NET35/Documentation/CuttingEdge.Conditions.chm"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -59,6 +104,18 @@
         "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Plaid.Net/1.2.5": {
+      "sha512": "0HE7rumQzjt0DZzhvFEJXnc0oxJv1s21thdKx0oRq2Py3VyNhdSXUnTVXOxBE5Md0H6CZ605HbBATtDIGK2Ztg==",
+      "type": "package",
+      "path": "plaid.net/1.2.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net46/Plaid.Net.dll",
+        "plaid.net.1.2.5.nupkg.sha512",
+        "plaid.net.nuspec"
       ]
     },
     "RestSharp/111.4.1": {
@@ -90,27 +147,28 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Newtonsoft.Json >= 13.0.3",
+      "Plaid.Net >= 1.2.5",
       "RestSharp >= 111.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\skhar\\.nuget\\packages\\": {},
+    "C:\\Users\\karta\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+      "projectUniqueName": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
       "projectName": "FinVest",
-      "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
-      "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+      "projectPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
+      "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\skhar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\karta\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -147,6 +205,10 @@
             "target": "Package",
             "version": "[13.0.3, )"
           },
+          "Plaid.Net": {
+            "target": "Package",
+            "version": "[1.2.5, )"
+          },
           "RestSharp": {
             "target": "Package",
             "version": "[111.4.1, )"
@@ -182,6 +244,26 @@
       "warningLevel": 1,
       "message": "Package 'RestSharp' 111.4.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4rr6-2v9v-wcpc",
       "libraryId": "RestSharp",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CuttingEdge.Conditions 1.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CuttingEdge.Conditions",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Plaid.Net 1.2.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Plaid.Net",
       "targetGraphs": [
         "net8.0"
       ]

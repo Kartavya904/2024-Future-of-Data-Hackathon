@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {}
+    "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {
+    "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+        "projectUniqueName": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
         "projectName": "FinVest",
-        "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
-        "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+        "projectPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
+        "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\skhar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karta\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -53,6 +53,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Plaid.Net": {
+              "target": "Package",
+              "version": "[1.2.5, )"
             },
             "RestSharp": {
               "target": "Package",
