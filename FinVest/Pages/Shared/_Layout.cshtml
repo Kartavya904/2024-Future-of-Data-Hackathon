@@ -177,58 +177,52 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-        <!-- Sign Up Modal -->
+    <!-- Sign Up and Login Modals -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form method="post" asp-page-handler="SignUp">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="sign-up-email">Email:</label>
+                        <input type="email" id="sign-up-email" class="form-control">
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="sign-up-email">Email:</label>
-                            <input type="email" id="sign-up-email" class="form-control" asp-for="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="sign-up-password">Password:</label>
-                            <input type="password" id="sign-up-password" class="form-control" asp-for="Password">
-                        </div>
-                        <!-- Include additional form fields for username, full name, etc. -->
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
-                    </div>
-                </form>
+                    <div class="form-group">
+                        <label for="sign-up-password">Password:</label>
+                        <input type="password" id="sign-up-password" class="form-control">
+                    </div><br>
+                    <button onclick="signUp()" class="btn btn-primary">Sign Up</button>
+                    <span class="switch-link" onclick="switchToLogin()">Already have an account? Log In</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form method="post" asp-page-handler="Login">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" class="form-control">
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="login-email">Email:</label>
-                            <input type="email" id="login-email" class="form-control" asp-for="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="login-password">Password:</label>
-                            <input type="password" id="login-password" class="form-control" asp-for="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                </form>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" class="form-control">
+                    </div><br>
+                    <button onclick="login()" class="btn btn-primary">Login</button>
+                    <span class="switch-link" onclick="switchToSignUp()">Don't have an account? Sign Up</span>
+                </div>
             </div>
         </div>
     </div>
-
-
 
     <!-- Additional Information Modal -->
     <div class="modal fade" id="additionalInfoModal" tabindex="-1" aria-labelledby="additionalInfoModalLabel" aria-hidden="true">

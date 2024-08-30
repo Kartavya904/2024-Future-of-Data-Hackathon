@@ -17,7 +17,6 @@
           "FinVest.dll": {}
         }
       },
-<<<<<<< HEAD
       "AWSSDK.Core/3.7.100.14": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
@@ -34,6 +33,14 @@
           "lib/netcoreapp3.1/AWSSDK.SecurityToken.dll": {
             "assemblyVersion": "3.3.0.0",
             "fileVersion": "3.7.100.14"
+          }
+        }
+      },
+      "CuttingEdge.Conditions/1.2.0": {
+        "runtime": {
+          "lib/NET35/CuttingEdge.Conditions.dll": {
+            "assemblyVersion": "1.2.0.11174",
+            "fileVersion": "1.2.0.11174"
           }
         }
       },
@@ -123,13 +130,6 @@
             "rid": "win",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
-=======
-      "CuttingEdge.Conditions/1.2.0": {
-        "runtime": {
-          "lib/NET35/CuttingEdge.Conditions.dll": {
-            "assemblyVersion": "1.2.0.11174",
-            "fileVersion": "1.2.0.11174"
->>>>>>> 54afbb5c215fe27f99e204834199cb30297af1d2
           }
         }
       },
@@ -203,7 +203,6 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
     "AWSSDK.Core/3.7.100.14": {
       "type": "package",
       "serviceable": true,
@@ -217,6 +216,13 @@
       "sha512": "sha512-dGCVuVo0CFUKWW85W8YENO+aREf8sCBDjvGbnNvxJuNW4Ss+brEU9ltHhq2KfZze2VUNK1/wygbPG1bmbpyXEw==",
       "path": "awssdk.securitytoken/3.7.100.14",
       "hashPath": "awssdk.securitytoken.3.7.100.14.nupkg.sha512"
+    },
+    "CuttingEdge.Conditions/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TgasBGHEYgvvpROsw5aoxG36uvAqm9sdfgWQe4kd6Z03Rz69lldCjLDjLLdJB8WfwzDMt6N1psn7oR+xLriwYw==",
+      "path": "cuttingedge.conditions/1.2.0",
+      "hashPath": "cuttingedge.conditions.1.2.0.nupkg.sha512"
     },
     "DnsClient/1.6.1": {
       "type": "package",
@@ -273,14 +279,6 @@
       "sha512": "sha512-x1Fm9b5/93k1l0FpbUxHrcFIm/6m/qXfmbQddtHILqltx2EVSkIAzzBMiCr4D/3IBXSEWzgXP73xFExIpXQ9lQ==",
       "path": "mongodb.libmongocrypt/1.11.0",
       "hashPath": "mongodb.libmongocrypt.1.11.0.nupkg.sha512"
-=======
-    "CuttingEdge.Conditions/1.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-TgasBGHEYgvvpROsw5aoxG36uvAqm9sdfgWQe4kd6Z03Rz69lldCjLDjLLdJB8WfwzDMt6N1psn7oR+xLriwYw==",
-      "path": "cuttingedge.conditions/1.2.0",
-      "hashPath": "cuttingedge.conditions.1.2.0.nupkg.sha512"
->>>>>>> 54afbb5c215fe27f99e204834199cb30297af1d2
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
