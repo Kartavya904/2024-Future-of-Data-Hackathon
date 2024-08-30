@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using StockWave.Models;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace StockWave.Controllers
 {
