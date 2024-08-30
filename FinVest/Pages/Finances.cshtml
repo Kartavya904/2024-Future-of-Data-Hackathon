@@ -1,0 +1,88 @@
+@page
+@model FinVest.Pages.FinancesModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finances - @Model.Username</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: #122953;
+            font-family: 'Poppins', sans-serif;
+            color: #f0f0f0;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content h2 {
+            color: #76c7c0;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            background-color: #2A2A6A;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info dt {
+            font-weight: bold;
+            color: #76c7c0;
+        }
+
+        .profile-info dd {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container content">
+        <h2>Your Profile Information</h2>
+        <div class="profile-info">
+            <dl>
+                <dt>Username:</dt>
+                <dd>@Model.Username</dd>
+
+                <dt>Full Name:</dt>
+                <dd>@Model.FullName</dd>
+
+                <dt>Email:</dt>
+                <dd>@Model.Email</dd>
+
+                <dt>Phone Number:</dt>
+                <dd>@Model.PhoneNumber</dd>
+
+                <dt>Date of Birth:</dt>
+                <dd>@Model.DateOfBirth.ToShortDateString()</dd>
+
+                <dt>Country of Residence:</dt>
+                <dd>@Model.Country</dd>
+
+                <dt>Preferred Currency:</dt>
+                <dd>@Model.Currency</dd>
+
+                <dt>Annual Income:</dt>
+                <dd>@Model.AnnualIncome</dd>
+
+                <dt>Risk Tolerance:</dt>
+                <dd>@Model.RiskTolerance</dd>
+
+                <dt>Investment Experience:</dt>
+                <dd>@Model.InvestmentExperience</dd>
+
+                <dt>Investment Goals:</dt>
+                <dd>@Model.InvestmentGoals</dd>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>

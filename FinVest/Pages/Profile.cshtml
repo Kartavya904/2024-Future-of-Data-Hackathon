@@ -1,0 +1,55 @@
+@page
+@model FinVest.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Profile</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="Username" value="@Model.Username" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="FullName" value="@Model.FullName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" value="@Model.Email" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="DateOfBirth" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="country">Country of Residence:</label>
+        <input type="text" id="country" name="Country" value="@Model.Country" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="currency">Preferred Currency:</label>
+        <input type="text" id="currency" name="Currency" value="@Model.Currency" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="annualIncome">Annual Income:</label>
+        <input type="text" id="annualIncome" name="AnnualIncome" value="@Model.AnnualIncome" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="riskTolerance">Risk Tolerance:</label>
+        <input type="text" id="riskTolerance" name="RiskTolerance" value="@Model.RiskTolerance" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="investmentExperience">Investment Experience:</label>
+        <input type="text" id="investmentExperience" name="InvestmentExperience" value="@Model.InvestmentExperience" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="investmentGoals">Investment Goals:</label>
+        <input type="text" id="investmentGoals" name="InvestmentGoals" value="@Model.InvestmentGoals" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+</form>
