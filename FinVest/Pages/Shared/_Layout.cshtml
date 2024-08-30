@@ -107,7 +107,7 @@
         }
 
         /* New Styles for Modals */
-        .modal-body, .modal-title, label, input {
+        .modal-body, .modal-title, label, input, select {
             color: black;
         }
 
@@ -117,6 +117,11 @@
             text-align: center;
             margin-top: 15px;
             display: block;
+        }
+
+        .currency-option img {
+            height: 20px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -229,11 +234,43 @@
                     </div>
                     <div class="form-group">
                         <label for="country">Country of Residence:</label>
-                        <input type="text" id="country" class="form-control">
+                        <select id="country" class="form-control">
+                            <option value="USA">United States</option>
+                            <option value="CHN">China</option>
+                            <option value="IND">India</option>
+                            <option value="BRA">Brazil</option>
+                            <option value="RUS">Russia</option>
+                            <option value="JPN">Japan</option>
+                            <option value="DEU">Germany</option>
+                            <option value="GBR">United Kingdom</option>
+                            <option value="FRA">France</option>
+                            <option value="ITA">Italy</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="currency">Currency Preference:</label>
-                        <input type="text" id="currency" class="form-control">
+                        <label for="currency">Preferred Currency:</label>
+                        <select id="currency" class="form-control">
+                            <option value="USD" class="currency-option"><img src="~/images/usd.png" alt="USD"> USD - US Dollar</option>
+                            <option value="EUR" class="currency-option"><img src="~/images/eur.png" alt="EUR"> EUR - Euro</option>
+                            <option value="INR" class="currency-option"><img src="~/images/inr.png" alt="INR"> INR - Indian Rupee</option>
+                            <option value="GBP" class="currency-option"><img src="~/images/gbp.png" alt="GBP"> GBP - British Pound</option>
+                            <option value="JPY" class="currency-option"><img src="~/images/jpy.png" alt="JPY"> JPY - Japanese Yen</option>
+                            <option value="CNY" class="currency-option"><img src="~/images/cny.png" alt="CNY"> CNY - Chinese Yuan</option>
+                            <option value="RUB" class="currency-option"><img src="~/images/rub.png" alt="RUB"> RUB - Russian Ruble</option>
+                            <option value="BRL" class="currency-option"><img src="~/images/brl.png" alt="BRL"> BRL - Brazilian Real</option>
+                            <option value="AUD" class="currency-option"><img src="~/images/aud.png" alt="AUD"> AUD - Australian Dollar</option>
+                            <option value="CAD" class="currency-option"><img src="~/images/cad.png" alt="CAD"> CAD - Canadian Dollar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="annual-income">Annual Income:</label>
+                        <select id="annual-income" class="form-control">
+                            <option>Less than $5,000</option>
+                            <option>$5,000 - $10,000</option>
+                            <option>$10,000 - $25,000</option>
+                            <option>$25,000 - $100,000</option>
+                            <option>More than $100,000</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="risk-tolerance">Risk Tolerance:</label>
@@ -279,8 +316,6 @@
         }
 
         function signUp() {
-            // Your sign-up logic here
-            alert('Sign-Up button clicked');
             // After successful sign-up, close the modal and open the additional info modal
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
             signUpModal.hide();
@@ -293,8 +328,6 @@
         }
 
         function submitAdditionalInfo() {
-            // Your logic to handle additional info submission
-            alert('Additional info submitted');
             // After submission, you can either close the modal or redirect the user to another page
             const additionalInfoModal = bootstrap.Modal.getInstance(document.getElementById('additionalInfoModal'));
             additionalInfoModal.hide();
