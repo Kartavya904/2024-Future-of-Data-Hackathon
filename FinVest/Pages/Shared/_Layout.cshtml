@@ -34,7 +34,7 @@
         }
 
         .navbar-brand img {
-            height: 50px;
+            height: 75px;
             margin-right: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -50,6 +50,10 @@
         .navbar-nav .nav-link:hover {
             color: #76c7c0;
             text-decoration: underline;
+        }
+
+        .icon-text:hover {
+        color: #76c7c0;
         }
 
         .slogan {
@@ -101,6 +105,19 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* New Styles for Modals */
+        .modal-body, .modal-title, label, input {
+            color: black;
+        }
+
+        .switch-link {
+            color: #76c7c0;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 15px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -115,8 +132,8 @@
                     Budget Smart, Invest Sharp
                 </div>
                 <div class="login-signup-links">
-                    <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</a>
-                    <a class="btn btn-light" asp-area="" asp-page="/Login">Log In</a>
+                    <a class="btn btn-light" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
+                    <a class="btn btn-light" href="javascript:void(0)" onclick="showLogin()">Log In</a>
                 </div>
             </div>
         </nav>
@@ -133,7 +150,12 @@
         </div>
     </footer>
 
-    <!-- Sign Up Modal -->
+    <!-- Bootstrap JS and dependencies -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Sign Up and Login Modals -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -142,50 +164,153 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="d-grid gap-2">
-                        <!-- Google Sign-Up Button -->
-                        <div id="googleSignUpButton"></div>
-
-                        <!-- Email Sign-Up Button -->
-                        <button class="btn btn-outline-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#emailSignUpModal">
-                            Sign Up with Email Address
-                        </button>
-
-                        <!-- Phone Number Sign-Up Button -->
-                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#phoneSignUpModal">
-                            Sign Up with Phone Number
-                        </button>
+                    <div class="form-group">
+                        <label for="sign-up-email">Email:</label>
+                        <input type="email" id="sign-up-email" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="sign-up-password">Password:</label>
+                        <input type="password" id="sign-up-password" class="form-control">
+                    </div><br>
+                    <button onclick="signUp()" class="btn btn-primary">Sign Up</button>
+                    <span class="switch-link" onclick="switchToLogin()">Already have an account? Log In</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" class="form-control">
+                    </div><br>
+                    <button onclick="login()" class="btn btn-primary">Login</button>
+                    <span class="switch-link" onclick="switchToSignUp()">Don't have an account? Sign Up</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Include the Google API JavaScript library -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
-    <!-- Initialize Google Sign-In -->
+    <!-- Additional Information Modal -->
+    <div class="modal fade" id="additionalInfoModal" tabindex="-1" aria-labelledby="additionalInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="additionalInfoModalLabel">Complete Your Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="text" id="phone-number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country of Residence:</label>
+                        <input type="text" id="country" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency Preference:</label>
+                        <input type="text" id="currency" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="risk-tolerance">Risk Tolerance:</label>
+                        <select id="risk-tolerance" class="form-control">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="investment-experience">Investment Experience:</label>
+                        <select id="investment-experience" class="form-control">
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="investment-goals">Investment Goals:</label>
+                        <input type="text" id="investment-goals" class="form-control">
+                    </div><br>
+                    <button onclick="submitAdditionalInfo()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Functions -->
     <script>
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-            // Send this token to your server to validate the user and create a session
+        function showSignUp() {
+            const signUpModal = new bootstrap.Modal(document.getElementById('signUpModal'));
+            signUpModal.show();
         }
 
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: "YOUR_GOOGLE_CLIENT_ID", // Replace with your actual Google Client ID
-                callback: handleCredentialResponse
-            });
-            google.accounts.id.renderButton(
-                document.getElementById("googleSignUpButton"),
-                { theme: "outline", size: "large" } // Customize button appearance
-            );
-        };
+        function showLogin() {
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        }
+
+        function showAdditionalInfo() {
+            const additionalInfoModal = new bootstrap.Modal(document.getElementById('additionalInfoModal'));
+            additionalInfoModal.show();
+        }
+
+        function signUp() {
+            // Your sign-up logic here
+            alert('Sign-Up button clicked');
+            // After successful sign-up, close the modal and open the additional info modal
+            const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
+            signUpModal.hide();
+            showAdditionalInfo();
+        }
+
+        function login() {
+            // Your login logic here
+            alert('Login button clicked');
+        }
+
+        function submitAdditionalInfo() {
+            // Your logic to handle additional info submission
+            alert('Additional info submitted');
+            // After submission, you can either close the modal or redirect the user to another page
+            const additionalInfoModal = bootstrap.Modal.getInstance(document.getElementById('additionalInfoModal'));
+            additionalInfoModal.hide();
+        }
+
+        function switchToLogin() {
+            const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
+            signUpModal.hide();
+            showLogin();
+        }
+
+        function switchToSignUp() {
+            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            loginModal.hide();
+            showSignUp();
+        }
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
