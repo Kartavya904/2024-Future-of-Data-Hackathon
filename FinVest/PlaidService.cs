@@ -17,7 +17,7 @@ public class PlaidService
         {
             client_id = clientId,
             secret = secret,
-            client_name = "Kartavya",
+            client_name = "FinVest",
             country_codes = new[] { "US" },
             language = "en",
             user = new
