@@ -16,6 +16,14 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        StockData = await _alphaVantageService.GetTimeSeriesDaily("AAPL"); // Example for Apple stock
+        StockData = await _alphaVantageService.GetTimeSeriesDaily("CSSEQ"); // Example for Apple stock
+
+        // For debugging purposes
+        System.Diagnostics.Debug.WriteLine(StockData.TimeSeriesDaily.Count); // Print the number of data points
+        foreach(var date in StockData.TimeSeriesDaily.Keys)
+        {
+            System.Diagnostics.Debug.WriteLine($"{date}: {StockData.TimeSeriesDaily[date].Close}");
+        }
     }
+
 }

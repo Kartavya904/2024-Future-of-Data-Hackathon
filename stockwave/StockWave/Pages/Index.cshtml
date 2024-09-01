@@ -8,10 +8,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var stockData = @Html.Raw(Json.Serialize(Model.StockData.TimeSeriesDaily)); // Serialize the daily time series data
+    var stockData = @Html.Raw(Json.Serialize(Model.StockData.TimeSeriesDaily));
 
-    var labels = Object.keys(stockData);
-    var data = labels.map(label => stockData[label].Close);
+    // Extracting dates (keys) and closing prices (values)
+    var labels = Object.keys(stockData).reverse(); // Dates (labels), reverse to display from oldest to newest
+    var data = labels.map(label => parseFloat(stockData[label]["4. close"])); // Closing prices
 
     var ctx = document.getElementById('stockChart').getContext('2d');
     var stockChart = new Chart(ctx, {
@@ -38,6 +39,22 @@
             hover: {
                 mode: 'nearest',
                 intersect: true
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Date'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Price (USD)'
+                    }
+                }
             }
         }
     });
