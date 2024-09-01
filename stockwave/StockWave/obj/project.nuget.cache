@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zTsfWG22ix4=",
+  "dgSpecHash": "OrobuccEOxY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\skhar\\Downloads\\stockwave\\StockWave\\StockWave.csproj",
+  "projectFilePath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\StockWave.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\skhar\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\skhar\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\8.0.8\\microsoft.aspnetcore.mvc.razor.runtimecompilation.8.0.8.nupkg.sha512",
