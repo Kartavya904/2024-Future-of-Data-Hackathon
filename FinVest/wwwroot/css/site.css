@@ -12,11 +12,208 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+/* Button Hover Effect */
+.btn-light:hover {
+  background-color: #66c2a5;
+  color: #fff;
+  border-color: #66c2a5;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Link Hover Effect */
+.navbar-nav .nav-link:hover {
+  color: #66c2a5;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+
 html {
   position: relative;
   min-height: 100%;
 }
 
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body {
-  margin-bottom: 60px;
+  background: linear-gradient(135deg, #1b2b3a, #23303d, #2e4053);
+  background-size: 600% 600%;
+  animation: gradientBackground 15s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Sleek Navbar Styles */
+/* Sleek Navbar (Header) Styles */
+/* Sleek Navbar (Header) Styles */
+.navbar {
+  background-color: #1a2c3b; /* Darker, more integrated color */
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand .icon-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #e0e0e0; /* Softer text color */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-nav .nav-link {
+  color: #e0e0e0; /* Consistent with icon text */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #66c2a5; /* Subtle accent color */
+  text-decoration: underline;
+}
+
+/* Refined Footer Styles */
+footer {
+  background-color: #1a2c3b; /* Matching the header */
+  padding: 20px 0;
+  color: #b0bfc6; /* Softer, subtle text color */
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #66c2a5; /* Matching the navbar hover effect */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #e0e0e0; /* Consistent hover effect */
+}
+
+
+
+/* Hover Reveal Effect */
+.reveal-container {
+  position: relative;
+  margin: 20px 0;
+  height: 150px;
+  overflow: hidden;
+  background-color: #23303d; /* Slightly darker for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.reveal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #76c7c0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reveal-container:hover .reveal-content {
+  opacity: 1;
+}
+
+
+/* Updated Card Styles */
+.card {
+  background: linear-gradient(145deg, #23303d, #1b2b3a);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Slightly lifts the card */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Adds more shadow on hover */
+  background: linear-gradient(145deg, #1f3b4d, #1a2534); /* Changes background color on hover */
+}
+
+/* Smooth Hover Effect for Card Text */
+.card:hover .card-text {
+  transition: color 0.3s ease;
+  color: #66c2a5; /* Changes text color on hover */
+}
+
+
+
+.card-body {
+  padding: 2rem; /* Add padding inside cards */
+  color: #ecf0f1; /* Text color inside cards */
+}
+
+.card-title {
+  font-size: 24px; /* Slightly larger font for titles */
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #76c7c0; /* Make titles stand out */
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.6; /* Ensure readability */
+  margin-left: 50px;
+  margin-right:30px;
+}
+
+
+/* Scroll Indicator Styles */
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #e0e0e0;
+  font-size: 14px;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-left: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+  transform: rotate(45deg);
+  margin: 10px auto;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animated Icon Example */
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: rotate(360deg);
 }

@@ -158,3 +158,18 @@ C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVe
 >>>>>>> 54afbb5c215fe27f99e204834199cb30297af1d2
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\CuttingEdge.Conditions.dll
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Plaid.Net.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\CuttingEdge.Conditions.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Plaid.Net.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Snappier.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
