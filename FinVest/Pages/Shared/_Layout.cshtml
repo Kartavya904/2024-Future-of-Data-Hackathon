@@ -375,9 +375,10 @@
 
         function submitAdditionalInfo() {
             // Retrieve all form data
+            const email = document.getElementById('sign-up-email').value;
+            const password = document.getElementById('sign-up-password').value;
             const username = document.getElementById('username').value;
             const fullName = document.getElementById('full-name').value;
-            const email = document.getElementById('sign-up-email').value; // Assuming this is the same as the one entered initially
             const phoneNumber = document.getElementById('phone-number').value;
             const dateOfBirth = document.getElementById('dob').value;
             const country = document.getElementById('country').value;
@@ -387,10 +388,38 @@
             const investmentExperience = document.getElementById('investment-experience').value;
             const investmentGoals = document.getElementById('investment-goals').value;
 
-            // Redirect to the Finances page with the data as query parameters
-            const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
-            console.log(url);
-            window.location.href = url;
+            // Send data to the server
+            fetch('/SaveUserInfo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    username,
+                    fullName,
+                    phoneNumber,
+                    dateOfBirth,
+                    country,
+                    currency,
+                    annualIncome,
+                    riskTolerance,
+                    investmentExperience,
+                    investmentGoals
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to the Finances page
+                    const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
+                    window.location.href = url;
+                } else {
+                    console.error('Error saving data');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         function login() {
