@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+
+<div class="container">
+    <h1>StockWave Dashboard</h1>
+    <canvas id="stockChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var stockData = @Html.Raw(Json.Serialize(Model.StockData.TimeSeriesDaily)); // Serialize the daily time series data
+
+    var labels = Object.keys(stockData);
+    var data = labels.map(label => stockData[label].Close);
+
+    var ctx = document.getElementById('stockChart').getContext('2d');
+    var stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Stock Prices',
+                data: data,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Stock Price Over Time'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            }
+        }
+    });
+</script>
