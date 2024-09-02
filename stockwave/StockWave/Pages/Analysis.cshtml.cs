@@ -16,15 +16,20 @@ public class AnalysisModel : PageModel
         _alphaVantageService = alphaVantageService;
     }
 
-    public async Task OnGetAsync(string symbol)
+    public async Task OnGetAsync(string symbol, string interval, string function)
     {
-        StockData = await _alphaVantageService.GetTimeSeriesDaily(symbol);
-
-        // Example of adding some analysis logic
-        foreach (var date in StockData.TimeSeriesDaily.Keys)
+        if (!string.IsNullOrEmpty(symbol) && !string.IsNullOrEmpty(function) && !string.IsNullOrEmpty(interval))
         {
-            var closingPrice = StockData.TimeSeriesDaily[date].Close;
-            AnalysisResults.Add($"On {date}, the closing price was {closingPrice}.");
+            StockData = await _alphaVantageService.GetStockData(symbol, interval, function);
+
+            // Example of adding some analysis logic
+            foreach (var date in StockData.TimeSeriesDaily.Keys)
+            {
+                var timeSeriesData = StockData.TimeSeriesDaily[date];
+                var closingPrice = timeSeriesData.Close;  // Accessing the Close property directly
+                AnalysisResults.Add($"On {date}, the closing price was {closingPrice}.");
+            }
         }
     }
+
 }

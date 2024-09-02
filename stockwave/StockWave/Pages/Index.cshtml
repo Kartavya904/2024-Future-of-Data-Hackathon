@@ -3,19 +3,125 @@
 
 <div class="container">
     <h1>StockWave Dashboard</h1>
-    <canvas id="stockChart"></canvas>
+    <form id="stockForm">
+        <div class="form-group">
+            <label for="symbol">Stock Symbol:</label>
+            <input type="text" id="symbol" class="form-control" placeholder="Enter stock symbol" required>
+        </div>
+        <div class="form-group" id="intervalDiv">
+            <label for="interval">Time Interval:</label>
+            <select id="interval" class="form-control" required>
+                <option value="1min">1 Minute</option>
+                <option value="5min">5 Minutes</option>
+                <option value="15min">15 Minutes</option>
+                <option value="30min">30 Minutes</option>
+                <option value="60min">1 Hour</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="function">Data Type:</label>
+            <select id="function" class="form-control" required>
+                <option value="TIME_SERIES_INTRADAY">Intraday</option>
+                <option value="TIME_SERIES_DAILY">Daily</option>
+                <option value="TIME_SERIES_WEEKLY">Weekly</option>
+                <option value="TIME_SERIES_MONTHLY">Monthly</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Data</button>
+    </form>
+    <canvas id="stockChart" style="margin-top: 20px;"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var stockData = @Html.Raw(Json.Serialize(Model.StockData.TimeSeriesDaily));
+    document.getElementById('function').addEventListener('change', function() {
+        var dataType = document.getElementById('function').value;
+        var intervalDiv = document.getElementById('intervalDiv');
 
-    // Extracting dates (keys) and closing prices (values)
-    var labels = Object.keys(stockData).reverse(); // Dates (labels), reverse to display from oldest to newest
-    var data = labels.map(label => parseFloat(stockData[label]["4. close"])); // Closing prices
+        if (dataType === "TIME_SERIES_INTRADAY") {
+            intervalDiv.style.display = 'block'; // Show time interval for Intraday
+            document.getElementById('interval').required = true;
+        } else {
+            intervalDiv.style.display = 'none'; // Hide time interval for other data types
+            document.getElementById('interval').required = false;
+        }
+    });
+
+    document.getElementById('stockForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var symbol = document.getElementById('symbol').value;
+        var interval = document.getElementById('interval').value;
+        var dataType = document.getElementById('function').value;
+
+        fetchStockData(symbol, interval, dataType);
+    });
+    function fetchStockData(symbol, interval, dataType) {
+        var url;
+        if (dataType === "TIME_SERIES_INTRADAY") {
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=X70D45ERF28YDBJV`;
+        } else {
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=X70D45ERF28YDBJV`;
+        }
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);  // Log the data here to inspect it
+                updateChart(data);
+            })
+            .catch(error => console.error('Error fetching stock data:', error));
+    }
+
+    function updateChart(stockData, dataType) {
+    let timeSeries;
+
+    switch (dataType) {
+        case "TIME_SERIES_INTRADAY":
+            if (stockData["Time Series (1min)"]) {
+                timeSeries = stockData["Time Series (1min)"];
+            } else if (stockData["Time Series (5min)"]) {
+                timeSeries = stockData["Time Series (5min)"];
+            } else if (stockData["Time Series (15min)"]) {
+                timeSeries = stockData["Time Series (15min)"];
+            } else if (stockData["Time Series (30min)"]) {
+                timeSeries = stockData["Time Series (30min)"];
+            } else if (stockData["Time Series (60min)"]) {
+                timeSeries = stockData["Time Series (60min)"];
+            }
+            break;
+        case "TIME_SERIES_DAILY":
+            timeSeries = stockData["Time Series (Daily)"];
+            break;
+        case "TIME_SERIES_WEEKLY":
+            timeSeries = stockData["Time Series (Weekly)"];
+            break;
+        case "TIME_SERIES_MONTHLY":
+            timeSeries = stockData["Time Series (Monthly)"];
+            break;
+        default:
+            console.error('Unexpected data type:', dataType);
+            return;
+    }
+
+    if (!timeSeries) {
+        console.error('Time series data not found for:', dataType);
+        return;
+    }
+
+    var labels = Object.keys(timeSeries).reverse();
+    var data = labels.map(label => parseFloat(timeSeries[label]["4. close"]));
 
     var ctx = document.getElementById('stockChart').getContext('2d');
-    var stockChart = new Chart(ctx, {
+    if (window.stockChart) {
+        window.stockChart.destroy(); // Destroy the old chart instance
+    }
+    window.stockChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
@@ -58,4 +164,6 @@
             }
         }
     });
+}
+
 </script>

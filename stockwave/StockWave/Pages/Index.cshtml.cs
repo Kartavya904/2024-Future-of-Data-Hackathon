@@ -14,16 +14,14 @@ public class IndexModel : PageModel
         _alphaVantageService = alphaVantageService;
     }
 
-    public async Task OnGetAsync()
+    public async Task OnGetAsync(string symbol, string interval, string function)
     {
-        StockData = await _alphaVantageService.GetTimeSeriesDaily("CSSEQ"); // Example for Apple stock
-
-        // For debugging purposes
-        System.Diagnostics.Debug.WriteLine(StockData.TimeSeriesDaily.Count); // Print the number of data points
-        foreach(var date in StockData.TimeSeriesDaily.Keys)
+        if (!string.IsNullOrEmpty(symbol) && !string.IsNullOrEmpty(function))
         {
-            System.Diagnostics.Debug.WriteLine($"{date}: {StockData.TimeSeriesDaily[date].Close}");
+            StockData = await _alphaVantageService.GetStockData(symbol, interval, function);
+
+            // For debugging purposes
+            System.Diagnostics.Debug.WriteLine(StockData.TimeSeriesDaily.Count);
         }
     }
-
 }

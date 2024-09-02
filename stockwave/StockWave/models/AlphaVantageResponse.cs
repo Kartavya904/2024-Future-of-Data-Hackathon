@@ -44,7 +44,30 @@ namespace StockWave.Models
         [JsonPropertyName("Meta Data")]
         public MetaData MetaData { get; set; }
 
+        // Add support for different time series types
+        [JsonPropertyName("Time Series (1min)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesIntraday1Min { get; set; }
+
+        [JsonPropertyName("Time Series (5min)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesIntraday5Min { get; set; }
+
+        [JsonPropertyName("Time Series (15min)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesIntraday15Min { get; set; }
+
+        [JsonPropertyName("Time Series (30min)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesIntraday30Min { get; set; }
+
+        [JsonPropertyName("Time Series (60min)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesIntraday60Min { get; set; }
+
         [JsonPropertyName("Time Series (Daily)")]
         public Dictionary<string, TimeSeriesData> TimeSeriesDaily { get; set; }
+
+        [JsonPropertyName("Time Series (Weekly)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesWeekly { get; set; }
+
+        [JsonPropertyName("Time Series (Monthly)")]
+        public Dictionary<string, TimeSeriesData> TimeSeriesMonthly { get; set; }
     }
+
 }

@@ -8,16 +8,28 @@ namespace StockWave.Services
     public class AlphaVantageService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "1FQKLFV7X0SPA10I"; // Replace with your API key
+        private readonly string _apiKey = "X70D45ERF28YDBJV"; // Replace with your API key
 
         public AlphaVantageService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<AlphaVantageResponse> GetTimeSeriesDaily(string symbol)
+        public async Task<AlphaVantageResponse> GetStockData(string symbol, string interval, string function)
         {
-            var url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={_apiKey}";
+            string url;
+
+            if (function == "TIME_SERIES_INTRADAY")
+            {
+                // For intraday data, include the interval
+                url = $"https://www.alphavantage.co/query?function={function}&symbol={symbol}&interval={interval}&apikey={_apiKey}";
+            }
+            else
+            {
+                // For daily, weekly, and monthly data, no interval is needed
+                url = $"https://www.alphavantage.co/query?function={function}&symbol={symbol}&apikey={_apiKey}";
+            }
+
             var response = await _httpClient.GetFromJsonAsync<AlphaVantageResponse>(url);
             return response;
         }
