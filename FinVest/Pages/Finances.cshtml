@@ -79,7 +79,7 @@
 
             <div class="card">
                 <h3><i class="bi bi-currency-dollar"></i>Preferred Currency:</h3>
-                <p>@Model.Currency</p>
+                <p>@Model.CurrencyMultiplier</p>
             </div>
 
             <div class="card">
@@ -110,6 +110,36 @@
         </form>
         <button id="linkButton">Connect your bank</button>
     </div>
+
+    <div class="transaction-history">
+        <h2>Transaction History</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in Model.TransactionHistory)
+                {
+                    <tr>
+                        <td>@transaction.TransactionId</td>
+                        <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                        <td>@transaction.Description</td>
+                        <td>@transaction.Category</td>
+                        <td>@transaction.Amount.ToString("C")</td>
+                        <td>@transaction.RunningBalance.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
 
     <script type="text/javascript">
         var linkToken = "@Model.LinkToken";
