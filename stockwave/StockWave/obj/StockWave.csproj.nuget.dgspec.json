@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+<<<<<<< HEAD:StockWave/obj/StockWave.csproj.nuget.dgspec.json
+    "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj",
+        "projectName": "StockWave",
+        "projectPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\StockWave\\StockWave.csproj",
+        "packagesPath": "C:\\Users\\Maddi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\StockWave\\obj\\",
+=======
+    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\StockWave.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\StockWave.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\StockWave.csproj",
+        "projectName": "StockWave",
+        "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\StockWave.csproj",
+        "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\stockwave\\StockWave\\obj\\",
+>>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd:stockwave/StockWave/obj/StockWave.csproj.nuget.dgspec.json
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Maddi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

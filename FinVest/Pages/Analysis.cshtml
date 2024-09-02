@@ -1,0 +1,12 @@
+@page
+@model AnalysisModel
+
+<div class="container">
+    <h1>Stock Analysis</h1>
+    <ul>
+        @foreach (var result in Model.AnalysisResults)
+        {
+            <li>@result</li>
+        }
+    </ul>
+</div>

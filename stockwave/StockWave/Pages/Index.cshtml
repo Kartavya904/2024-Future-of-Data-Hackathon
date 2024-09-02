@@ -1,0 +1,175 @@
+﻿@page
+@model IndexModel
+
+<div class="container">
+    <h1>StockWave Dashboard</h1>
+    <form id="stockForm">
+        <div class="form-group">
+            <label for="symbol">Stock Symbol:</label>
+            <input type="text" id="symbol" class="form-control" placeholder="Enter stock symbol" required>
+        </div>
+        <div class="form-group" id="intervalDiv">
+            <label for="interval">Time Interval:</label>
+            <select id="interval" class="form-control" required>
+                <option value="1min">1 Minute</option>
+                <option value="5min">5 Minutes</option>
+                <option value="15min">15 Minutes</option>
+                <option value="30min">30 Minutes</option>
+                <option value="60min">1 Hour</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="function">Data Type:</label>
+            <select id="function" class="form-control" required>
+                <option value="TIME_SERIES_INTRADAY">Intraday</option>
+                <option value="TIME_SERIES_DAILY">Daily</option>
+                <option value="TIME_SERIES_WEEKLY">Weekly</option>
+                <option value="TIME_SERIES_MONTHLY">Monthly</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Data</button>
+    </form>
+    <canvas id="stockChart" style="margin-top: 20px;"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.getElementById('function').addEventListener('change', function() {
+        var dataType = document.getElementById('function').value;
+        var intervalDiv = document.getElementById('intervalDiv');
+
+        if (dataType === "TIME_SERIES_INTRADAY") {
+            intervalDiv.style.display = 'block'; // Show time interval for Intraday
+            document.getElementById('interval').required = true;
+        } else {
+            intervalDiv.style.display = 'none'; // Hide time interval for other data types
+            document.getElementById('interval').required = false;
+        }
+    });
+
+    document.getElementById('stockForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var symbol = document.getElementById('symbol').value;
+        var interval = document.getElementById('interval').value;
+        var dataType = document.getElementById('function').value;
+
+        fetchStockData(symbol, interval, dataType);
+    });
+    function fetchStockData(symbol, interval, dataType) {
+        var url;
+        console.log("dataType: " + dataType);
+        if (dataType === "TIME_SERIES_INTRADAY") {
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=1MXKI700UECA14HK`;
+        } else {
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=1MXKI700UECA14HK`;
+        }
+        console.log(url);
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("data: " + data + " dataType: " + dataType);
+                updateChart(data, dataType)
+            })
+            .catch(error => console.error('Error fetching stock data:', error));
+    }
+
+    function updateChart(stockData, dataType) {
+        console.log(stockData);
+        let timeSeries;
+
+        switch (dataType) {
+            case "TIME_SERIES_INTRADAY":
+                if (stockData["Time Series (1min)"]) {
+                    timeSeries = stockData["Time Series (1min)"];
+                } else if (stockData["Time Series (5min)"]) {
+                    timeSeries = stockData["Time Series (5min)"];
+                } else if (stockData["Time Series (15min)"]) {
+                    timeSeries = stockData["Time Series (15min)"];
+                } else if (stockData["Time Series (30min)"]) {
+                    timeSeries = stockData["Time Series (30min)"];
+                } else if (stockData["Time Series (60min)"]) {
+                    timeSeries = stockData["Time Series (60min)"];
+                }
+                break;
+            case "TIME_SERIES_DAILY":
+                timeSeries = stockData["Time Series (Daily)"];
+                break;
+            case "TIME_SERIES_WEEKLY":
+                timeSeries = stockData["Weekly Time Series"];
+                break;
+            case "TIME_SERIES_MONTHLY":
+                timeSeries = stockData["Monthly Time Series"];
+                break;
+            default:
+                console.error('Unexpected data type:', dataType);
+                return;
+        }
+
+        if (!timeSeries) {
+            console.error('Time series data not found for:', dataType);
+            return;
+        }
+
+        var labels = Object.keys(timeSeries).reverse();
+        var data = labels.map(label => parseFloat(timeSeries[label]["4. close"]));
+
+        var ctx = document.getElementById('stockChart').getContext('2d');
+
+        // Check if a chart instance already exists and destroy it
+        if (window.stockChart instanceof Chart) {
+            window.stockChart.destroy();
+        }
+
+        // Create a new chart instance
+        window.stockChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Stock Prices',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Stock Price Over Time'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Price (USD)'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+</script>

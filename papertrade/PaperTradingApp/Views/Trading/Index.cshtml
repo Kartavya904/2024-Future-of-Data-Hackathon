@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Paper Trading Dashboard";
+}
+
+<h2>Paper Trading Dashboard</h2>
+
+<p>Your current balance: @ViewBag.Balance:C</p>
+
+<h3>Check Stock Price</h3>
+<form asp-action="CheckStockPrice" method="post">
+    <label for="symbol">Stock Symbol:</label>
+    <input type="text" id="symbol" name="symbol" required />
+    <button type="submit">Check Price</button>
+</form>
+
+@if (ViewBag.CurrentStockPrice != null)
+{
+    <p>The current price of @ViewBag.CurrentStockSymbol is @ViewBag.CurrentStockPrice:C</p>
+}
+
+
+<form asp-action="BuyStock" method="post">
+    <label for="symbol">Stock Symbol:</label>
+    <input type="text" id="symbol" name="symbol" required />
+
+    <label for="shares">Number of Shares:</label>
+    <input type="number" id="shares" name="shares" required />
+
+    <button type="submit">Buy</button>
+</form>
+
+<h3>Your Holdings</h3>
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Purchase Price</th>
+        <th>Current Price</th>
+        <th>Profit/Loss</th>
+    </tr>
+    @if (ViewBag.Holdings != null && ViewBag.Holdings.Count > 0)
+    {
+        @foreach (var holding in ViewBag.Holdings)
+        {
+            <tr>
+                <td>@holding.Value.Symbol</td>
+                <td>@holding.Value.Shares</td>
+                <td>@holding.Value.PurchasePrice:C</td>
+                <td>@holding.Value.Price:C</td>
+                <td>@ViewBag.Portfolio.GetProfitMargin(holding.Value.Symbol, holding.Value.Price):C</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="5">You have no holdings yet.</td>
+        </tr>
+    }
+</table>
+
+<h3>Sell Stocks</h3>
+<form asp-action="SellStock" method="post">
+    <label for="symbol">Stock Symbol:</label>
+    <input type="text" id="symbol" name="symbol" required />
+
+    <label for="shares">Number of Shares:</label>
+    <input type="number" id="shares" name="shares" required />
+
+    <button type="submit">Sell</button>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}

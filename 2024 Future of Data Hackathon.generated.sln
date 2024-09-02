@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
+<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{DC2A3564-5583-457F-812A-A1C3145ECC7C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{2ACAB845-6302-4423-BA62-8C994A3D5FF4}"
@@ -12,6 +13,23 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{CE2EF0A6-A7C9-4580-9D76-E5A67A9B6184}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{1831FC01-C79C-48ED-88B0-67BCEB1C17DC}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{78D2A5D1-9ED6-402A-B60D-5281A543843D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{42002F8A-6587-4C7C-B8C4-7798DB845ACE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{635EC9A6-129D-4206-B68B-A1C568C476D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "papertrade", "papertrade", "{1779744E-D8DC-4423-A509-61D38DCE69F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperTradingApp", "papertrade\PaperTradingApp\PaperTradingApp.csproj", "{A86454AA-CB9B-4D60-8DA1-7540272F641B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stockwave", "stockwave", "{F0718F45-D9B2-4E86-BC4B-5EA14FB5204D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockWave", "stockwave\StockWave\StockWave.csproj", "{A6590968-2475-454D-8467-5F5779D009BD}"
+>>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +37,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
 		{DC2A3564-5583-457F-812A-A1C3145ECC7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC2A3564-5583-457F-812A-A1C3145ECC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2A3564-5583-457F-812A-A1C3145ECC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,12 +54,40 @@ Global
 		{1831FC01-C79C-48ED-88B0-67BCEB1C17DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1831FC01-C79C-48ED-88B0-67BCEB1C17DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1831FC01-C79C-48ED-88B0-67BCEB1C17DC}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+<<<<<<< HEAD
 		{1831FC01-C79C-48ED-88B0-67BCEB1C17DC} = {CE2EF0A6-A7C9-4580-9D76-E5A67A9B6184}
+=======
+		{635EC9A6-129D-4206-B68B-A1C568C476D9} = {42002F8A-6587-4C7C-B8C4-7798DB845ACE}
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B} = {1779744E-D8DC-4423-A509-61D38DCE69F0}
+		{A6590968-2475-454D-8467-5F5779D009BD} = {F0718F45-D9B2-4E86-BC4B-5EA14FB5204D}
+>>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1531F579-9D0E-4280-B05A-CB9B0BF8C744}
