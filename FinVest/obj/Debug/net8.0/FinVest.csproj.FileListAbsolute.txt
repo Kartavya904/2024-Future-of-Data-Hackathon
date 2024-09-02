@@ -173,3 +173,16 @@ C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\ZstdSharp.
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\DnsClient.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\Snappier.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll

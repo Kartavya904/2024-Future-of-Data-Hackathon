@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model IndexModel
 
 <div class="container">
@@ -60,9 +60,9 @@
         var url;
         console.log("dataType: " + dataType);
         if (dataType === "TIME_SERIES_INTRADAY") {
-            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=1MXKI700UECA14HK`;
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=demo`;
         } else {
-            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=1MXKI700UECA14HK`;
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=demo`;
         }
         console.log(url);
         fetch(url)
