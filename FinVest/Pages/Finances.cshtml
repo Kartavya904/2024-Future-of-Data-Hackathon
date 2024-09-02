@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,8 +68,16 @@
             color: #f0f0f0;
         }
 
+        .transaction-summary {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
         .transaction-history {
-            margin-top: 40px;
+            margin-top: 20px;
+            max-height: 500px;
+            overflow-y: scroll;
         }
 
         .transaction-history table {
@@ -80,7 +89,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .transaction-history th, .transaction-history td {
+        .transaction-history th,
+        .transaction-history td {
             padding: 15px;
             text-align: center;
         }
@@ -88,6 +98,7 @@
         .transaction-history th {
             background-color: #1B1B50;
             color: #76c7c0;
+            cursor: pointer;
         }
 
         .transaction-history tbody tr:nth-child(odd) {
@@ -97,10 +108,28 @@
         .transaction-history tbody tr:hover {
             background-color: #1B1B50;
         }
+
+        #loadingScreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 20%;
+            z-index: 1000;
+        }
     </style>
 </head>
+
 <body>
-    <div class="container content">
+    <div id="loadingScreen">Loading, please wait...</div>
+
+    <div class="container content" id="mainContent">
         <h2>Your Profile Information</h2>
         <div class="profile-info">
             <div class="card">
@@ -139,30 +168,74 @@
         </form>
         <button id="linkButton" class="btn btn-primary mt-3">Connect your bank</button>
 
-        <div class="transaction-history">
+        <!-- Bank Details Section (hidden until successful connection) -->
+        <div id="bankDetails" style="display: none;">
+            <div class="profile-info">
+                <div class="card">
+                    <h3><i class="bi bi-bank"></i>Bank Name:</h3>
+                    <p>Chase</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="bi bi-credit-card"></i>Checkings Account:</h3>
+                    <p>@Model.CheckingsAccount</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="bi bi-credit-card"></i>Savings Account:</h3>
+                    <p>@Model.SavingsAccount</p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="bi bi-receipt"></i>Routing Number:</h3>
+                    <p>4444 4444</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction Summary -->
+        <div id="transactionSummary" class="transaction-summary" style="display: none;">
+            <p>Total Transactions: <strong>@Model.TotalTransactions</strong></p>
+            <p>Total Income: <strong>@Model.TotalIncome.ToString("C")</strong></p>
+            <p>Total Expenditure: <strong>@Model.TotalExpenditure.ToString("C")</strong></p>
+        </div>
+
+        <!-- Filter Options -->
+        <div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
+            <button type="button" class="btn btn-secondary" onclick="filterTransactions('yearly')">Yearly</button>
+            <button type="button" class="btn btn-secondary" onclick="filterTransactions('monthly')">Monthly</button>
+            <button type="button" class="btn btn-secondary" onclick="filterTransactions('weekly')">Weekly</button>
+            <button type="button" class="btn btn-secondary" onclick="filterTransactions('daily')">Daily</button>
+            <button type="button" class="btn btn-warning" onclick="resetTransactions()">Reset</button>
+        </div>
+
+        <div id="transactionHistory" class="transaction-history" style="display: none;">
             <h2>Transaction History</h2>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Transaction ID</th>
-                        <th>Date</th>
+                        <th onclick="sortTable('id')">Transaction ID</th>
+                        <th onclick="sortTable('date')">Date</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Amount</th>
+                        <th onclick="sortTable('amount')">Amount</th>
                         <th>Balance</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var transaction in Model.TransactionHistory)
+                <tbody id="transactionTableBody">
+                    @if (Model.TransactionHistory != null)
                     {
-                        <tr>
-                            <td>@transaction.TransactionId</td>
-                            <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
-                            <td>@transaction.Description</td>
-                            <td>@transaction.Category</td>
-                            <td>@transaction.Amount.ToString("C")</td>
-                            <td>@transaction.RunningBalance.ToString("C")</td>
-                        </tr>
+                        @foreach (var transaction in Model.TransactionHistory)
+                        {
+                            <tr>
+                                <td>@transaction.TransactionId</td>
+                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                                <td>@transaction.Description</td>
+                                <td>@transaction.Category</td>
+                                <td>@transaction.Amount.ToString("C")</td>
+                                <td>@transaction.RunningBalance.ToString("C")</td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -170,29 +243,30 @@
     </div>
 
     <script type="text/javascript">
+        var originalTransactions = @Html.Raw(Json.Serialize(Model.TransactionHistory));
+        var filteredTransactions = [...originalTransactions];
+
         var linkToken = "@Model.LinkToken";
 
         var handler = Plaid.create({
             token: linkToken,
             onSuccess: function(public_token, metadata) {
-                // Get the anti-forgery token from the form
-                var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                // Show loading screen
+                document.getElementById('loadingScreen').style.display = 'block';
 
-                // Send the public_token to the server to exchange for an access token
-                fetch('/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': token
-                    },
-                    body: JSON.stringify({ publicToken: public_token })
-                })
-                .then(response => response.text())
-                .then(data => {
-                    // Reload the page to display the account information
-                    location.reload();
-                })
-                .catch(error => console.error('Error:', error));
+                // Simulate data fetching or processing
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
+
+                    // Assume fetching transactions and account details is successful
+                    document.getElementById('bankDetails').style.display = 'block';
+                    document.getElementById('transactionSummary').style.display = 'block';
+                    document.getElementById('filterOptions').style.display = 'block';
+                    document.getElementById('transactionHistory').style.display = 'block';
+
+                    // Render transactions (mock data or fetched data)
+                    renderTransactions();
+                }, 3000); // 3-second delay
             },
             onExit: function(err, metadata) {
                 if (err != null) {
@@ -209,31 +283,10 @@
         };
     </script>
 
-    @if (Model.Accounts != null)
-    {
-        <h2>Account Information</h2>
-        <table border="1">
-            <tr>
-                <th>Name</th>
-                <th>Account Number</th>
-                <th>Routing Number</th>
-                <th>Type</th>
-            </tr>
-            @foreach (var account in Model.Accounts)
-            {
-                <tr>
-                    <td>@account["name"]</td>
-                    <td>@account["account_id"]</td>
-                    <td>@account["routing"]</td>
-                    <td>@account["type"]</td>
-                </tr>
-            }
-        </table>
-    }
-
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

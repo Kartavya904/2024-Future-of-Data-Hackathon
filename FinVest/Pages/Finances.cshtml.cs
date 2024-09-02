@@ -19,7 +19,7 @@ namespace FinVest.Pages
         public string InvestmentExperience { get; set; }
         public string InvestmentGoals { get; set; }
 
-        // Implementation for Plaid
+        // Plaid Implementation
         private readonly PlaidService _plaidService;
         public string LinkToken { get; private set; }
         public string AccessToken { get; private set; }
@@ -31,6 +31,11 @@ namespace FinVest.Pages
         public string SavingsAccount { get; set; } = "1111 1111 1111 1111";
 
         public List<Transaction> TransactionHistory { get; set; }
+
+        // New properties for totals
+        public int TotalTransactions { get; private set; }
+        public double TotalExpenditure { get; private set; }
+        public double TotalIncome { get; private set; }
 
         public class Transaction
         {
@@ -81,21 +86,21 @@ namespace FinVest.Pages
                 Console.WriteLine("Error: Failed to retrieve Link token.");
             }
 
-            // Generate random transaction history
+            // Generate transaction history
             TransactionHistory = GenerateTransactionHistory();
-        }
 
+            // Calculate totals
+            CalculateTotals();
+        }
 
         private List<Transaction> GenerateTransactionHistory()
         {
             var random = new Random();
             var transactionHistory = new List<Transaction>();
 
-            double totalDeposits = 0;
-            double totalWithdrawals = 0;
             double runningBalance = 0;
 
-            var categories = new List<string> { "Groceries", "Rent", "Utilities", "Entertainment", "Dining", "Salary", "Bonus", "Investment", "Shopping", "Travel" };
+            var categories = new List<string> { "Groceries", "Rent", "Utilities", "Entertainment", "Dining", "Investment", "Shopping", "Travel" };
 
             for (int year = 2016; year <= 2024; year++)
             {
@@ -104,72 +109,61 @@ namespace FinVest.Pages
                     if (year == 2024 && month > DateTime.Now.Month)
                         break;
 
-                    int numTransactions = random.Next(5, 11);
                     int numDeposits = random.Next(2, 5);
-                    int numWithdrawals = numTransactions - numDeposits;
+                    int numWithdrawals = 0;
+                    if (numDeposits == 2) {numWithdrawals = 3;}
+                    else if (numDeposits == 3) {numWithdrawals = random.Next(4,6);}
+                    else if (numDeposits == 4) {numWithdrawals = 6;}                    
 
                     for (int i = 0; i < numDeposits; i++)
                     {
-                        var amount = random.Next(2000, 5000); // Adjust range as needed
-                        totalDeposits += amount;
+                        var amount = random.Next(2000, 5000) * IncomeMultiplier * CurrencyMultiplier;
+                        runningBalance += amount;
 
                         var transaction = new Transaction
                         {
                             TransactionId = random.Next(10000000, 99999999).ToString(),
-                            TransactionDate = new DateTime(year, month, random.Next(1, 28)),
+                            TransactionDate = new DateTime(year, month, random.Next(1, 5)),
                             Description = "Deposit",
                             Category = "Salary",
                             Amount = amount,
-                            RunningBalance = runningBalance += amount
+                            RunningBalance = runningBalance
                         };
                         transactionHistory.Add(transaction);
                     }
 
                     for (int i = 0; i < numWithdrawals; i++)
                     {
-                        var amount = random.Next(1000, 3000); // Adjust range as needed
-                        totalWithdrawals += amount;
+                        var amount = random.Next(1000, 3000) * IncomeMultiplier * CurrencyMultiplier;
 
-                        var transaction = new Transaction
+                        // Check if withdrawal would cause negative balance
+                        if (runningBalance - amount >= 0)
                         {
-                            TransactionId = random.Next(10000000, 99999999).ToString(),
-                            TransactionDate = new DateTime(year, month, random.Next(1, 28)),
-                            Description = "Withdrawal",
-                            Category = categories[random.Next(categories.Count)],
-                            Amount = -amount,
-                            RunningBalance = runningBalance -= amount
-                        };
-                        transactionHistory.Add(transaction);
+                            runningBalance -= amount;
+                            var transaction = new Transaction
+                            {
+                                TransactionId = random.Next(10000000, 99999999).ToString(),
+                                TransactionDate = new DateTime(year, month, random.Next(5, 28)),
+                                Description = "Withdrawal",
+                                Category = categories[random.Next(categories.Count)],
+                                Amount = -amount,
+                                RunningBalance = runningBalance
+                            };
+                            transactionHistory.Add(transaction);
+                        }
                     }
                 }
             }
 
-            // Adjust totals to meet desired amounts
-            // AdjustTransactionsForTotals(transactionHistory, totalDeposits, totalWithdrawals, 100000, 70000, ref runningBalance);
-
             return transactionHistory;
         }
 
-        // private void AdjustTransactionsForTotals(List<Transaction> transactions, double totalDeposits, double totalWithdrawals, double targetDeposits, double targetWithdrawals, ref double runningBalance)
-        // {
-        //     double depositAdjustment = (targetDeposits - totalDeposits) / transactions.Count(t => t.Amount > 0);
-        //     double withdrawalAdjustment = (totalWithdrawals - targetWithdrawals) / transactions.Count(t => t.Amount < 0);
-
-        //     foreach (var transaction in transactions)
-        //     {
-        //         if (transaction.Amount > 0)
-        //         {
-        //             transaction.Amount += depositAdjustment;
-        //             runningBalance += depositAdjustment;
-        //         }
-        //         else
-        //         {
-        //             transaction.Amount -= withdrawalAdjustment;
-        //             runningBalance -= withdrawalAdjustment;
-        //         }
-        //         transaction.RunningBalance = runningBalance;
-        //     }
-        // }
+        private void CalculateTotals()
+        {
+            TotalTransactions = TransactionHistory.Count;
+            TotalExpenditure = TransactionHistory.Where(t => t.Amount < 0).Sum(t => -t.Amount);
+            TotalIncome = TransactionHistory.Where(t => t.Amount > 0).Sum(t => t.Amount);
+        }
 
         public async Task<IActionResult> OnPostAsync(string publicToken)
         {
