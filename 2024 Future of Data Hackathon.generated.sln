@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{2D307620-5288-416D-8197-C25095067813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinVest", "FinVest\FinVest.csproj", "{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{4EDC37BB-A9B0-4D4C-83E7-B2EAD15339D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidApp", "PlaidApp\PlaidApp.csproj", "{78D2A5D1-9ED6-402A-B60D-5281A543843D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{C3E7FDDC-1D6F-48C9-BFB2-E0E132A615AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphs implementation", "graphs implementation", "{42002F8A-6587-4C7C-B8C4-7798DB845ACE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{CF01B020-A589-4D75-AB49-2CD2AF6229A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "graphs implementation\Chart\Chart.csproj", "{635EC9A6-129D-4206-B68B-A1C568C476D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stockwave", "stockwave", "{60DBBFC6-619D-4851-AE67-FBB7157C5467}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "papertrade", "papertrade", "{1779744E-D8DC-4423-A509-61D38DCE69F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockWave", "stockwave\StockWave\StockWave.csproj", "{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaperTradingApp", "papertrade\PaperTradingApp\PaperTradingApp.csproj", "{A86454AA-CB9B-4D60-8DA1-7540272F641B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stockwave", "stockwave", "{F0718F45-D9B2-4E86-BC4B-5EA14FB5204D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockWave", "stockwave\StockWave\StockWave.csproj", "{A6590968-2475-454D-8467-5F5779D009BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,29 +25,34 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2D307620-5288-416D-8197-C25095067813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D307620-5288-416D-8197-C25095067813}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D307620-5288-416D-8197-C25095067813}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D307620-5288-416D-8197-C25095067813}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4EDC37BB-A9B0-4D4C-83E7-B2EAD15339D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EDC37BB-A9B0-4D4C-83E7-B2EAD15339D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EDC37BB-A9B0-4D4C-83E7-B2EAD15339D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EDC37BB-A9B0-4D4C-83E7-B2EAD15339D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF01B020-A589-4D75-AB49-2CD2AF6229A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF01B020-A589-4D75-AB49-2CD2AF6229A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF01B020-A589-4D75-AB49-2CD2AF6229A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF01B020-A589-4D75-AB49-2CD2AF6229A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73E1523-69C3-4B2E-974F-4EE4BC22CD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D2A5D1-9ED6-402A-B60D-5281A543843D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635EC9A6-129D-4206-B68B-A1C568C476D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6590968-2475-454D-8467-5F5779D009BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CF01B020-A589-4D75-AB49-2CD2AF6229A8} = {C3E7FDDC-1D6F-48C9-BFB2-E0E132A615AB}
-		{F83C4A8E-CBB3-46D7-B815-F34B801EAA8E} = {60DBBFC6-619D-4851-AE67-FBB7157C5467}
+		{635EC9A6-129D-4206-B68B-A1C568C476D9} = {42002F8A-6587-4C7C-B8C4-7798DB845ACE}
+		{A86454AA-CB9B-4D60-8DA1-7540272F641B} = {1779744E-D8DC-4423-A509-61D38DCE69F0}
+		{A6590968-2475-454D-8467-5F5779D009BD} = {F0718F45-D9B2-4E86-BC4B-5EA14FB5204D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1531F579-9D0E-4280-B05A-CB9B0BF8C744}

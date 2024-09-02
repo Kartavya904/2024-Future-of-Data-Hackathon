@@ -9,43 +9,43 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Chart
 build_property.RootNamespace = Chart
-build_property.ProjectDir = C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\graphs implementation\Chart\
+build_property.ProjectDir = C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\graphs implementation\Chart\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\graphs implementation\Chart
+build_property.MSBuildProjectDirectory = C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\graphs implementation\Chart
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Error.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Index.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Kartavya.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Kartavya.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2FydGF2eWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Privacy.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/_ViewImports.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/_ViewStart.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/karta/OneDrive/Desktop/All Projects/2024 Future of Data Hackathon/graphs implementation/Chart/Pages/Shared/_Layout.cshtml]
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/graphs implementation/Chart/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1qfg2np1vt
