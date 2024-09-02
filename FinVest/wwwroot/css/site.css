@@ -9,17 +9,69 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959; /* Example using your dark theme colors */
 }
 
+
+.btn-dark-custom {
+  background-color: #292959;
+  color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: 2px solid #76c7c0;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-dark-custom:hover {
+  background-color: #76c7c0;
+  color: #292959;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark-custom:active {
+  background-color: #1b6ec2;
+  color: #f0f0f0;
+  transform: scale(0.95);
+}
+
+.btn-connect-bank {
+  background-color: #292959;
+  color: #f0f0f0;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: 2px solid #76c7c0;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make the button full-width */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+.btn-connect-bank:hover {
+  background-color: #76c7c0;
+  color: #292959;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-connect-bank:active {
+  background-color: #1b6ec2;
+  color: #f0f0f0;
+  transform: scale(0.95);
+}
+
+
 /* Button Hover Effect */
-.btn-light:hover {
+/* .btn-light:hover {
   background-color: #66c2a5;
   color: #fff;
   border-color: #66c2a5;
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* Navbar Link Hover Effect */
 .navbar-nav .nav-link:hover {
@@ -162,6 +214,7 @@ footer a:hover {
 }
 
 .card-title {
+  margin-left:47px;
   font-size: 24px; /* Slightly larger font for titles */
   font-weight: 600;
   margin-bottom: 15px;

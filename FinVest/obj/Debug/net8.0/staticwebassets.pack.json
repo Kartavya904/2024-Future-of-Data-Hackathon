@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\BULL.png",
+      "PackagePath": "staticwebassets\\images\\BULL.png"
+    },
+    {
+      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Dashboard.png",
+      "PackagePath": "staticwebassets\\images\\Dashboard.png"
+    },
+    {
+      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
+      "PackagePath": "staticwebassets\\images\\Stock.png"
+    },
+    {
       "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },

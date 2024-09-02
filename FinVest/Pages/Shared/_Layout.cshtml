@@ -75,7 +75,7 @@
             gap: 15px;
         }
 
-        .btn-light {
+        @* .btn-light {
             color: #292959;
             background-color: white;
             border-radius: 5px;
@@ -89,7 +89,43 @@
             background-color: #76c7c0;
             color: white;
             border-color: #76c7c0;
+        } *@
+
+
+        /* Enhanced button styles */
+        /* Dark theme button styles */
+        .btn-dark-custom {
+            background-color: #292959;
+            color: #f0f0f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+            border: 2px solid #76c7c0;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        .btn-dark-custom:hover {
+            background-color: #76c7c0;
+            color: #292959;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-dark-custom:focus {
+            box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
+        }
+
+
+        .btn-dark-custom:active {
+            background-color: #1b6ec2;
+            color: #f0f0f0;
+            transform: scale(0.95);
+        }
+
+        
+
+
 
         .profile-button {
             width: 40px;
@@ -154,10 +190,11 @@
                     Budget Smart, Invest Sharp
                 </div>
                 <div id="navbarContent" class="login-signup-links">
-                    <!-- Default: Sign Up and Log In buttons -->
-                    <a class="btn btn-light" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
-                    <a class="btn btn-light" href="javascript:void(0)" onclick="showLogin()">Log In</a>
+                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
+                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showLogin()">Log In</a>
+
                 </div>
+
             </div>
         </nav>
     </header>
@@ -195,7 +232,7 @@
                         <label for="sign-up-password">Password:</label>
                         <input type="password" id="sign-up-password" class="form-control">
                     </div><br>
-                    <button onclick="signUp()" class="btn btn-primary">Sign Up</button>
+                    <button onclick="signUp()" class="btn btn-dark-custom">Sign Up</button>
                     <span class="switch-link" onclick="switchToLogin()">Already have an account? Log In</span>
                 </div>
             </div>
@@ -218,7 +255,7 @@
                         <label for="login-password">Password:</label>
                         <input type="password" id="login-password" class="form-control">
                     </div><br>
-                    <button onclick="login()" class="btn btn-primary">Login</button>
+                    <button onclick="login()" class="btn btn-dark-custom">Login</button>
                     <span class="switch-link" onclick="switchToSignUp()">Don't have an account? Sign Up</span>
                 </div>
             </div>
@@ -310,7 +347,7 @@
                         <label for="investment-goals">Investment Goals:</label>
                         <input type="text" id="investment-goals" class="form-control">
                     </div><br>
-                    <button onclick="submitAdditionalInfo()" class="btn btn-primary">Submit</button>
+                    <button onclick="submitAdditionalInfo()" class="btn btn-dark-custom">Submit</button>
                 </div>
             </div>
         </div>
@@ -331,11 +368,12 @@
                 `;
             } else {
                 document.getElementById('navbarContent').innerHTML = `
-                    <a class="btn btn-light" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
-                    <a class="btn btn-light" href="javascript:void(0)" onclick="showLogin()">Log In</a>
+                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
+                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showLogin()">Log In</a>
                 `;
             }
         }
+
 
         function showSignUp() {
             const signUpModal = new bootstrap.Modal(document.getElementById('signUpModal'));
