@@ -319,53 +319,104 @@
     <!-- JavaScript Functions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
     <script>
-        let db;
         let currentUser = null;
-
         const current_user = {};
 
-        async function initDatabase() {
-            const SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}` });
+        let db;
+        function initDatabase() {
+            // Open (or create) the database
+            let request = indexedDB.open("FinvestDB", 1);
 
-            // Check if there's already a database saved in localStorage
-            const savedDb = localStorage.getItem('finvest_db');
-            if (savedDb) {
-                const binaryArray = Uint8Array.from(atob(savedDb), c => c.charCodeAt(0));
-                db = new SQL.Database(binaryArray);
-            } else {
-                db = new SQL.Database();
-                createTables();
-            }
+            // Handle the upgrade needed event, which occurs when the database is created or the version is upgraded
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+
+                // Create an object store (like a table)
+                let userStore = db.createObjectStore("Users", { keyPath: "UserID", autoIncrement: true });
+
+                // Create indexes for searching (not required but useful)
+                userStore.createIndex("Email", "Email", { unique: true });
+                userStore.createIndex("Username", "Username", { unique: false });
+                userStore.createIndex("FullName", "FullName", { unique: false });
+                userStore.createIndex("Password", "Password", { unique: false });
+                userStore.createIndex("PhoneNumber", "PhoneNumber", { unique: false });
+                userStore.createIndex("DateOfBirth", "DateOfBirth", { unique: false });
+                userStore.createIndex("Country", "Country", { unique: false });
+                userStore.createIndex("Currency", "Currency", { unique: false });
+                userStore.createIndex("AnnualIncome", "AnnualIncome", { unique: false });
+                userStore.createIndex("RiskTolerance", "RiskTolerance", { unique: false });
+                userStore.createIndex("InvestmentExperience", "InvestmentExperience", { unique: false });
+                userStore.createIndex("InvestmentGoals", "InvestmentGoals", { unique: false });
+            };
+
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                logAllUsers();
+            };
+
+            request.onerror = function(event) {
+                console.error("IndexedDB error: " + event.target.errorCode);
+            };
         }
 
-        function createTables() {
-            const sqlCreateTables = `
-                CREATE TABLE IF NOT EXISTS Users (
-                    UserID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Username VARCHAR(100) NOT NULL,
-                    FullName VARCHAR(100) NOT NULL,
-                    Email VARCHAR(100) NOT NULL UNIQUE,
-                    Password VARCHAR(100) NOT NULL,
-                    PhoneNumber VARCHAR(20),
-                    DateOfBirth DATE,
-                    Country VARCHAR(100),
-                    Currency VARCHAR(50),
-                    AnnualIncome VARCHAR(50),
-                    RiskTolerance VARCHAR(50),
-                    InvestmentExperience VARCHAR(50),
-                    InvestmentGoals TEXT
-                );
-            `;
-            db.exec(sqlCreateTables);
-            saveDatabase(); // Save the database after creating the tables
+        function saveUser(user) {
+            let transaction = db.transaction(["Users"], "readwrite");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.add(user);
+
+            request.onsuccess = function(event) {
+                console.log("User data saved successfully!");
+            };
+
+            request.onerror = function(event) {
+                console.error("Error saving user data: " + event.target.errorCode);
+            };
         }
 
-        function saveDatabase() {
-            const data = db.export();
-            const base64Data = btoa(String.fromCharCode.apply(null, data));
-            localStorage.setItem('finvest_db', base64Data);
+        function getUserByEmail(email, callback) {
+            let transaction = db.transaction(["Users"], "readonly");
+            let objectStore = transaction.objectStore("Users");
+            let index = objectStore.index("Email");
+
+            let request = index.get(email);
+
+            request.onsuccess = function(event) {
+                if (request.result) {
+                    callback(request.result);
+                } else {
+                    console.error("User not found.");
+                }
+            };
+
+            request.onerror = function(event) {
+                console.error("Error retrieving user: " + event.target.errorCode);
+            };
         }
-        
+
+        function logAllUsers() {
+            let transaction = db.transaction(["Users"], "readonly");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.openCursor();
+            request.onsuccess = function(event) {
+                let cursor = event.target.result;
+                if (cursor) {
+                    console.log(cursor.value); // Log the current record
+                    cursor.continue(); // Move to the next record
+                } else {
+                    console.log("All users have been logged.");
+                }
+            };
+
+            request.onerror = function(event) {
+                console.error("Error retrieving users: " + event.target.errorCode);
+            };
+        }
+
+        // Call this function to initialize the database when the page loads
+        document.addEventListener('DOMContentLoaded', initDatabase);
+
         function checkLoginStatus() {
             if (currentUser && current_user.fullname) {
                 const fullName = current_user.fullname; // Replace with actual logic to retrieve the full name
@@ -405,116 +456,113 @@
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
             signUpModal.hide();
             currentUser = 1;
-            saveDatabase();
-            showAdditionalInfo(email, password);
+            showAdditionalInfo();
         }
 
-        async function submitAdditionalInfo(email, password) {
-            // Retrieve all form data
-            const username = document.getElementById('username').value;
-            const fullName = document.getElementById('full-name').value;
-            const phoneNumber = document.getElementById('phone-number').value;
-            const dateOfBirth = document.getElementById('dob').value;
-            const country = document.getElementById('country').value;
-            const currency = document.getElementById('currency').value;
-            const annualIncome = document.getElementById('annual-income').value;
-            const riskTolerance = document.getElementById('risk-tolerance').value;
-            const investmentExperience = document.getElementById('investment-experience').value;
-            const investmentGoals = document.getElementById('investment-goals').value;
+        function submitAdditionalInfo() {
+            const user = {
+                Username: document.getElementById('username').value,
+                FullName: document.getElementById('full-name').value,
+                Email: document.getElementById('sign-up-email').value,
+                Password: document.getElementById('sign-up-password').value,
+                PhoneNumber: document.getElementById('phone-number').value,
+                DateOfBirth: document.getElementById('dob').value,
+                Country: document.getElementById('country').value,
+                Currency: document.getElementById('currency').value,
+                AnnualIncome: document.getElementById('annual-income').value,
+                RiskTolerance: document.getElementById('risk-tolerance').value,
+                InvestmentExperience: document.getElementById('investment-experience').value,
+                InvestmentGoals: document.getElementById('investment-goals').value
+            };
 
-            const existingUser = db.exec("SELECT * FROM Users WHERE Email = '" + email + "'");
-            if (existingUser.length > 0) {
-                alert('Email already exists.');
-                return;
-            }
+            saveUser(user);
 
-            const sqlInsertUser = `
-                INSERT INTO Users (Username, FullName, Email, Password, PhoneNumber, DateOfBirth, Country, Currency, AnnualIncome, RiskTolerance, InvestmentExperience, InvestmentGoals) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            `;
-            db.exec({
-                sql: sqlInsertUser,
-                bind: [
-                    username,
-                    fullName,
-                    email,
-                    password,
-                    phoneNumber,
-                    dateOfBirth,
-                    country,
-                    currency,
-                    annualIncome,
-                    riskTolerance,
-                    investmentExperience,
-                    investmentGoals
-                ]
-            });
-
-            current_user.username = username;
-            current_user.fullName = fullName;
-            current_user.email = email;
-            current_user.phoneNumber = phoneNumber;
-            current_user.dateOfBirth = dateOfBirth;
-            current_user.country = country;
-            current_user.currency = currency;
-            current_user.annualIncome = annualIncome;
-            current_user.riskTolerance = riskTolerance;
-            current_user.investmentExperience = investmentExperience;
-            current_user.investmentGoals = investmentGoals;
+            current_user.username = user.Username;
+            current_user.fullName = user.FullName;
+            current_user.email = user.Email;
+            current_user.phoneNumber = user.PhoneNumber;
+            current_user.dateOfBirth = user.DateOfBirth;
+            current_user.country = user.Country;
+            current_user.currency = user.Currency;
+            current_user.annualIncome = user.AnnualIncome;
+            current_user.riskTolerance = user.RiskTolerance;
+            current_user.investmentExperience = user.InvestmentExperience;
+            current_user.investmentGoals = user.InvestmentGoals;
 
             alert('Sign up successful!');
-            saveDatabase();
             checkLoginStatus();
             // Redirect to the Finances page with the data as query parameters
-            const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
+            const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
             console.log(url);
             window.location.href = url;
         }
 
-        async function login() {
-            // Gather login credentials
+        function login() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
 
-            // Query the database to check if the user exists and the password matches
-            const userQuery = db.exec(`SELECT * FROM Users WHERE Email = '${email}' AND Password = '${password}'`);
+            getUserByEmail(email, function(user) {
+                if (user && user.Password === password) {
+                    console.log("Login successful!");
+                    // Store user details in current_user object and redirect as needed
+                    current_user.username = user.Username;
+                    current_user.fullName = user.FullName;
+                    current_user.email = user.Email;
+                    current_user.phoneNumber = user.PhoneNumber;
+                    current_user.dateOfBirth = user.DateOfBirth;
+                    current_user.country = user.Country;
+                    current_user.currency = user.Currency;
+                    current_user.annualIncome = user.AnnualIncome;
+                    current_user.riskTolerance = user.RiskTolerance;
+                    current_user.investmentExperience = user.InvestmentExperience;
+                    current_user.investmentGoals = user.InvestmentGoals;
 
-            if (userQuery.length > 0) {
-                const user = userQuery[0].values[0];
-
-                const username = user[1];
-                const fullName = user[2];
-                const phoneNumber = user[4];
-                const dateOfBirth = user[5];
-                const country = user[6];
-                const currency = user[7];
-                const annualIncome = user[8];
-                const riskTolerance = user[9];
-                const investmentExperience = user[10];
-                const investmentGoals = user[11];
-
-                current_user.username = username;
-                current_user.fullName = fullName;
-                current_user.email = email;
-                current_user.phoneNumber = phoneNumber;
-                current_user.dateOfBirth = dateOfBirth;
-                current_user.country = country;
-                current_user.currency = currency;
-                current_user.annualIncome = annualIncome;
-                current_user.riskTolerance = riskTolerance;
-                current_user.investmentExperience = investmentExperience;
-                current_user.investmentGoals = investmentGoals;
-
-                // Construct the URL with the query parameters
-                const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
-                saveDatabase();
-                // Redirect to the constructed URL
-                window.location.href = url;
-            } else {
-                // Login failed, show an error message
-                alert('Invalid email or password.');
-            }
+                    // Redirect to the desired page with the user details
+                    const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
+                    window.location.href = url;
+                } else {
+                    alert("Invalid email or password.");
+                }
+            });
         }
+
+        function updateUser(user) {
+            let transaction = db.transaction(["Users"], "readwrite");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.put(user);
+
+            request.onsuccess = function(event) {
+                console.log("User data updated successfully!");
+            };
+
+            request.onerror = function(event) {
+                console.error("Error updating user data: " + event.target.errorCode);
+            };
+        }
+
+        function deleteUser(userID) {
+            let transaction = db.transaction(["Users"], "readwrite");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.delete(userID);
+
+            request.onsuccess = function(event) {
+                console.log("User data deleted successfully!");
+            };
+
+            request.onerror = function(event) {
+                console.error("Error deleting user data: " + event.target.errorCode);
+            };
+        }
+
+        dbRequest.onerror = function(event) {
+            console.error("Database error: " + event.target.errorCode);
+        };
+
+        transaction.onerror = function(event) {
+            console.error("Transaction error: " + event.target.errorCode);
+        };
 
         function switchToLogin() {
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
@@ -530,7 +578,6 @@
 
         // Check the login status on page load
         document.addEventListener('DOMContentLoaded', checkLoginStatus);
-        document.addEventListener('DOMContentLoaded', initDatabase);
 
     </script>
     @await RenderSectionAsync("Scripts", required: false)
