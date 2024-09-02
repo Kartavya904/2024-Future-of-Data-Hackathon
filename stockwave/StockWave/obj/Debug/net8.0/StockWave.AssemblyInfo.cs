@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StockWave")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca0c24cc1dfd57fe21790fb5237ed0b14821c346")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b6db4e8a9368f5f3ab3f1df3a3082ee685611ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("StockWave")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StockWave")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
