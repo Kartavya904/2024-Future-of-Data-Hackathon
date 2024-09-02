@@ -73,9 +73,6 @@ namespace FinVest.Pages
             InvestmentExperience = investmentExperience;
             InvestmentGoals = investmentGoals;
 
-            // Parse and assign the currency multiplier
-            CurrencyMultiplier = double.Parse(currency);
-
             // Generate the Plaid Link Token
             LinkToken = await _plaidService.CreateLinkTokenAsync();
 
@@ -148,31 +145,31 @@ namespace FinVest.Pages
             }
 
             // Adjust totals to meet desired amounts
-            AdjustTransactionsForTotals(transactionHistory, totalDeposits, totalWithdrawals, 100000, 70000, ref runningBalance);
+            // AdjustTransactionsForTotals(transactionHistory, totalDeposits, totalWithdrawals, 100000, 70000, ref runningBalance);
 
             return transactionHistory;
         }
 
-        private void AdjustTransactionsForTotals(List<Transaction> transactions, double totalDeposits, double totalWithdrawals, double targetDeposits, double targetWithdrawals, ref double runningBalance)
-        {
-            double depositAdjustment = (targetDeposits - totalDeposits) / transactions.Count(t => t.Amount > 0);
-            double withdrawalAdjustment = (totalWithdrawals - targetWithdrawals) / transactions.Count(t => t.Amount < 0);
+        // private void AdjustTransactionsForTotals(List<Transaction> transactions, double totalDeposits, double totalWithdrawals, double targetDeposits, double targetWithdrawals, ref double runningBalance)
+        // {
+        //     double depositAdjustment = (targetDeposits - totalDeposits) / transactions.Count(t => t.Amount > 0);
+        //     double withdrawalAdjustment = (totalWithdrawals - targetWithdrawals) / transactions.Count(t => t.Amount < 0);
 
-            foreach (var transaction in transactions)
-            {
-                if (transaction.Amount > 0)
-                {
-                    transaction.Amount += depositAdjustment;
-                    runningBalance += depositAdjustment;
-                }
-                else
-                {
-                    transaction.Amount -= withdrawalAdjustment;
-                    runningBalance -= withdrawalAdjustment;
-                }
-                transaction.RunningBalance = runningBalance;
-            }
-        }
+        //     foreach (var transaction in transactions)
+        //     {
+        //         if (transaction.Amount > 0)
+        //         {
+        //             transaction.Amount += depositAdjustment;
+        //             runningBalance += depositAdjustment;
+        //         }
+        //         else
+        //         {
+        //             transaction.Amount -= withdrawalAdjustment;
+        //             runningBalance -= withdrawalAdjustment;
+        //         }
+        //         transaction.RunningBalance = runningBalance;
+        //     }
+        // }
 
         public async Task<IActionResult> OnPostAsync(string publicToken)
         {

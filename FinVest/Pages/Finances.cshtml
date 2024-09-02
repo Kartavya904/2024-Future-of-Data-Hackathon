@@ -66,6 +66,37 @@
             margin-bottom: 0;
             color: #f0f0f0;
         }
+
+        .transaction-history {
+            margin-top: 40px;
+        }
+
+        .transaction-history table {
+            width: 100%;
+            color: #f0f0f0;
+            background-color: #2A2A6A;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction-history th, .transaction-history td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .transaction-history th {
+            background-color: #1B1B50;
+            color: #76c7c0;
+        }
+
+        .transaction-history tbody tr:nth-child(odd) {
+            background-color: #32327B;
+        }
+
+        .transaction-history tbody tr:hover {
+            background-color: #1B1B50;
+        }
     </style>
 </head>
 <body>
@@ -103,43 +134,40 @@
             </div>
         </div>
 
-        @* <p>Username: user_good<br>Password: pass_good<br>If prompted for 2FA, select Mobile phone ending 1111.<br>Code: 1234</p> *@
-
         <form id="plaidForm">
             @Html.AntiForgeryToken()
         </form>
-        <button id="linkButton">Connect your bank</button>
-    </div>
+        <button id="linkButton" class="btn btn-primary mt-3">Connect your bank</button>
 
-    <div class="transaction-history">
-        <h2>Transaction History</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Balance</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var transaction in Model.TransactionHistory)
-                {
+        <div class="transaction-history">
+            <h2>Transaction History</h2>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@transaction.TransactionId</td>
-                        <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
-                        <td>@transaction.Description</td>
-                        <td>@transaction.Category</td>
-                        <td>@transaction.Amount.ToString("C")</td>
-                        <td>@transaction.RunningBalance.ToString("C")</td>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var transaction in Model.TransactionHistory)
+                    {
+                        <tr>
+                            <td>@transaction.TransactionId</td>
+                            <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                            <td>@transaction.Description</td>
+                            <td>@transaction.Category</td>
+                            <td>@transaction.Amount.ToString("C")</td>
+                            <td>@transaction.RunningBalance.ToString("C")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-
 
     <script type="text/javascript">
         var linkToken = "@Model.LinkToken";
