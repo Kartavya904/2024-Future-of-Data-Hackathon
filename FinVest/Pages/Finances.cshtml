@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             background-color: #122953;
@@ -123,6 +124,22 @@
             padding-top: 20%;
             z-index: 1000;
         }
+
+        /* Hide all tables by default */
+        .transaction-table {
+            display: none;
+        }
+
+        /* Hide all charts by default */
+        .chart-container {
+            display: none;
+            margin-top: 40px;
+        }
+
+        canvas {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
@@ -202,27 +219,26 @@
 
         <!-- Filter Options -->
         <div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
-            <button type="button" class="btn btn-secondary" onclick="filterTransactions('yearly')">Yearly</button>
-            <button type="button" class="btn btn-secondary" onclick="filterTransactions('monthly')">Monthly</button>
-            <button type="button" class="btn btn-secondary" onclick="filterTransactions('weekly')">Weekly</button>
-            <button type="button" class="btn btn-secondary" onclick="filterTransactions('daily')">Daily</button>
-            <button type="button" class="btn btn-warning" onclick="resetTransactions()">Reset</button>
+            <button type="button" class="btn btn-secondary" onclick="showTable('daily')">Daily</button>
+            <button type="button" class="btn btn-secondary" onclick="showTable('monthly')">Monthly</button>
+            <button type="button" class="btn btn-secondary" onclick="showTable('yearly')">Yearly</button>
         </div>
 
-        <div id="transactionHistory" class="transaction-history" style="display: none;">
-            <h2>Transaction History</h2>
+        <!-- Daily Transactions Table -->
+        <div id="dailyTable" class="transaction-history transaction-table">
+            <h2>Daily Transaction History</h2>
             <table class="table">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('id')">Transaction ID</th>
-                        <th onclick="sortTable('date')">Date</th>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th onclick="sortTable('amount')">Amount</th>
+                        <th>Amount</th>
                         <th>Balance</th>
                     </tr>
                 </thead>
-                <tbody id="transactionTableBody">
+                <tbody>
                     @if (Model.TransactionHistory != null)
                     {
                         @foreach (var transaction in Model.TransactionHistory)
@@ -240,10 +256,123 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Monthly Transactions Table -->
+        <div id="monthlyTable" class="transaction-history transaction-table">
+            <h2>Monthly Transaction History</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.TransactionHistoryMonth != null)
+                    {
+                        @foreach (var transaction in Model.TransactionHistoryMonth)
+                        {
+                            <tr>
+                                <td>@transaction.TransactionId</td>
+                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                                <td>@transaction.Description</td>
+                                <td>@transaction.Category</td>
+                                <td>@transaction.Amount.ToString("C")</td>
+                                <td>@transaction.RunningBalance.ToString("C")</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Yearly Transactions Table -->
+        <div id="yearlyTable" class="transaction-history transaction-table">
+            <h2>Yearly Transaction History</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.TransactionHistoryYear != null)
+                    {
+                        @foreach (var transaction in Model.TransactionHistoryYear)
+                        {
+                            <tr>
+                                <td>@transaction.TransactionId</td>
+                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                                <td>@transaction.Description</td>
+                                <td>@transaction.Category</td>
+                                <td>@transaction.Amount.ToString("C")</td>
+                                <td>@transaction.RunningBalance.ToString("C")</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Chart Containers -->
+        <div class="chart-container" id="monthlyIncomeExpenditureChartContainer">
+            <h2>Monthly Income vs Expenditure</h2>
+            <canvas id="monthlyIncomeExpenditureChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="yearlyIncomeExpenditureChartContainer">
+            <h2>Yearly Income vs Expenditure</h2>
+            <canvas id="yearlyIncomeExpenditureChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="categoryWiseExpenditureChartContainer">
+            <h2>Category-wise Expenditure</h2>
+            <canvas id="categoryWiseExpenditureChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="runningBalanceChartContainer">
+            <h2>Running Balance Over Time</h2>
+            <canvas id="runningBalanceChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="monthlyRunningBalanceChartContainer">
+            <h2>Monthly Running Balance</h2>
+            <canvas id="monthlyRunningBalanceChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="yearlyRunningBalanceChartContainer">
+            <h2>Yearly Running Balance</h2>
+            <canvas id="yearlyRunningBalanceChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="incomeDistributionChartContainer">
+            <h2>Income Distribution by Source</h2>
+            <canvas id="incomeDistributionChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="expenditureByCategoryOverTimeChartContainer">
+            <h2>Expenditure by Category Over Time</h2>
+            <canvas id="expenditureByCategoryOverTimeChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="savingsVsExpenditureChartContainer">
+            <h2>Savings vs Expenditure</h2>
+            <canvas id="savingsVsExpenditureChart"></canvas>
+        </div>
     </div>
 
     <script type="text/javascript">
         var originalTransactions = @Html.Raw(Json.Serialize(Model.TransactionHistory));
+        console.log("TEST TEST TEST - Original Transactions: " + originalTransactions);
         var filteredTransactions = [...originalTransactions];
 
         var linkToken = "@Model.LinkToken";
@@ -262,10 +391,12 @@
                     document.getElementById('bankDetails').style.display = 'block';
                     document.getElementById('transactionSummary').style.display = 'block';
                     document.getElementById('filterOptions').style.display = 'block';
-                    document.getElementById('transactionHistory').style.display = 'block';
 
-                    // Render transactions (mock data or fetched data)
-                    renderTransactions();
+                    // Initially show the daily table
+                    showTable('daily');
+
+                    // Show all charts
+                    showAllCharts();
                 }, 3000); // 3-second delay
             },
             onExit: function(err, metadata) {
@@ -281,6 +412,256 @@
         document.getElementById('linkButton').onclick = function() {
             handler.open();
         };
+
+        function showTable(tableId) {
+            // Hide all tables
+            document.querySelectorAll('.transaction-table').forEach(table => table.style.display = 'none');
+
+            // Show the selected table
+            document.getElementById(tableId + 'Table').style.display = 'block';
+        }
+
+        function showAllCharts() {
+            document.querySelectorAll('.chart-container').forEach(chart => chart.style.display = 'block');
+            renderCharts();
+        }
+
+        function renderCharts() {
+            var ctxMonthlyIncomeExpenditure = document.getElementById('monthlyIncomeExpenditureChart').getContext('2d');
+            var monthlyIncomeExpenditureChart = new Chart(ctxMonthlyIncomeExpenditure, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Select(t => t.TransactionDate.ToString("MMM yyyy")).Distinct())),
+                    datasets: [
+                        {
+                            label: 'Income',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Where(t => t.Amount > 0).GroupBy(t => new { t.TransactionDate.Year, t.TransactionDate.Month }).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Expenditure',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Where(t => t.Amount < 0).GroupBy(t => new { t.TransactionDate.Year, t.TransactionDate.Month }).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var ctxYearlyIncomeExpenditure = document.getElementById('yearlyIncomeExpenditureChart').getContext('2d');
+            var yearlyIncomeExpenditureChart = new Chart(ctxYearlyIncomeExpenditure, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Select(t => t.TransactionDate.Year).Distinct())),
+                    datasets: [
+                        {
+                            label: 'Income',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Where(t => t.Amount > 0).GroupBy(t => t.TransactionDate.Year).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Expenditure',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Where(t => t.Amount < 0).GroupBy(t => t.TransactionDate.Year).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var ctxCategoryWiseExpenditure = document.getElementById('categoryWiseExpenditureChart').getContext('2d');
+            var categoryWiseExpenditureChart = new Chart(ctxCategoryWiseExpenditure, {
+                type: 'pie',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category).Distinct())),
+                    datasets: [{
+                        label: 'Expenditure by Category',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+            var ctxRunningBalance = document.getElementById('runningBalanceChart').getContext('2d');
+            var runningBalanceChart = new Chart(ctxRunningBalance, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate.ToString("MM/dd/yyyy")))),
+                    datasets: [{
+                        label: 'Running Balance',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.RunningBalance))),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            var ctxMonthlyRunningBalance = document.getElementById('monthlyRunningBalanceChart').getContext('2d');
+            var monthlyRunningBalanceChart = new Chart(ctxMonthlyRunningBalance, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Select(t => t.TransactionDate.ToString("MMM yyyy")).Distinct())),
+                    datasets: [{
+                        label: 'Monthly Running Balance',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Select(t => t.RunningBalance))),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            var ctxYearlyRunningBalance = document.getElementById('yearlyRunningBalanceChart').getContext('2d');
+            var yearlyRunningBalanceChart = new Chart(ctxYearlyRunningBalance, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Select(t => t.TransactionDate.Year).Distinct())),
+                    datasets: [{
+                        label: 'Yearly Running Balance',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Select(t => t.RunningBalance))),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            var ctxIncomeDistribution = document.getElementById('incomeDistributionChart').getContext('2d');
+            var incomeDistributionChart = new Chart(ctxIncomeDistribution, {
+                type: 'pie',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).Select(t => t.Category).Distinct())),
+                    datasets: [{
+                        label: 'Income Distribution',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+            var ctxExpenditureByCategoryOverTime = document.getElementById('expenditureByCategoryOverTimeChart').getContext('2d');
+            var expenditureByCategoryOverTimeChart = new Chart(ctxExpenditureByCategoryOverTime, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate.ToString("MM/dd/yyyy")))),
+                    datasets: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => new {
+                        label = g.Key,
+                        data = g.Select(t => t.Amount)
+                    })))
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var ctxSavingsVsExpenditure = document.getElementById('savingsVsExpenditureChart').getContext('2d');
+            var savingsVsExpenditureChart = new Chart(ctxSavingsVsExpenditure, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Savings', 'Expenditure'],
+                    datasets: [{
+                        label: 'Savings vs Expenditure',
+                        data: [@Html.Raw(Model.TotalIncome - Model.TotalExpenditure), @Html.Raw(Model.TotalExpenditure)],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
     </script>
 
     <!-- Bootstrap JS -->
