@@ -60,9 +60,9 @@
         var url;
         console.log("dataType: " + dataType);
         if (dataType === "TIME_SERIES_INTRADAY") {
-            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=demo`;
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=9BVUSB1M1HFQGJ3L`;
         } else {
-            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=demo`;
+            url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=9BVUSB1M1HFQGJ3L`;
         }
         console.log(url);
         fetch(url)

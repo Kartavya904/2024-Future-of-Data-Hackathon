@@ -14,6 +14,22 @@
     <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+
+        #loadingScreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 20%;
+            z-index: 1000;
+        }
+
         body {
             background-color: #122953;
             font-family: 'Poppins', sans-serif;
@@ -75,7 +91,6 @@
             color: #f0f0f0;
         }
 
-<<<<<<< HEAD
         .connect-bank-section {
             padding: 60px 0;
             background-color: #1b2b3a;
@@ -118,7 +133,8 @@
             color: #292959;
             transform: scale(1.05);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-=======
+        }
+        
         .transaction-summary {
             margin: 20px 0;
             text-align: center;
@@ -189,7 +205,6 @@
         canvas {
             background-color: #f0f0f0;
             border-radius: 8px;
->>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
         }
     </style>
 </head>
@@ -231,19 +246,16 @@
             </div>
         </div>
 
-        <form id="plaidForm">
-            @Html.AntiForgeryToken()
-        </form>
-<<<<<<< HEAD
         <section class="connect-bank-section">
             <div class="container text-center">
                 <h3>Connect Your Bank</h3>
                 <p class="mb-4">Easily link your bank account to FinVest for seamless financial tracking and management.</p>
+                <form id="plaidForm">
+                    @Html.AntiForgeryToken()
+                </form>
                 <button id="linkButton" class="btn btn-connect-bank">Connect Your Bank</button>
             </div>
         </section>
-=======
-        <button id="linkButton" class="btn btn-primary mt-3">Connect your bank</button>
 
         <!-- Bank Details Section (hidden until successful connection) -->
         <div id="bankDetails" style="display: none;">
@@ -428,27 +440,19 @@
             <h2>Savings vs Expenditure</h2>
             <canvas id="savingsVsExpenditureChart"></canvas>
         </div>
->>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
     </div>
 
     <script type="text/javascript">
         var originalTransactions = @Html.Raw(Json.Serialize(Model.TransactionHistory));
-        console.log("TEST TEST TEST - Original Transactions: " + originalTransactions);
         var filteredTransactions = [...originalTransactions];
 
         var linkToken = "@Model.LinkToken";
 
         var handler = Plaid.create({
             token: linkToken,
-<<<<<<< HEAD
             onSuccess: function (public_token, metadata) {
                 // Get the anti-forgery token from the form
                 var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-=======
-            onSuccess: function(public_token, metadata) {
-                // Show loading screen
-                document.getElementById('loadingScreen').style.display = 'block';
->>>>>>> cadce713b52a17a8b6ef9f303486d629974c20cd
 
                 // Simulate data fetching or processing
                 setTimeout(function() {
