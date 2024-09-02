@@ -317,14 +317,58 @@
     </div>
 
     <!-- JavaScript Functions -->
-   <script>
-        let logged = 0; // Global variable to track if the user is logged in
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+    <script>
+        let db;
+        let currentUser = null;
 
-        const users = {}; // Object to store users (simulates a JSON file)
+        const current_user = {};
+
+        async function initDatabase() {
+            const SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}` });
+
+            // Check if there's already a database saved in localStorage
+            const savedDb = localStorage.getItem('finvest_db');
+            if (savedDb) {
+                const binaryArray = Uint8Array.from(atob(savedDb), c => c.charCodeAt(0));
+                db = new SQL.Database(binaryArray);
+            } else {
+                db = new SQL.Database();
+                createTables();
+            }
+        }
+
+        function createTables() {
+            const sqlCreateTables = `
+                CREATE TABLE IF NOT EXISTS Users (
+                    UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Username VARCHAR(100) NOT NULL,
+                    FullName VARCHAR(100) NOT NULL,
+                    Email VARCHAR(100) NOT NULL UNIQUE,
+                    Password VARCHAR(100) NOT NULL,
+                    PhoneNumber VARCHAR(20),
+                    DateOfBirth DATE,
+                    Country VARCHAR(100),
+                    Currency VARCHAR(50),
+                    AnnualIncome VARCHAR(50),
+                    RiskTolerance VARCHAR(50),
+                    InvestmentExperience VARCHAR(50),
+                    InvestmentGoals TEXT
+                );
+            `;
+            db.exec(sqlCreateTables);
+            saveDatabase(); // Save the database after creating the tables
+        }
+
+        function saveDatabase() {
+            const data = db.export();
+            const base64Data = btoa(String.fromCharCode.apply(null, data));
+            localStorage.setItem('finvest_db', base64Data);
+        }
         
         function checkLoginStatus() {
-            if (logged === 1) {
-                const fullName = "John Doe"; // Replace with actual logic to retrieve the full name
+            if (currentUser && current_user.fullname) {
+                const fullName = current_user.fullname; // Replace with actual logic to retrieve the full name
                 const initials = fullName.split(' ').map(name => name[0]).join('');
                 document.getElementById('navbarContent').innerHTML = `
                     <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
@@ -360,25 +404,15 @@
             // Close the sign-up modal and open the additional info modal
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
             signUpModal.hide();
-
-            // Store the initial sign-up information
-            users[email] = { password: password };
-
-            // Set logged to 1 since the user has signed up
-            logged = 1;
-
-            // Show additional info modal
-            showAdditionalInfo();
-
-            // Update the navbar to reflect login status
-            checkLoginStatus();
+            currentUser = 1;
+            saveDatabase();
+            showAdditionalInfo(email, password);
         }
 
-        function submitAdditionalInfo() {
+        async function submitAdditionalInfo(email, password) {
             // Retrieve all form data
             const username = document.getElementById('username').value;
             const fullName = document.getElementById('full-name').value;
-            const email = document.getElementById('sign-up-email').value; // Assuming this is the same as the one entered initially
             const phoneNumber = document.getElementById('phone-number').value;
             const dateOfBirth = document.getElementById('dob').value;
             const country = document.getElementById('country').value;
@@ -388,31 +422,94 @@
             const investmentExperience = document.getElementById('investment-experience').value;
             const investmentGoals = document.getElementById('investment-goals').value;
 
+            const existingUser = db.exec("SELECT * FROM Users WHERE Email = '" + email + "'");
+            if (existingUser.length > 0) {
+                alert('Email already exists.');
+                return;
+            }
+
+            const sqlInsertUser = `
+                INSERT INTO Users (Username, FullName, Email, Password, PhoneNumber, DateOfBirth, Country, Currency, AnnualIncome, RiskTolerance, InvestmentExperience, InvestmentGoals) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            db.exec({
+                sql: sqlInsertUser,
+                bind: [
+                    username,
+                    fullName,
+                    email,
+                    password,
+                    phoneNumber,
+                    dateOfBirth,
+                    country,
+                    currency,
+                    annualIncome,
+                    riskTolerance,
+                    investmentExperience,
+                    investmentGoals
+                ]
+            });
+
+            current_user.username = username;
+            current_user.fullName = fullName;
+            current_user.email = email;
+            current_user.phoneNumber = phoneNumber;
+            current_user.dateOfBirth = dateOfBirth;
+            current_user.country = country;
+            current_user.currency = currency;
+            current_user.annualIncome = annualIncome;
+            current_user.riskTolerance = riskTolerance;
+            current_user.investmentExperience = investmentExperience;
+            current_user.investmentGoals = investmentGoals;
+
+            alert('Sign up successful!');
+            saveDatabase();
+            checkLoginStatus();
             // Redirect to the Finances page with the data as query parameters
             const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
             console.log(url);
             window.location.href = url;
         }
 
-        function login() {
+        async function login() {
             // Gather login credentials
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
 
-            // Check if the user exists and the password matches
-            if (users[email] && users[email].password === password) {
-                // Login successful, set logged to 1
-                logged = 1;
+            // Query the database to check if the user exists and the password matches
+            const userQuery = db.exec(`SELECT * FROM Users WHERE Email = '${email}' AND Password = '${password}'`);
 
-                // Update the navbar to show the user's initials
-                const fullName = "John Doe"; // Replace with actual logic to retrieve the full name
-                const initials = fullName.split(' ').map(name => name[0]).join('');
-                document.getElementById('navbarContent').innerHTML = `
-                    <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
-                `;
-                
-                // Redirect to Finances page
-                window.location.href = "/Finances";
+            if (userQuery.length > 0) {
+                const user = userQuery[0].values[0];
+
+                const username = user[1];
+                const fullName = user[2];
+                const phoneNumber = user[4];
+                const dateOfBirth = user[5];
+                const country = user[6];
+                const currency = user[7];
+                const annualIncome = user[8];
+                const riskTolerance = user[9];
+                const investmentExperience = user[10];
+                const investmentGoals = user[11];
+
+                current_user.username = username;
+                current_user.fullName = fullName;
+                current_user.email = email;
+                current_user.phoneNumber = phoneNumber;
+                current_user.dateOfBirth = dateOfBirth;
+                current_user.country = country;
+                current_user.currency = currency;
+                current_user.annualIncome = annualIncome;
+                current_user.riskTolerance = riskTolerance;
+                current_user.investmentExperience = investmentExperience;
+                current_user.investmentGoals = investmentGoals;
+
+                // Construct the URL with the query parameters
+                const url = `/Finances?username=${encodeURIComponent(username)}&fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phoneNumber=${encodeURIComponent(phoneNumber)}&dateOfBirth=${encodeURIComponent(dateOfBirth)}&country=${encodeURIComponent(country)}&currency=${encodeURIComponent(currency)}&annualIncome=${encodeURIComponent(annualIncome)}&riskTolerance=${encodeURIComponent(riskTolerance)}&investmentExperience=${encodeURIComponent(investmentExperience)}&investmentGoals=${encodeURIComponent(investmentGoals)}`;
+                saveDatabase();
+                // Redirect to the constructed URL
+                window.location.href = url;
             } else {
                 // Login failed, show an error message
                 alert('Invalid email or password.');
@@ -433,6 +530,8 @@
 
         // Check the login status on page load
         document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        document.addEventListener('DOMContentLoaded', initDatabase);
+
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
