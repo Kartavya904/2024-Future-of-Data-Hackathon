@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+
+<div class="container">
+    <h1>StockWave Dashboard</h1>
+    <canvas id="stockChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var stockData = @Html.Raw(Json.Serialize(Model.StockData.TimeSeriesDaily));
+
+    // Extracting dates (keys) and closing prices (values)
+    var labels = Object.keys(stockData).reverse(); // Dates (labels), reverse to display from oldest to newest
+    var data = labels.map(label => parseFloat(stockData[label]["4. close"])); // Closing prices
+
+    var ctx = document.getElementById('stockChart').getContext('2d');
+    var stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Stock Prices',
+                data: data,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Stock Price Over Time'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Date'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Price (USD)'
+                    }
+                }
+            }
+        }
+    });
+</script>
