@@ -58,12 +58,13 @@
     });
     function fetchStockData(symbol, interval, dataType) {
         var url;
+        console.log("dataType: " + dataType);
         if (dataType === "TIME_SERIES_INTRADAY") {
             url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=X70D45ERF28YDBJV`;
         } else {
             url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=X70D45ERF28YDBJV`;
         }
-
+        console.log(url);
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -72,8 +73,8 @@
                 return response.json();
             })
             .then(data => {
-                console.log(data);  // Log the data here to inspect it
-                updateChart(data);
+                console.log("data: " + data + " dataType: " + dataType);
+                updateChart(data, dataType)
             })
             .catch(error => console.error('Error fetching stock data:', error));
     }
@@ -118,9 +119,13 @@
     var data = labels.map(label => parseFloat(timeSeries[label]["4. close"]));
 
     var ctx = document.getElementById('stockChart').getContext('2d');
-    if (window.stockChart) {
-        window.stockChart.destroy(); // Destroy the old chart instance
+
+    // Check if a chart instance already exists and destroy it
+    if (window.stockChart instanceof Chart) {
+        window.stockChart.destroy();
     }
+
+    // Create a new chart instance
     window.stockChart = new Chart(ctx, {
         type: 'line',
         data: {
