@@ -385,7 +385,31 @@
                 if (request.result) {
                     callback(request.result);
                 } else {
-                    console.error("User not found.");
+                    alert("User Not Found!");
+                }
+            };
+
+            request.onerror = function(event) {
+                console.error("Error retrieving user: " + event.target.errorCode);
+            };
+        }
+
+        function getUserByEmailSignUp(email, callback) {
+            let transaction = db.transaction(["Users"], "readonly");
+            let objectStore = transaction.objectStore("Users");
+            let index = objectStore.index("Email");
+
+            let request = index.get(email);
+
+            request.onsuccess = function(event) {
+                if (request.result) {
+                    callback(request.result);
+                } else {
+                    console.error("Create an account!");
+                    const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
+                    signUpModal.hide();
+                    currentUser = 1;
+                    showAdditionalInfo();
                 }
             };
 
@@ -453,10 +477,12 @@
             const password = document.getElementById('sign-up-password').value;
 
             // Close the sign-up modal and open the additional info modal
-            const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
-            signUpModal.hide();
-            currentUser = 1;
-            showAdditionalInfo();
+            getUserByEmailSignUp(email, function(user) {
+                if (user) {
+                    alert("Email already registered! Please Log In!")
+                    return
+                }
+            });
         }
 
         function submitAdditionalInfo() {
@@ -500,7 +526,6 @@
         function login() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
-
             getUserByEmail(email, function(user) {
                 if (user && user.Password === password) {
                     console.log("Login successful!");
@@ -520,7 +545,7 @@
                     // Redirect to the desired page with the user details
                     const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
                     window.location.href = url;
-                } else {
+                } else if (user && user.Password != password) {
                     alert("Invalid email or password.");
                 }
             });
