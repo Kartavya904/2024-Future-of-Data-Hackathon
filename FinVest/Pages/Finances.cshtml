@@ -13,23 +13,9 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
     <style>
-
-        #loadingScreen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 2em;
-            text-align: center;
-            padding-top: 20%;
-            z-index: 1000;
-        }
-
         body {
             background-color: #122953;
             font-family: 'Poppins', sans-serif;
@@ -206,6 +192,21 @@
             background-color: #f0f0f0;
             border-radius: 8px;
         }
+
+        #loadingScreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 20%;
+            z-index: 1000;
+        }
     </style>
 </head>
 
@@ -222,7 +223,7 @@
 
             <div class="card">
                 <h3><i class="bi bi-currency-dollar"></i>Preferred Currency:</h3>
-                <p>@Model.CurrencyMultiplier</p>
+                <p>@Model.Currency - @Model.CurrencySymbol</p>
             </div>
 
             <div class="card">
@@ -285,8 +286,8 @@
         <!-- Transaction Summary -->
         <div id="transactionSummary" class="transaction-summary" style="display: none;">
             <p>Total Transactions: <strong>@Model.TotalTransactions</strong></p>
-            <p>Total Income: <strong>@Model.TotalIncome.ToString("C")</strong></p>
-            <p>Total Expenditure: <strong>@Model.TotalExpenditure.ToString("C")</strong></p>
+            <p>Total Income: <strong>@Model.CurrencySymbol@Model.TotalIncome.ToString("N2")</strong></p>
+            <p>Total Expenditure: <strong>@Model.CurrencySymbol@Model.TotalExpenditure.ToString("N2")</strong></p>
         </div>
 
         <!-- Filter Options -->
@@ -320,8 +321,8 @@
                                 <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
                                 <td>@transaction.Description</td>
                                 <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("C")</td>
-                                <td>@transaction.RunningBalance.ToString("C")</td>
+                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                             </tr>
                         }
                     }
@@ -350,11 +351,11 @@
                         {
                             <tr>
                                 <td>@transaction.TransactionId</td>
-                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                                <td>@transaction.TransactionDate.ToString("MM/yyyy")</td>
                                 <td>@transaction.Description</td>
                                 <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("C")</td>
-                                <td>@transaction.RunningBalance.ToString("C")</td>
+                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                             </tr>
                         }
                     }
@@ -383,11 +384,11 @@
                         {
                             <tr>
                                 <td>@transaction.TransactionId</td>
-                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                                <td>@transaction.TransactionDate.ToString("yyyy")</td>
                                 <td>@transaction.Description</td>
                                 <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("C")</td>
-                                <td>@transaction.RunningBalance.ToString("C")</td>
+                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                             </tr>
                         }
                     }
@@ -426,20 +427,33 @@
             <canvas id="yearlyRunningBalanceChart"></canvas>
         </div>
 
-        <div class="chart-container" id="incomeDistributionChartContainer">
-            <h2>Income Distribution by Source</h2>
-            <canvas id="incomeDistributionChart"></canvas>
+        <!-- New 3D Charts -->
+
+        <div class="chart-container" id="3dPieChartContainer">
+            <h2>3D Pie Chart of Expenditure Categories</h2>
+            <canvas id="3dPieChart"></canvas>
         </div>
 
-        <div class="chart-container" id="expenditureByCategoryOverTimeChartContainer">
-            <h2>Expenditure by Category Over Time</h2>
-            <canvas id="expenditureByCategoryOverTimeChart"></canvas>
+        <div class="chart-container" id="3dBarChartContainer">
+            <h2>3D Bar Chart of Monthly Savings</h2>
+            <canvas id="3dBarChart"></canvas>
         </div>
 
-        <div class="chart-container" id="savingsVsExpenditureChartContainer">
-            <h2>Savings vs Expenditure</h2>
-            <canvas id="savingsVsExpenditureChart"></canvas>
+        <div class="chart-container" id="3dLineChartContainer">
+            <h2>3D Line Chart of Annual Income vs Expenditure</h2>
+            <canvas id="3dLineChart"></canvas>
         </div>
+
+        <div class="chart-container" id="3dDoughnutChartContainer">
+            <h2>3D Doughnut Chart of Income Distribution</h2>
+            <canvas id="3dDoughnutChart"></canvas>
+        </div>
+
+        <div class="chart-container" id="categoryBarChartContainer">
+            <h2>Bar Chart of Expenditure by Category</h2>
+            <canvas id="categoryBarChart"></canvas>
+        </div>
+
     </div>
 
     <script type="text/javascript">
@@ -452,6 +466,7 @@
             token: linkToken,
             onSuccess: function (public_token, metadata) {
                 // Get the anti-forgery token from the form
+                document.getElementById('loadingScreen').style.display = 'block';
                 var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
                 // Simulate data fetching or processing
@@ -658,21 +673,145 @@
                 }
             });
 
-            var ctxIncomeDistribution = document.getElementById('incomeDistributionChart').getContext('2d');
-            var incomeDistributionChart = new Chart(ctxIncomeDistribution, {
+            // 3D Pie Chart of Expenditure Categories
+            var ctx3dPieChart = document.getElementById('3dPieChart').getContext('2d');
+            var pieChart = new Chart(ctx3dPieChart, {
                 type: 'pie',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category).Distinct())),
+                    datasets: [{
+                        label: 'Expenditure by Category',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        datalabels: {
+                            display: true,
+                            color: 'white'
+                        },
+                        chart3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 45,
+                            depth: 100
+                        }
+                    }
+                }
+            });
+
+            // 3D Bar Chart of Monthly Savings
+            var ctx3dBarChart = document.getElementById('3dBarChart').getContext('2d');
+            var barChart = new Chart(ctx3dBarChart, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Select(t => t.TransactionDate.ToString("MMM yyyy")).Distinct())),
+                    datasets: [
+                        {
+                            label: 'Monthly Savings',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.Select(t => t.RunningBalance))),
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        datalabels: {
+                            display: true,
+                            color: 'white'
+                        },
+                        chart3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 45,
+                            depth: 100
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // 3D Line Chart of Annual Income vs Expenditure
+            var ctx3dLineChart = document.getElementById('3dLineChart').getContext('2d');
+            var lineChart = new Chart(ctx3dLineChart, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Select(t => t.TransactionDate.Year).Distinct())),
+                    datasets: [
+                        {
+                            label: 'Annual Income',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Where(t => t.Amount > 0).GroupBy(t => t.TransactionDate.Year).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Annual Expenditure',
+                            data: @Html.Raw(Json.Serialize(Model.TransactionHistoryYear.Where(t => t.Amount < 0).GroupBy(t => t.TransactionDate.Year).Select(g => g.Sum(t => t.Amount)))),
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        datalabels: {
+                            display: true,
+                            color: 'white'
+                        },
+                        chart3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 45,
+                            depth: 100
+                        }
+                    }
+                }
+            });
+
+            // 3D Doughnut Chart of Income Distribution
+            var ctx3dDoughnutChart = document.getElementById('3dDoughnutChart').getContext('2d');
+            var doughnutChart = new Chart(ctx3dDoughnutChart, {
+                type: 'doughnut',
                 data: {
                     labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).Select(t => t.Category).Distinct())),
                     datasets: [{
                         label: 'Income Distribution',
                         data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
                         backgroundColor: [
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 206, 86, 0.2)'
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(255, 206, 86, 0.6)'
                         ],
                         borderColor: [
                             'rgba(75, 192, 192, 1)',
@@ -686,50 +825,43 @@
                     }]
                 },
                 options: {
-                    responsive: true
-                }
-            });
-
-            var ctxExpenditureByCategoryOverTime = document.getElementById('expenditureByCategoryOverTimeChart').getContext('2d');
-            var expenditureByCategoryOverTimeChart = new Chart(ctxExpenditureByCategoryOverTime, {
-                type: 'bar',
-                data: {
-                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate.ToString("MM/dd/yyyy")))),
-                    datasets: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => new {
-                        label = g.Key,
-                        data = g.Select(t => t.Amount)
-                    })))
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                    responsive: true,
+                    plugins: {
+                        datalabels: {
+                            display: true,
+                            color: 'white'
+                        },
+                        chart3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 45,
+                            depth: 100
                         }
                     }
                 }
             });
 
-            var ctxSavingsVsExpenditure = document.getElementById('savingsVsExpenditureChart').getContext('2d');
-            var savingsVsExpenditureChart = new Chart(ctxSavingsVsExpenditure, {
-                type: 'doughnut',
+            // Bar Chart of Expenditure by Category
+            var ctxCategoryBarChart = document.getElementById('categoryBarChart').getContext('2d');
+            var categoryBarChart = new Chart(ctxCategoryBarChart, {
+                type: 'bar',
                 data: {
-                    labels: ['Savings', 'Expenditure'],
+                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category).Distinct())),
                     datasets: [{
-                        label: 'Savings vs Expenditure',
-                        data: [@Html.Raw(Model.TotalIncome - Model.TotalExpenditure), @Html.Raw(Model.TotalExpenditure)],
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(255, 99, 132, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(255, 99, 132, 1)'
-                        ],
+                        label: 'Expenditure by Category',
+                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    responsive: true
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
                 }
             });
         }

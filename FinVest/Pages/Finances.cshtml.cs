@@ -15,6 +15,7 @@ namespace FinVest.Pages
         public DateTime DateOfBirth { get; set; }
         public string Country { get; set; }
         public string Currency { get; set; } 
+        public string CurrencySymbol { get; set; } // Added CurrencySymbol
         public string AnnualIncome { get; set; }
         public string RiskTolerance { get; set; }
         public string InvestmentExperience { get; set; }
@@ -73,7 +74,32 @@ namespace FinVest.Pages
             DateOfBirth = dateOfBirth;
             Country = country;
             Currency = currency;
+            // Determine CurrencySymbol and CurrencyMultiplier based on selected currency
+            (CurrencySymbol, CurrencyMultiplier) = currency switch
+            {
+                "USD" => ("$", 1.00),
+                "EUR" => ("€", 0.85),
+                "INR" => ("₹", 75.00),
+                "GBP" => ("£", 0.75),
+                "JPY" => ("¥", 110.00),
+                "CNY" => ("¥", 6.45),
+                "RUB" => ("₽", 73.50),
+                "BRL" => ("R$", 5.20),
+                "AUD" => ("A$", 1.35),
+                "CAD" => ("C$", 1.25),
+                _ => ("$", 1.00),
+            };
             AnnualIncome = annualIncome;
+            // Determine IncomeMultiplier based on selected annual income
+            IncomeMultiplier = annualIncome switch
+            {
+                "Less than $5,000" => 0.05,
+                "$5,000 - $10,000" => 0.10,
+                "$10,000 - $25,000" => 0.175,
+                "$25,000 - $100,000" => 0.625,
+                "More than $100,000" => 1.00,
+                _ => 1.00,
+            };
             RiskTolerance = riskTolerance;
             InvestmentExperience = investmentExperience;
             InvestmentGoals = investmentGoals;
