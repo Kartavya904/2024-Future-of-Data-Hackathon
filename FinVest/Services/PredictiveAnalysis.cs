@@ -1,6 +1,8 @@
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using FinVest.Models;
+using System.IO;
+using System.Linq;
 
 namespace FinVest.Services
 {
@@ -16,6 +18,9 @@ namespace FinVest.Services
 
         public void TrainModel(string dataPath)
         {
+            // Preprocess the CSV file to remove $ symbols
+            PreprocessData(dataPath);
+
             // Load the data from the CSV file
             IDataView dataView = _mlContext.Data.LoadFromTextFile<StockDataModel>(dataPath, hasHeader: true, separatorChar: ',');
 
@@ -25,6 +30,22 @@ namespace FinVest.Services
 
             // Train the model
             _model = pipeline.Fit(dataView);
+        }
+
+        private void PreprocessData(string dataPath)
+        {
+            var lines = File.ReadAllLines(dataPath);
+            var preprocessedLines = lines.Select((line, index) =>
+            {
+                if (index == 0) return line; // Keep header
+                var columns = line.Split(',');
+                for (int i = 1; i <= 5; i++) // Columns that need $ removal (Close, Volume, Open, High, Low)
+                {
+                    columns[i] = columns[i].Replace("$", "").Trim();
+                }
+                return string.Join(",", columns);
+            });
+            File.WriteAllLines(dataPath, preprocessedLines);
         }
 
         public float Predict(StockDataModel input)

@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.AI.TextAnalytics" Version="5.1.0" />
-    <PackageReference Include="Microsoft.ML" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.28.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Plaid.Net" Version="1.2.5" />

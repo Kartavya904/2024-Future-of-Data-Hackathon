@@ -5,16 +5,3 @@ public class Stock
     public decimal PurchasePrice { get; set; }  // New property
     public int Shares { get; set; }
 }
-
-namespace FinVest.Models
-{
-    public class StockDataModel
-    {
-        public float Open { get; set; }
-        public float High { get; set; }
-        public float Low { get; set; }
-        public float Close { get; set; }
-        public float Volume { get; set; }
-    }
-}
-

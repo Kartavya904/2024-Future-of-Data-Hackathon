@@ -9,7 +9,7 @@
       "FinVest/1.0.0": {
         "dependencies": {
           "Azure.AI.TextAnalytics": "5.1.0",
-          "Microsoft.ML": "3.0.1",
+          "Microsoft.ML": "1.7.1",
           "MongoDB.Driver": "2.28.0",
           "Newtonsoft.Json": "13.0.3",
           "Plaid.Net": "1.2.5",
@@ -98,12 +98,12 @@
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/2.0.0": {},
-      "Microsoft.ML/3.0.1": {
+      "Microsoft.ML/1.7.1": {
         "dependencies": {
-          "Microsoft.ML.CpuMath": "3.0.1",
-          "Microsoft.ML.DataView": "3.0.1",
+          "Microsoft.ML.CpuMath": "1.7.1",
+          "Microsoft.ML.DataView": "1.7.1",
           "Newtonsoft.Json": "13.0.3",
-          "System.CodeDom": "4.5.0",
+          "System.CodeDom": "4.4.0",
           "System.Collections.Immutable": "1.5.0",
           "System.Memory": "4.5.5",
           "System.Reflection.Emit.Lightweight": "4.3.0",
@@ -112,31 +112,31 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.Core.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.Data.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.PCA.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           },
           "lib/netstandard2.0/Microsoft.ML.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           }
         },
         "runtimeTargets": {
@@ -165,35 +165,27 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
-          "runtimes/win-arm64/native/LdaNative.dll": {
-            "rid": "win-arm64",
-            "assetType": "native",
-            "fileVersion": "0.2100.124.6804"
-          },
           "runtimes/win-x64/native/LdaNative.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.2100.124.6804"
+            "fileVersion": "0.1900.122.15804"
           },
           "runtimes/win-x86/native/LdaNative.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.2100.124.6804"
+            "fileVersion": "0.1900.122.15804"
           }
         }
       },
-      "Microsoft.ML.CpuMath/3.0.1": {
-        "dependencies": {
-          "System.Numerics.Tensors": "8.0.0"
-        },
+      "Microsoft.ML.CpuMath/1.7.1": {
         "runtime": {
-          "lib/net6.0/Microsoft.ML.CpuMath.dll": {
+          "lib/netcoreapp3.1/Microsoft.ML.CpuMath.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           }
         }
       },
-      "Microsoft.ML.DataView/3.0.1": {
+      "Microsoft.ML.DataView/1.7.1": {
         "dependencies": {
           "System.Collections.Immutable": "1.5.0",
           "System.Memory": "4.5.5"
@@ -201,7 +193,7 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.DataView.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "3.0.124.6804"
+            "fileVersion": "1.700.122.15804"
           }
         }
       },
@@ -328,11 +320,11 @@
         }
       },
       "System.Buffers/4.5.1": {},
-      "System.CodeDom/4.5.0": {
+      "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.6.26515.6"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
@@ -357,14 +349,6 @@
           "lib/netstandard2.0/System.Memory.Data.dll": {
             "assemblyVersion": "1.0.2.0",
             "fileVersion": "1.0.221.20802"
-          }
-        }
-      },
-      "System.Numerics.Tensors/8.0.0": {
-        "runtime": {
-          "lib/net8.0/System.Numerics.Tensors.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
           }
         }
       },
@@ -504,26 +488,26 @@
       "path": "microsoft.extensions.logging.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
     },
-    "Microsoft.ML/3.0.1": {
+    "Microsoft.ML/1.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AE4DFwsDNVM5+2RVH3X9mRsqPSs+DrEd7TVA5TyLxPEerQC8wl5YTVQOVMsWCp2AroWGXEIny8xyXdOXfC+9BA==",
-      "path": "microsoft.ml/3.0.1",
-      "hashPath": "microsoft.ml.3.0.1.nupkg.sha512"
+      "sha512": "sha512-t33nUR6A8VwYMInbsEM5eSGJaHWdScikAX7mER0Yh0H4e85W7FRw0KBlCixHHuivSF2y7ez+2IGpfb2PUgVVow==",
+      "path": "microsoft.ml/1.7.1",
+      "hashPath": "microsoft.ml.1.7.1.nupkg.sha512"
     },
-    "Microsoft.ML.CpuMath/3.0.1": {
+    "Microsoft.ML.CpuMath/1.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uVDD37oZMzPOtSpiACtVSOin7++4qohkAhsMO2l+90AToNPjatKTd6XiJoVI3+k7gxnP6UL7WJSafWOq4/s2KQ==",
-      "path": "microsoft.ml.cpumath/3.0.1",
-      "hashPath": "microsoft.ml.cpumath.3.0.1.nupkg.sha512"
+      "sha512": "sha512-kkUm/o1pBFAtRI+5LRwtJpvXhf8l8YyeQ8OYZNkTGrn5exn5C3YrwrRRX3fDz7yPPKA38XY4EPy2WVltArO0aw==",
+      "path": "microsoft.ml.cpumath/1.7.1",
+      "hashPath": "microsoft.ml.cpumath.1.7.1.nupkg.sha512"
     },
-    "Microsoft.ML.DataView/3.0.1": {
+    "Microsoft.ML.DataView/1.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mkZt1r6Nx5CAoD3klhC7VMQFzwWMHHjoYpv3X9u+GMvTMbSRaDdiA88HUoOzT7kCeq4/L1nKctmrByhLK28Xjw==",
-      "path": "microsoft.ml.dataview/3.0.1",
-      "hashPath": "microsoft.ml.dataview.3.0.1.nupkg.sha512"
+      "sha512": "sha512-j7BwSzNJUjxI8aSkzv4yCi0/kem1mYFVWiuLQcG0vcMEs3BNqvkunt+qdRmUMYuPY7/9AK22a70laAxjcJ2GGA==",
+      "path": "microsoft.ml.dataview/1.7.1",
+      "hashPath": "microsoft.ml.dataview.1.7.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
@@ -616,12 +600,12 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
-    "System.CodeDom/4.5.0": {
+    "System.CodeDom/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gqpR1EeXOuzNQWL7rOzmtdIz3CaXVjSQCiaGOs2ivjPwynKSJYm39X81fdlp7WuojZs/Z5t1k5ni7HtKQurhjw==",
-      "path": "system.codedom/4.5.0",
-      "hashPath": "system.codedom.4.5.0.nupkg.sha512"
+      "sha512": "sha512-2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
+      "path": "system.codedom/4.4.0",
+      "hashPath": "system.codedom.4.4.0.nupkg.sha512"
     },
     "System.Collections.Immutable/1.5.0": {
       "type": "package",
@@ -657,13 +641,6 @@
       "sha512": "sha512-JGkzeqgBsiZwKJZ1IxPNsDFZDhUvuEdX8L8BDC8N3KOj+6zMcNU28CNN59TpZE/VJYy9cP+5M+sbxtWJx3/xtw==",
       "path": "system.memory.data/1.0.2",
       "hashPath": "system.memory.data.1.0.2.nupkg.sha512"
-    },
-    "System.Numerics.Tensors/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-fhODzTe9ON9IzmRfyVeA6L8yXOciMtpq1YufkRVBliggcVKZE+XDxqIn46+yF4PWR6wNPuDpXtPpuY86VcKxUA==",
-      "path": "system.numerics.tensors/8.0.0",
-      "hashPath": "system.numerics.tensors.8.0.0.nupkg.sha512"
     },
     "System.Numerics.Vectors/4.5.0": {
       "type": "package",
