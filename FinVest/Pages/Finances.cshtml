@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
             background-color: #122953;
@@ -612,28 +613,15 @@
     </div>
 
     <div class="chart-container card" id="3dBarChartContainer">
-        <h2>3D Bar Chart of Monthly Savings</h2>
+        <h2>Monthly Savings</h2>
         <canvas id="3dBarChart"></canvas>
     </div>
 </div>
 
 <!-- Fourth Row -->
 <div class="chart-row">
-    <div class="chart-container card" id="categoryWiseExpenditureChartContainer">
-        <h2>Category-wise Expenditure</h2>
-        <canvas id="categoryWiseExpenditureChart"></canvas>
-    </div>
-
-    <div class="chart-container card" id="3dPieChartContainer">
-        <h2>3D Pie Chart of Expenditure Categories</h2>
-        <canvas id="3dPieChart"></canvas>
-    </div>
-</div>
-
-<!-- Fifth Row -->
-<div class="chart-row">
     <div class="chart-container card" id="3dLineChartContainer">
-        <h2>3D Line Chart of Annual Income vs Expenditure</h2>
+        <h2>Line Chart of Annual Income vs Expenditure</h2>
         <canvas id="3dLineChart"></canvas>
     </div>
     
@@ -643,11 +631,42 @@
     </div>
 </div>
 
+<!-- Fifth Row -->
+<div class="chart-row">
+    <div class="chart-container card" id="categoryWiseExpenditureChartContainer">
+        <h2>Category-wise Expenditure</h2>
+        <canvas id="categoryWiseExpenditureChart"></canvas>
+    </div>
+
+    <div id="scatter3dChartContainer" class="chart-container card">
+           <h2>Scatter Plot for Transactions</h2>
+        <div id="scatter3dChart"></div>
+    </div>    
+</div>
+
 <!-- Sixth Row -->
 <div class="chart-row">
-    <div class="chart-container card" id="3dDoughnutChartContainer">
-        <h2>3D Doughnut Chart of Income Distribution</h2>
-        <canvas id="3dDoughnutChart"></canvas>
+    <div class="chart-container card" id="histogramChartChartContainer">
+        <h2>Ribbon Plot: Date vs. Amount vs. Running Balance</h2>
+        <div id="ribbon3dChart"></div>
+    </div>
+
+    <div class="chart-container card" id="categoryWiseExpenditureChartContainer">
+        <h2>Surface Plot: Monthly Income vs. Expenditure</h2>
+        <div id="surface3dChart"></div>
+    </div>
+</div>
+
+<!-- Seventh Row -->
+<div class="chart-row">
+    <div class="chart-container card" id="histogramChartChartContainer">
+        <h2>Heatmap: Date vs. Category vs. Amount</h2>
+        <div id="heatmap3dChart"></div>
+    </div>
+
+    <div class="chart-container card">
+        <h2>Bubble Chart: Expenditure by Category</h2>
+        <div id="bubble3dChart"></div>
     </div>
 </div>
 
@@ -662,6 +681,12 @@
             token: linkToken,
             onSuccess: function (public_token, metadata) {
                 console.log("Successfully created transactions!")
+
+                 var bankName = metadata.institution.name;
+
+                // Update the bank name in the DOM
+                document.querySelector("#bankDetails .card p").innerHTML = bankName;
+
                 // Show the loading screen
                 document.getElementById('loadingScreen').style.display = 'block';
 
@@ -786,7 +811,7 @@
                             'rgba(255, 206, 86, 0.2)',
                             'rgba(75, 192, 192, 0.2)',
                             'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(255, 159, 64, 0.2)',
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
@@ -870,51 +895,6 @@
                 }
             });
 
-            // 3D Pie Chart of Expenditure Categories
-            var ctx3dPieChart = document.getElementById('3dPieChart').getContext('2d');
-            var pieChart = new Chart(ctx3dPieChart, {
-                type: 'pie',
-                data: {
-                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category).Distinct())),
-                    datasets: [{
-                        label: 'Expenditure by Category',
-                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        datalabels: {
-                            display: true,
-                            color: 'white'
-                        },
-                        chart3d: {
-                            enabled: true,
-                            alpha: 45,
-                            beta: 45,
-                            depth: 100
-                        }
-                    }
-                }
-            });
-
             // 3D Bar Chart of Monthly Savings
             var ctx3dBarChart = document.getElementById('3dBarChart').getContext('2d');
             var barChart = new Chart(ctx3dBarChart, {
@@ -993,50 +973,34 @@
                 }
             });
 
-            // 3D Doughnut Chart of Income Distribution
-            var ctx3dDoughnutChart = document.getElementById('3dDoughnutChart').getContext('2d');
-            var doughnutChart = new Chart(ctx3dDoughnutChart, {
-                type: 'doughnut',
-                data: {
-                    labels: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).Select(t => t.Category).Distinct())),
-                    datasets: [{
-                        label: 'Income Distribution',
-                        data: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount > 0).GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.6)',
-                            'rgba(153, 102, 255, 0.6)',
-                            'rgba(255, 159, 64, 0.6)',
-                            'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 99, 132, 0.6)',
-                            'rgba(255, 206, 86, 0.6)'
-                        ],
-                        borderColor: [
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 206, 86, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+            var scatter3dData = [{
+                x: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate))),
+                y: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Amount))),
+                z: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.RunningBalance))),
+                mode: 'markers',
+                marker: {
+                    size: 8,
+                    color: 'rgb(255, 0, 0)',
+                    opacity: 0.8
                 },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        datalabels: {
-                            display: true,
-                            color: 'white'
-                        },
-                        chart3d: {
-                            enabled: true,
-                            alpha: 45,
-                            beta: 45,
-                            depth: 100
-                        }
-                    }
+                type: 'scatter3d'
+            }];
+            var scatter3dLayout = {
+                title: '3D Scatter Plot: Date vs. Amount vs. Running Balance',
+                scene: {
+                    xaxis: { title: 'Date (as OA Date)' },
+                    yaxis: { title: 'Amount' },
+                    zaxis: { title: 'Running Balance' }
+                },
+                autosize: true,
+                margin: {
+                    l: 0,
+                    r: 0,
+                    b: 0,
+                    t: 65
                 }
-            });
+            };
+            Plotly.newPlot('scatter3dChart', scatter3dData, scatter3dLayout);
 
             // Bar Chart of Expenditure by Category
             var ctxCategoryBarChart = document.getElementById('categoryBarChart').getContext('2d');
@@ -1061,7 +1025,150 @@
                     }
                 }
             });
+
+            var surface3dData = [{
+                z: @Html.Raw(Json.Serialize(Model.TransactionHistoryMonth.GroupBy(t => t.TransactionDate.ToString("MMM yyyy"))
+                                    .Select(g => new {
+                                        Month = g.Key,
+                                        Income = g.Where(t => t.Amount > 0).Sum(t => t.Amount),
+                                        Expenditure = g.Where(t => t.Amount < 0).Sum(t => -t.Amount)
+                                    })
+                                    .Select(m => new double[] { m.Income, m.Expenditure }))),
+                type: 'surface'
+            }];
+            var surface3dLayout = {
+                title: '3D Surface Plot: Monthly Income vs. Expenditure',
+                scene: {
+                    xaxis: { title: 'Months' },
+                    yaxis: { title: 'Income' },
+                    zaxis: { title: 'Expenditure' }
+                },
+                autosize: true,
+                margin: {
+                    l: 0,
+                    r: 0,
+                    b: 0,
+                    t: 65
+                }
+            };
+            Plotly.newPlot('surface3dChart', surface3dData, surface3dLayout);
+
+            var ribbon3dData = [{
+                x: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate))),
+                y: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Amount))),
+                z: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.RunningBalance))),
+                type: 'scatter3d',
+                mode: 'lines',
+                line: {
+                    width: 10,
+                    color: 'rgb(255, 127, 14)'
+                }
+            }];
+            var ribbon3dLayout = {
+                title: '3D Ribbon Plot: Date vs. Amount vs. Running Balance',
+                scene: {
+                    xaxis: { title: 'Date (as OA Date)' },
+                    yaxis: { title: 'Amount' },
+                    zaxis: { title: 'Running Balance' }
+                },
+                autosize: true,
+                margin: {
+                    l: 0,
+                    r: 0,
+                    b: 0,
+                    t: 65
+                }
+            };
+            Plotly.newPlot('ribbon3dChart', ribbon3dData, ribbon3dLayout);
+
+            // var histogram3dData = [{
+            //     x: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Amount))),
+            //     y: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category))),
+            //     z: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate.ToOADate()))),
+            //     type: 'histogram3d',
+            //     colorscale: 'Blues',
+            //     opacity: 0.6
+            // }];
+            // var histogram3dLayout = {
+            //     title: '3D Histogram: Amount vs. Category vs. Date',
+            //     scene: {
+            //         xaxis: { title: 'Amount' },
+            //         yaxis: { title: 'Category' },
+            //         zaxis: { title: 'Date (as OA Date)' }
+            //     },
+            //     autosize: true,
+            //     margin: {
+            //         l: 0,
+            //         r: 0,
+            //         b: 0,
+            //         t: 65
+            //     }
+            // };
+            // Plotly.newPlot('histogram3dChart', histogram3dData, histogram3dLayout);
         }
+
+        var heatmap3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.TransactionDate))),
+            y: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category))),
+            z: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Amount))),
+            type: 'heatmap',
+            colorscale: 'YlOrRd'
+        }];
+        var heatmap3dLayout = {
+            title: '3D Heatmap: Date vs. Category vs. Amount',
+            scene: {
+                xaxis: { title: 'Date (as OA Date)' },
+                yaxis: { title: 'Category' },
+                zaxis: { title: 'Amount' }
+            },
+            autosize: true,
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            }
+        };
+        Plotly.newPlot('heatmap3dChart', heatmap3dData, heatmap3dLayout);
+
+        var bubble3dData = [{
+            x: @Html.Raw(Json.Serialize(Model.TransactionHistory.Select(t => t.Category).Distinct())),
+            y: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => Math.Abs(g.Sum(t => t.Amount))))),
+            z: @Html.Raw(Json.Serialize(Model.TransactionHistory.GroupBy(t => t.Category).Select(g => g.Count()))),
+            mode: 'markers',
+            marker: {
+                size: @Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => Math.Sqrt(Math.Abs(g.Sum(t => t.Amount)))))),
+                color: @Html.Raw(Json.Serialize(Model.TransactionHistory.GroupBy(t => t.Category).Select(g => g.Sum(t => t.Amount)))),
+                colorscale: 'Viridis',
+                opacity: 0.8,
+                sizemode: 'area',
+                sizeref: 2.0 * Math.max(...@Html.Raw(Json.Serialize(Model.TransactionHistory.Where(t => t.Amount < 0).GroupBy(t => t.Category).Select(g => Math.Sqrt(Math.Abs(g.Sum(t => t.Amount))))))) / (40 ** 2)
+            },
+            type: 'scatter3d'
+        }];
+        
+        var bubble3dLayout = {
+            title: '3D Bubble Chart: Expenditure by Category',
+            scene: {
+                xaxis: { title: 'Category' },
+                yaxis: { title: 'Total Amount Spent', type: 'log' },  // Use logarithmic scale if necessary
+                zaxis: { title: 'Number of Transactions' },
+                camera: {
+                    eye: { x: 1.5, y: 1.5, z: 1.5 }
+                }
+            },
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 65
+            },
+            autosize: true
+        };
+
+        Plotly.newPlot('bubble3dChart', bubble3dData, bubble3dLayout);
+
+
     </script>
 
     <!-- Bootstrap JS -->
