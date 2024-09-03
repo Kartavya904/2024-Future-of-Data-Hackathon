@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "st9DO4NbsanUyBSt7Z0rfsNF2PA5Guqx6oF4Kwvzp4Q=",
+  "Hash": "CCYZ5z0uHyc3koZgp57YaRcWnqTMmUWW1RLjCkhvZx0=",
   "Source": "FinVest",
   "BasePath": "_content/FinVest",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Dashboard.png"
+    },
+    {
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+      "BasePath": "_content/FinVest",
+      "RelativePath": "images/FinVest.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\FinVest.png"
     },
     {
       "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",

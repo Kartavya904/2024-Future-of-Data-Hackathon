@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\Dashboard.png"
     },
     {
+      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
+      "PackagePath": "staticwebassets\\images\\FinVest.png"
+    },
+    {
       "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
       "PackagePath": "staticwebassets\\images\\Stock.png"
     },

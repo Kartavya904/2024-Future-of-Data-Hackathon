@@ -12,20 +12,31 @@
         object-fit: cover; /* Ensure the image covers the entire container without distorting */
     }
 
+    .img-fluids {
+        width: 100%; /* Ensure the image width matches the column width */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 400px; /* Set a max height to control the image's vertical size */
+        object-fit: cover; /* Ensure the image covers the entire container without distorting */
+    }
+
     .stock-image {
         object-position: top; /* Focus on the upper part of the stock image */
     }
 </style>
 
-<div class="container mt-4">
-    <div class="card mb-4">
-        <div class="card-body text-center">
+<div class="card mb-4">
+    <div class="card-body row align-items-center">
+        <div class="col-md-6 order-md-1">
             <h2 class="card-title">About Us</h2>
             <p class="card-text">
                 We are a dynamic team participating in the 2024 Future of Data Hackathon — Kartavya Singh, Phani Bharadwaj Jarugumilli, Saarthak Sinha, and Shivam Kharangate — dedicated to revolutionizing financial data visualization.
             </p>
         </div>
+        <div class="col-md-6 text-center order-md-2">
+            <img src="~/images/FinVest.png" alt="Dashboard Interface" class="img-fluids" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+        </div>
     </div>
+</div>
 
     <div class="card mb-4">
         <div class="card-body row align-items-center">
