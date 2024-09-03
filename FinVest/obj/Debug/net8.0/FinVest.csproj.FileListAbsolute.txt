@@ -36,7 +36,25 @@ C:\Users\karta\OneDrive\Desktop\All Projects\2024-Future-of-Data-Hackathon\FinVe
 <<<<<<< HEAD
 =======
 >>>>>>> 54afbb5c215fe27f99e204834199cb30297af1d2
+<<<<<<< HEAD
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\CuttingEdge.Conditions.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Plaid.Net.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Snappier.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+=======
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
 C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\appsettings.json
 C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\bin\Debug\net8.0\FinVest.staticwebassets.runtime.json
@@ -139,6 +157,10 @@ C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.pdb
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.genruntimeconfig.cache
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\ref\FinVest.dll
+<<<<<<< HEAD
+C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+=======
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
 C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\appsettings.json
@@ -181,7 +203,11 @@ C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.FinVest.props
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.FinVest.props
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\staticwebassets.pack.json
+<<<<<<< HEAD
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+=======
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\bundle\FinVest.styles.css
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\scopedcss\projectbundle\FinVest.bundle.scp.css
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.csproj.Up2Date
@@ -190,6 +216,31 @@ C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.pdb
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.genruntimeconfig.cache
 C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\ref\FinVest.dll
+<<<<<<< HEAD
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Azure.AI.TextAnalytics.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.Core.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.Data.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.KMeansClustering.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.PCA.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.StandardTrainers.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.Transforms.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.CpuMath.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\Microsoft.ML.DataView.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\System.Numerics.Tensors.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux-arm\native\libLdaNative.so
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux-arm64\native\libLdaNative.so
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\linux-x64\native\libLdaNative.so
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx-arm64\native\libLdaNative.dylib
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\osx-x64\native\libLdaNative.dylib
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win-arm64\native\LdaNative.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win-x64\native\LdaNative.dll
+C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\runtimes\win-x86\native\LdaNative.dll
+=======
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\appsettings.json
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\bin\Debug\net8.0\FinVest.staticwebassets.runtime.json
@@ -240,3 +291,4 @@ C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\refint\Fin
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.pdb
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.genruntimeconfig.cache
 C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\ref\FinVest.dll
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606

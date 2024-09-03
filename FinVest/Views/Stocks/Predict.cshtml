@@ -1,0 +1,29 @@
+@model FinVest.Models.StockDataModel
+
+<div class="container">
+    <h2>Predict Apple Stock Closing Price</h2>
+    <form asp-action="Predict" method="post">
+        <div class="form-group">
+            <label for="open">Open:</label>
+            <input type="number" id="open" name="Open" class="form-control input-styled" step="0.01" required />
+        </div>
+        <div class="form-group">
+            <label for="high">High:</label>
+            <input type="number" id="high" name="High" class="form-control input-styled" step="0.01" required />
+        </div>
+        <div class="form-group">
+            <label for="low">Low:</label>
+            <input type="number" id="low" name="Low" class="form-control input-styled" step="0.01" required />
+        </div>
+        <div class="form-group">
+            <label for="volume">Volume:</label>
+            <input type="number" id="volume" name="Volume" class="form-control input-styled" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-styled">Predict Closing Price</button>
+    </form>
+
+    @if (ViewBag.PredictedClosePrice != null)
+    {
+        <p>Predicted Closing Price: $@ViewBag.PredictedClosePrice</p>
+    }
+</div>

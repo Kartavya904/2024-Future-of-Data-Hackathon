@@ -35,6 +35,10 @@ namespace FinVest.Pages
         public List<Transaction> TransactionHistoryMonth { get; set; }
         public List<Transaction> TransactionHistoryYear { get; set; }
 
+        public List<double> TransactionAmounts { get; set; }
+        public List<double> RunningBalances { get; set; }
+        public List<DateTime> TransactionDates { get; set; }
+
         public int TotalTransactions { get; private set; }
         public double TotalExpenditure { get; private set; }
         public double TotalIncome { get; private set; }
@@ -125,6 +129,10 @@ namespace FinVest.Pages
             double runningBalance = 0;
             var categories = new List<string> { "Groceries", "Rent", "Utilities", "Entertainment", "Dining", "Investment", "Shopping", "Travel" };
 
+            TransactionAmounts = new List<double>();
+            RunningBalances = new List<double>();
+            TransactionDates = new List<DateTime>();
+
             for (int year = 2016; year <= 2024; year++)
             {
                 for (int month = 1; month <= 12; month++)
@@ -143,16 +151,21 @@ namespace FinVest.Pages
                         var amount = random.Next(2000, 5000) * IncomeMultiplier * CurrencyMultiplier;
                         runningBalance += amount;
 
+                        var transactionDate = new DateTime(year, month, random.Next(1, 5));
                         var transaction = new Transaction
                         {
                             TransactionId = random.Next(10000000, 99999999).ToString(),
-                            TransactionDate = new DateTime(year, month, random.Next(1, 5)),
+                            TransactionDate = transactionDate,
                             Description = "Deposit",
                             Category = "Salary",
                             Amount = amount,
                             RunningBalance = runningBalance
                         };
                         transactionHistory.Add(transaction);
+
+                        TransactionAmounts.Add(amount);
+                        RunningBalances.Add(runningBalance);
+                        TransactionDates.Add(transactionDate);
                     }
 
                     for (int i = 0; i < numWithdrawals; i++)
@@ -162,21 +175,25 @@ namespace FinVest.Pages
                         if (runningBalance - amount >= 0)
                         {
                             runningBalance -= amount;
+                            var transactionDate = new DateTime(year, month, random.Next(5, 28));
                             var transaction = new Transaction
                             {
                                 TransactionId = random.Next(10000000, 99999999).ToString(),
-                                TransactionDate = new DateTime(year, month, random.Next(5, 28)),
+                                TransactionDate = transactionDate,
                                 Description = "Withdrawal",
                                 Category = categories[random.Next(categories.Count)],
                                 Amount = -amount,
                                 RunningBalance = runningBalance
                             };
                             transactionHistory.Add(transaction);
+
+                            TransactionAmounts.Add(-amount);
+                            RunningBalances.Add(runningBalance);
+                            TransactionDates.Add(transactionDate);
                         }
                     }
                 }
             }
-
             return transactionHistory;
         }
 

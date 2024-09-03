@@ -1,7 +1,11 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {}
+=======
     "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {}
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
   },
   "projects": {
     "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {
@@ -9,9 +13,15 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
         "projectName": "FinVest",
+<<<<<<< HEAD
+        "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+        "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+=======
         "projectPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
         "packagesPath": "C:\\Users\\Maddi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Maddi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +53,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.AI.TextAnalytics": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.28.0, )"
