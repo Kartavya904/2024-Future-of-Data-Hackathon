@@ -16,10 +16,7 @@ public class TradingController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        ViewBag.Balance = _portfolio.Balance;
-        ViewBag.Holdings = _portfolio.Holdings ?? new Dictionary<string, Stock>(); // Make sure Holdings is not null
-        ViewBag.Portfolio = _portfolio; // Pass the portfolio for profit margin calculation
-        return View(_portfolio);
+        return View(_portfolio); // Pass the portfolio as the model
     }
 
     [HttpPost]
@@ -54,13 +51,10 @@ public class TradingController : Controller
         }
         else
         {
-            // Handle the case where the stock was not found
             TempData["Message"] = "Could not buy stock. Please check the stock symbol and try again.";
         }
 
-        ViewBag.Balance = _portfolio.Balance;
-        ViewBag.Holdings = _portfolio.Holdings;
-        return View("Index", _portfolio);
+        return View("Index", _portfolio); // Pass the portfolio as the model
     }
 
     [HttpPost]
@@ -84,7 +78,7 @@ public class TradingController : Controller
                 }
                 else
                 {
-                    _portfolio.Holdings[symbol] = stock; // Update the stock in holdings
+                    _portfolio.Holdings[symbol] = stock;
                 }
 
                 TempData["Message"] = $"Sold {shares} shares of {stock.Symbol} at {currentStock.Price:C} each. Current balance: {_portfolio.Balance:C}";
@@ -99,9 +93,8 @@ public class TradingController : Controller
             TempData["Message"] = "Stock not found or you don't own any shares of this stock.";
         }
 
-        return RedirectToAction("Index");
+        return View("Index", _portfolio); // Pass the portfolio as the model
     }
-
 
     [HttpPost]
     public async Task<IActionResult> CheckStockPrice(string symbol)
@@ -119,10 +112,7 @@ public class TradingController : Controller
             TempData["Message"] = "Stock not found.";
         }
 
-        // Pass the portfolio back to the view so it can display the existing data
-        ViewBag.Balance = _portfolio.Balance;
-        ViewBag.Holdings = _portfolio.Holdings;
-        return View("Index");
+        return View("Index", _portfolio); // Pass the portfolio as the model
     }
 
     private async Task<Stock> GetStockPrice(string symbol, string apiKey)
@@ -142,17 +132,14 @@ public class TradingController : Controller
             }
             else
             {
-                // Handle case where stock is not found or data is incomplete
                 TempData["Message"] = "Stock not found or data is incomplete.";
                 return null;
             }
         }
         catch (Exception ex)
         {
-            // Handle any other errors (e.g., network issues)
             TempData["Message"] = $"Error fetching stock data: {ex.Message}";
             return null;
-        }
-    }
-
+        }
+    }
 }

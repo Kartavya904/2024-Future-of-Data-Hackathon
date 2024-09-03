@@ -238,3 +238,4 @@ C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.pdb
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\FinVest.genruntimeconfig.cache
 C:\Users\karta\Downloads\2024-Future-of-Data-Hackathon\FinVest\obj\Debug\net8.0\ref\FinVest.dll
+C:\Users\karta\OneDrive\Desktop\All Projects\2024 Future of Data Hackathon\FinVest\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

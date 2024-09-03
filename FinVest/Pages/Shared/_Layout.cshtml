@@ -357,10 +357,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
     <script>
         let currentUser = null;
-        const current_user = {};
+        let current_user = {};
 
         let db;
-        function initDatabase() {
+         function initDatabase() {
             // Open (or create) the database
             let request = indexedDB.open("FinvestDB", 1);
 
@@ -384,14 +384,95 @@
                 userStore.createIndex("RiskTolerance", "RiskTolerance", { unique: false });
                 userStore.createIndex("InvestmentExperience", "InvestmentExperience", { unique: false });
                 userStore.createIndex("InvestmentGoals", "InvestmentGoals", { unique: false });
+                userStore.createIndex("Active", "Active", { unique: false });
             };
 
             request.onsuccess = function(event) {
                 db = event.target.result;
+                checkLoginStatus();
             };
 
             request.onerror = function(event) {
                 console.error("IndexedDB error: " + event.target.errorCode);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', initDatabase);
+
+        function deactivateAllUsers(callback) {
+            let transaction = db.transaction(["Users"], "readwrite");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.openCursor();
+            request.onsuccess = function(event) {
+                let cursor = event.target.result;
+                if (cursor) {
+                    let user = cursor.value;
+                    if (user.Active) {
+                        user.Active = false;
+                        cursor.update(user);
+                    }
+                    cursor.continue();
+                } else {
+                    console.log("All users deactivated.");
+                    if (callback) callback();
+                }
+            };
+
+            request.onerror = function(event) {
+                console.error("Error deactivating users: " + event.target.errorCode);
+            };
+        }
+
+        function checkLoginStatus() {
+            if (!db) {
+                console.error("Database not initialized.");
+                return;
+            }
+
+            let transaction = db.transaction(["Users"], "readonly");
+            let objectStore = transaction.objectStore("Users");
+            let index = objectStore.index("Active");
+
+            let request = index.get("Active"); // Find the first active user
+            request.onsuccess = function(event) {
+                let user = request.result;
+                if (user) {
+                    current_user = user;
+                    const initials = user.FullName.split(' ').map(name => name[0]).join('');
+                    document.getElementById('navbarContent').innerHTML = `
+                        <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
+                    `;
+                } else {
+                    document.getElementById('navbarContent').innerHTML = `
+                        <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
+                        <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showLogin()">Log In</a>
+                    `;
+                }
+            };
+
+            request.onerror = function(event) {
+                console.error("Error checking login status: " + event.target.errorCode);
+            };
+        }
+
+        function setUserActive(userID) {
+            let transaction = db.transaction(["Users"], "readwrite");
+            let objectStore = transaction.objectStore("Users");
+
+            let request = objectStore.get(userID);
+            request.onsuccess = function(event) {
+                let user = request.result;
+                user.Active = true;
+
+                let updateRequest = objectStore.put(user);
+                updateRequest.onsuccess = function(event) {
+                    console.log("User set to active.");
+                };
+            };
+
+            request.onerror = function(event) {
+                console.error("Error setting user to active: " + event.target.errorCode);
             };
         }
 
@@ -474,25 +555,6 @@
             };
         }
 
-        // Call this function to initialize the database when the page loads
-        document.addEventListener('DOMContentLoaded', initDatabase);
-
-        function checkLoginStatus() {
-            if (currentUser && current_user.fullname) {
-                const fullName = current_user.fullname; // Replace with actual logic to retrieve the full name
-                const initials = fullName.split(' ').map(name => name[0]).join('');
-                document.getElementById('navbarContent').innerHTML = `
-                    <button class="profile-button" onclick="window.location.href='/Profile'">${initials}</button>
-                `;
-            } else {
-                document.getElementById('navbarContent').innerHTML = `
-                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showSignUp()">Sign Up</a>
-                    <a class="btn btn-dark-custom" href="javascript:void(0)" onclick="showLogin()">Log In</a>
-                `;
-            }
-        }
-
-
         function showSignUp() {
             const signUpModal = new bootstrap.Modal(document.getElementById('signUpModal'));
             signUpModal.show();
@@ -535,54 +597,34 @@
                 AnnualIncome: document.getElementById('annual-income').value,
                 RiskTolerance: document.getElementById('risk-tolerance').value,
                 InvestmentExperience: document.getElementById('investment-experience').value,
-                InvestmentGoals: document.getElementById('investment-goals').value
+                InvestmentGoals: document.getElementById('investment-goals').value,
+                Active: true // Set new user as active
             };
 
-            saveUser(user);
-
-            current_user.username = user.Username;
-            current_user.fullName = user.FullName;
-            current_user.email = user.Email;
-            current_user.phoneNumber = user.PhoneNumber;
-            current_user.dateOfBirth = user.DateOfBirth;
-            current_user.country = user.Country;
-            current_user.currency = user.Currency;
-            current_user.annualIncome = user.AnnualIncome;
-            current_user.riskTolerance = user.RiskTolerance;
-            current_user.investmentExperience = user.InvestmentExperience;
-            current_user.investmentGoals = user.InvestmentGoals;
-
-            alert('Sign up successful!');
-            checkLoginStatus();
-            // Redirect to the Finances page with the data as query parameters
-            const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
-            console.log(url);
-            window.location.href = url;
+            deactivateAllUsers(function() {
+                saveUser(user);
+                current_user = user;
+                alert('Sign up successful!');
+                checkLoginStatus();
+                redirectToFinances(user);
+            });
         }
 
         function login() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
+
             getUserByEmail(email, function(user) {
                 if (user && user.Password === password) {
                     console.log("Login successful!");
-                    // Store user details in current_user object and redirect as needed
-                    current_user.username = user.Username;
-                    current_user.fullName = user.FullName;
-                    current_user.email = user.Email;
-                    current_user.phoneNumber = user.PhoneNumber;
-                    current_user.dateOfBirth = user.DateOfBirth;
-                    current_user.country = user.Country;
-                    current_user.currency = user.Currency;
-                    current_user.annualIncome = user.AnnualIncome;
-                    current_user.riskTolerance = user.RiskTolerance;
-                    current_user.investmentExperience = user.InvestmentExperience;
-                    current_user.investmentGoals = user.InvestmentGoals;
-                    checkLoginStatus();
-                    // Redirect to the desired page with the user details
-                    const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
-                    window.location.href = url;
-                } else if (user && user.Password != password) {
+
+                    deactivateAllUsers(function() {
+                        setUserActive(user.UserID);
+                        current_user = user;
+                        checkLoginStatus();
+                        redirectToFinances(user);
+                    });
+                } else {
                     alert("Invalid email or password.");
                 }
             });
@@ -618,14 +660,6 @@
             };
         }
 
-        dbRequest.onerror = function(event) {
-            console.error("Database error: " + event.target.errorCode);
-        };
-
-        transaction.onerror = function(event) {
-            console.error("Transaction error: " + event.target.errorCode);
-        };
-
         function switchToLogin() {
             const signUpModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
             signUpModal.hide();
@@ -638,9 +672,17 @@
             showSignUp();
         }
 
-        // Check the login status on page load
-        document.addEventListener('DOMContentLoaded', checkLoginStatus);
-
+        function redirectToFinances(user) {
+            // Construct the URL with user details as query parameters
+            const url = `/Finances?username=${encodeURIComponent(user.Username)}&fullName=${encodeURIComponent(user.FullName)}&email=${encodeURIComponent(user.Email)}&phoneNumber=${encodeURIComponent(user.PhoneNumber)}&dateOfBirth=${encodeURIComponent(user.DateOfBirth)}&country=${encodeURIComponent(user.Country)}&currency=${encodeURIComponent(user.Currency)}&annualIncome=${encodeURIComponent(user.AnnualIncome)}&riskTolerance=${encodeURIComponent(user.RiskTolerance)}&investmentExperience=${encodeURIComponent(user.InvestmentExperience)}&investmentGoals=${encodeURIComponent(user.InvestmentGoals)}`;
+            
+            // Redirect to the constructed URL
+            window.location.href = url;
+        }
+        if (db) {
+            console.log("Loading database completed!");
+            document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        }
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
