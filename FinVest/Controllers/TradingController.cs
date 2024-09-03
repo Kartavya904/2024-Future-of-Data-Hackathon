@@ -25,7 +25,7 @@ public class TradingController : Controller
     [HttpPost]
     public async Task<IActionResult> BuyStock(string symbol, int shares)
     {
-        string apiKey = "9BVUSB1M1HFQGJ3L";
+        string apiKey = "XRD89UZWKY7V5DCX";
         var stock = await GetStockPrice(symbol, apiKey);
 
         if (stock != null)
@@ -54,20 +54,19 @@ public class TradingController : Controller
         }
         else
         {
-            TempData["Message"] = "Stock not found.";
+            // Handle the case where the stock was not found
+            TempData["Message"] = "Could not buy stock. Please check the stock symbol and try again.";
         }
 
         ViewBag.Balance = _portfolio.Balance;
-        ViewBag.Holdings = _portfolio.Holdings; // Make sure Holdings is not null
-        ViewBag.Portfolio = _portfolio; // Pass the portfolio for profit margin calculation
+        ViewBag.Holdings = _portfolio.Holdings;
         return View("Index", _portfolio);
     }
-
 
     [HttpPost]
     public async Task<IActionResult> SellStock(string symbol, int shares)
     {
-        string apiKey = "9BVUSB1M1HFQGJ3L";
+        string apiKey = "XRD89UZWKY7V5DCX";
         var currentStock = await GetStockPrice(symbol, apiKey);
 
         if (currentStock != null && _portfolio.Holdings.ContainsKey(symbol))
@@ -107,7 +106,7 @@ public class TradingController : Controller
     [HttpPost]
     public async Task<IActionResult> CheckStockPrice(string symbol)
     {
-        string apiKey = "9BVUSB1M1HFQGJ3L";
+        string apiKey = "XRD89UZWKY7V5DCX";
         var stock = await GetStockPrice(symbol, apiKey);
 
         if (stock != null)
@@ -126,16 +125,34 @@ public class TradingController : Controller
         return View("Index");
     }
 
-
     private async Task<Stock> GetStockPrice(string symbol, string apiKey)
     {
-        var response = await _httpClient.GetStringAsync($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={apiKey}");
-        var data = JObject.Parse(response);
-
-        return new Stock
+        try
         {
-            Symbol = symbol,
-            Price = decimal.Parse((string)data["Global Quote"]["05. price"])
-        };
+            var response = await _httpClient.GetStringAsync($"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={apiKey}");
+            var data = JObject.Parse(response);
+
+            if (data["Global Quote"] != null && data["Global Quote"]["05. price"] != null)
+            {
+                return new Stock
+                {
+                    Symbol = symbol,
+                    Price = decimal.Parse((string)data["Global Quote"]["05. price"])
+                };
+            }
+            else
+            {
+                // Handle case where stock is not found or data is incomplete
+                TempData["Message"] = "Stock not found or data is incomplete.";
+                return null;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle any other errors (e.g., network issues)
+            TempData["Message"] = $"Error fetching stock data: {ex.Message}";
+            return null;
+        }
     }
+
 }
