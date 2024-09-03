@@ -926,24 +926,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maddi\\.nuget\\packages\\": {}
+    "C:\\Users\\karta\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+      "projectUniqueName": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
       "projectName": "FinVest",
-      "projectPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
-      "packagesPath": "C:\\Users\\Maddi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+      "projectPath": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+      "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Maddi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\karta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
