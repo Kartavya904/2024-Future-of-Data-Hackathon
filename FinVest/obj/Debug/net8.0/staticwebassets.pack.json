@@ -1,11 +1,7 @@
 {
   "Files": [
     {
-<<<<<<< HEAD
-      "Id": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css",
-=======
       "Id": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
       "PackagePath": "staticwebassets\\FinVest.bundle.scp.css"
     },
     {
@@ -261,11 +257,7 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-<<<<<<< HEAD
-      "Id": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-=======
       "Id": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

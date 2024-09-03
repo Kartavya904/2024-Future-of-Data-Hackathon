@@ -1,11 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj": {}
-=======
     "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {}
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
   },
   "projects": {
     "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj": {
@@ -13,15 +9,9 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
         "projectName": "FinVest",
-<<<<<<< HEAD
-        "projectPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
-        "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\",
-=======
         "projectPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
         "packagesPath": "C:\\Users\\skhar\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.AI.TextAnalytics": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.28.0, )"
