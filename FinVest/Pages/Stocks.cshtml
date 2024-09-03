@@ -2,7 +2,6 @@
 @model IndexModel
 
 <div class="container">
-    <h1 class="dashboard-title">StockWave Dashboard</h1>
 
     <form id="stockForm" class="form-styled">
         <div class="form-group">
@@ -43,7 +42,7 @@
 </div>
 
 <style>
-    /* General styling */
+        /* General styling */
     body {
         background-color: #122953;
         font-family: 'Poppins', sans-serif;
@@ -54,30 +53,33 @@
         margin-top: 20px;
         max-width: 900px;
         background-color: #1a2c3b;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
     }
 
     .dashboard-title {
         color: #76c7c0;
-        font-weight: 600;
-        margin-bottom: 20px;
+        font-weight: 700;
+        margin-bottom: 30px;
         text-align: center;
-        font-size: 2.2em;
+        font-size: 2.5em;
+        text-transform: uppercase;
     }
 
     .form-styled {
-        background-color: #2a3d55;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        margin-bottom: 20px;
+        background-color: #243b54;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        margin-bottom: 25px;
     }
 
     .form-styled label {
         color: #76c7c0;
         font-weight: 600;
+        margin-bottom: 10px;
+        display: block;
     }
 
     .input-styled, .select-styled {
@@ -85,7 +87,10 @@
         color: #f0f0f0;
         border: 1px solid #76c7c0;
         border-radius: 6px;
-        padding: 10px;
+        padding: 12px;
+        margin-top: 15px; /* Added spacing above input boxes */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .input-styled::placeholder {
@@ -96,24 +101,26 @@
         background-color: #76c7c0;
         color: #292959;
         font-weight: 600;
-        padding: 10px 20px;
-        border-radius: 8px;
-        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 12px 25px;
+        border-radius: 10px;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 15px; /* Added spacing above buttons */
     }
 
     .btn-styled:hover {
         background-color: #5ba9a6;
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: scale(1.08);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
     }
 
     .chart-styled {
-        background-color: #2a3d55;
-        border-radius: 8px;
-        padding: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        background-color: #243b54;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     }
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

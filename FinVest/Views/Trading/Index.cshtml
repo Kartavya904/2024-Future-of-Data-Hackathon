@@ -4,7 +4,6 @@
     ViewBag.Title = "Paper Trading Dashboard";
 }
 
-<h2>Paper Trading</h2>
 
 <p>Your current balance: $ @Model.Balance</p>
 
@@ -111,6 +110,8 @@
         color: #f0f0f0;
         border: 1px solid #76c7c0;
         border-radius: 5px;
+        margin-top: 15px; /* Added spacing above input boxes */
+        margin-bottom: 15px; /* Added spacing below input boxes */
     }
 
     .form-control:focus {
@@ -125,43 +126,19 @@
         border-radius: 8px;
         padding: 10px 20px;
         transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        margin-top: 15px; /* Added spacing above buttons */
+        margin-bottom: 15px; /* Added spacing below buttons */
     }
 
-    .btn-primary {
+    .btn-primary, .btn-success, .btn-danger {
         background-color: #292959;
         color: #f0f0f0;
         border: 2px solid #76c7c0;
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover, .btn-success:hover, .btn-danger:hover {
         background-color: #76c7c0;
         color: #292959;
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-success {
-        background-color: #2A8A59;
-        color: #f0f0f0;
-        border: 2px solid #76c7c0;
-    }
-
-    .btn-success:hover {
-        background-color: #76c7c0;
-        color: #2A8A59;
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-danger {
-        background-color: #8A2A2A;
-        color: #f0f0f0;
-        border: 2px solid #76c7c0;
-    }
-
-    .btn-danger:hover {
-        background-color: #76c7c0;
-        color: #8A2A2A;
         transform: scale(1.05);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
@@ -173,19 +150,21 @@
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         margin-top: 20px;
+        margin-bottom: 20px; /* Added spacing below table */
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Grid layout for 5 columns */
+        gap: 10px;
     }
 
     th {
         background-color: #1B1B50;
         color: #76c7c0;
         text-align: center;
+        padding: 15px;
     }
 
     td {
         text-align: center;
-    }
-
-    table th, table td {
         padding: 15px;
     }
 
@@ -193,8 +172,14 @@
         background-color: #32327B;
     }
 
-    tr:hover {
+    tr:hover td {
         background-color: #1B1B50;
+    }
+
+    td:hover {
+        background-color: #76c7c0;
+        color: #292959;
+        transition: background-color 0.2s, color 0.2s;
     }
 
     .alert-info {
@@ -203,5 +188,8 @@
         border-radius: 5px;
         padding: 10px;
         margin-top: 20px;
+        margin-bottom: 20px; /* Added spacing below alert */
     }
+
+
 </style>
