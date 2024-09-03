@@ -22,6 +22,25 @@
             color: #f0f0f0;
         }
 
+    .btn-group .btn-theme {
+    background-color: #292959;
+    color: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: 2px solid #76c7c0;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 5px;
+    }
+
+    .btn-group .btn-theme:hover {
+        background-color: #76c7c0;
+        color: #292959;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
         .content {
             margin-top: 20px;
         }
@@ -124,8 +143,22 @@
         .transaction-summary {
             margin: 20px 0;
             text-align: center;
-            font-size: 1.2em;
+            background-color: #1b2b3a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #f0f0f0;
         }
+
+        .transaction-summary p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .transaction-summary strong {
+            color: #76c7c0;
+        }
+
 
         .transaction-history {
             margin-top: 20px;
@@ -207,6 +240,111 @@
             padding-top: 20%;
             z-index: 1000;
         }
+
+        .bank-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two items per row */
+            gap: 20px; /* Adjust the spacing between the items */
+            margin-top: 20px; /* Optional: Add some space above the container */
+        }
+
+        .bank-info-custom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two items per row */
+            gap: 20px; /* Space between the items */
+            margin-top: 20px;
+        }
+
+    .bank-card {
+        background-color: #2A2A6A;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .bank-card h3 {
+        color: #76c7c0;
+        font-weight: bold;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bank-card h3 i {
+        margin-right: 10px;
+        color: #f0f0f0;
+    }
+
+    .bank-card p {
+        margin-bottom: 0;
+        color: #f0f0f0;
+    }
+
+    .bank-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .transaction-container {
+        margin: 20px 0;
+        color: #f0f0f0;
+    }
+
+    .transaction-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: linear-gradient(145deg, #23303d, #1b2b3a);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        overflow: scroll;
+    }
+
+    .transaction-table th, .transaction-table td {
+        padding: 12px 15px;
+        text-align: left;
+        color: #ecf0f1;
+        border-bottom: 1px solid #76c7c0;
+    }
+
+    .transaction-table th {
+        background-color: #1a2c3b;
+        font-weight: bold;
+        color: #66c2a5;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .transaction-table th:hover {
+    background-color: #76c7c0;
+    color: #1a2c3b;
+    }
+
+
+    .transaction-table tr:hover {
+        background-color: #2e4053;
+        transition: background-color 0.3s ease;
+    }
+
+
+    .transaction-table td {
+        font-size: 14px;
+    }
+
+    .transaction-table tbody tr:nth-child(odd) {
+        background-color: #23303d;
+    }
+
+    .transaction-table tbody tr:nth-child(even) {
+        background-color: #1b2b3a;
+    }
+
+
     </style>
 </head>
 
@@ -259,142 +397,146 @@
         </section>
 
         <!-- Bank Details Section (hidden until successful connection) -->
-        <div id="bankDetails" style="display: none;">
-            <div class="profile-info">
-                <div class="card">
-                    <h3><i class="bi bi-bank"></i>Bank Name:</h3>
-                    <p>Chase</p>
-                </div>
-
-                <div class="card">
-                    <h3><i class="bi bi-credit-card"></i>Checkings Account:</h3>
-                    <p>@Model.CheckingsAccount</p>
-                </div>
-
-                <div class="card">
-                    <h3><i class="bi bi-credit-card"></i>Savings Account:</h3>
-                    <p>@Model.SavingsAccount</p>
-                </div>
-
-                <div class="card">
-                    <h3><i class="bi bi-receipt"></i>Routing Number:</h3>
-                    <p>4444 4444</p>
-                </div>
-            </div>
+  <div id="bankDetails" style="display: none;">
+    <div class="bank-info-custom">
+        <div class="card">
+            <h3><i class="bi bi-bank"></i>Bank Name:</h3>
+            <p>Chase</p>
         </div>
 
-        <!-- Transaction Summary -->
-        <div id="transactionSummary" class="transaction-summary" style="display: none;">
-            <p>Total Transactions: <strong>@Model.TotalTransactions</strong></p>
-            <p>Total Income: <strong>@Model.CurrencySymbol@Model.TotalIncome.ToString("N2")</strong></p>
-            <p>Total Expenditure: <strong>@Model.CurrencySymbol@Model.TotalExpenditure.ToString("N2")</strong></p>
+        <div class="card">
+            <h3><i class="bi bi-receipt"></i>Routing Number:</h3>
+            <p>4444 4444</p>
         </div>
 
-        <!-- Filter Options -->
-        <div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
-            <button type="button" class="btn btn-secondary" onclick="showTable('daily')">Daily</button>
-            <button type="button" class="btn btn-secondary" onclick="showTable('monthly')">Monthly</button>
-            <button type="button" class="btn btn-secondary" onclick="showTable('yearly')">Yearly</button>
+        <div class="card">
+            <h3><i class="bi bi-credit-card"></i>Savings Account:</h3>
+            <p>@Model.SavingsAccount</p>
         </div>
 
-        <!-- Daily Transactions Table -->
-        <div id="dailyTable" class="transaction-history transaction-table">
-            <h2>Daily Transaction History</h2>
-            <table class="table">
-                <thead>
+        <div class="card">
+            <h3><i class="bi bi-credit-card"></i>Checkings Account:</h3>
+            <p>@Model.CheckingsAccount</p>
+        </div>
+    </div>
+</div>
+
+<!-- Transaction Summary -->
+<div id="transactionSummary" class="transaction-summary" style="display: none;">
+    <p>Total Transactions: <strong>@Model.TotalTransactions</strong></p>
+    <p>Total Income: <strong>@Model.CurrencySymbol@Model.TotalIncome.ToString("N2")</strong></p>
+    <p>Total Expenditure: <strong>@Model.CurrencySymbol@Model.TotalExpenditure.ToString("N2")</strong></p>
+</div>
+
+
+
+
+<!-- Filter Options -->
+<div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
+    <button type="button" class="btn btn-theme" onclick="showTable('daily')">Daily</button>
+    <button type="button" class="btn btn-theme" onclick="showTable('monthly')">Monthly</button>
+    <button type="button" class="btn btn-theme" onclick="showTable('yearly')">Yearly</button>
+</div>
+
+       
+<!-- Daily Transactions Table -->
+<div id="dailyTable" class="transaction-history transaction-table">
+    <h2>Daily Transaction History</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.TransactionHistory != null)
+            {
+                @foreach (var transaction in Model.TransactionHistory)
+                {
                     <tr>
-                        <th>Transaction ID</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
+                        <td>@transaction.TransactionId</td>
+                        <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
+                        <td>@transaction.Description</td>
+                        <td>@transaction.Category</td>
+                        <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                        <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if (Model.TransactionHistory != null)
-                    {
-                        @foreach (var transaction in Model.TransactionHistory)
-                        {
-                            <tr>
-                                <td>@transaction.TransactionId</td>
-                                <td>@transaction.TransactionDate.ToString("MM/dd/yyyy")</td>
-                                <td>@transaction.Description</td>
-                                <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
-                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            }
+        </tbody>
+    </table>
+</div>
 
-        <!-- Monthly Transactions Table -->
-        <div id="monthlyTable" class="transaction-history transaction-table">
-            <h2>Monthly Transaction History</h2>
-            <table class="table">
-                <thead>
+<!-- Monthly Transactions Table -->
+<div id="monthlyTable" class="transaction-history transaction-table">
+    <h2>Monthly Transaction History</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.TransactionHistoryMonth != null)
+            {
+                @foreach (var transaction in Model.TransactionHistoryMonth)
+                {
                     <tr>
-                        <th>Transaction ID</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
+                        <td>@transaction.TransactionId</td>
+                        <td>@transaction.TransactionDate.ToString("MM/yyyy")</td>
+                        <td>@transaction.Description</td>
+                        <td>@transaction.Category</td>
+                        <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                        <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if (Model.TransactionHistoryMonth != null)
-                    {
-                        @foreach (var transaction in Model.TransactionHistoryMonth)
-                        {
-                            <tr>
-                                <td>@transaction.TransactionId</td>
-                                <td>@transaction.TransactionDate.ToString("MM/yyyy")</td>
-                                <td>@transaction.Description</td>
-                                <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
-                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            }
+        </tbody>
+    </table>
+</div>
 
-        <!-- Yearly Transactions Table -->
-        <div id="yearlyTable" class="transaction-history transaction-table">
-            <h2>Yearly Transaction History</h2>
-            <table class="table">
-                <thead>
+<!-- Yearly Transactions Table -->
+<div id="yearlyTable" class="transaction-history transaction-table">
+    <h2>Yearly Transaction History</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.TransactionHistoryYear != null)
+            {
+                @foreach (var transaction in Model.TransactionHistoryYear)
+                {
                     <tr>
-                        <th>Transaction ID</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
+                        <td>@transaction.TransactionId</td>
+                        <td>@transaction.TransactionDate.ToString("yyyy")</td>
+                        <td>@transaction.Description</td>
+                        <td>@transaction.Category</td>
+                        <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
+                        <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if (Model.TransactionHistoryYear != null)
-                    {
-                        @foreach (var transaction in Model.TransactionHistoryYear)
-                        {
-                            <tr>
-                                <td>@transaction.TransactionId</td>
-                                <td>@transaction.TransactionDate.ToString("yyyy")</td>
-                                <td>@transaction.Description</td>
-                                <td>@transaction.Category</td>
-                                <td>@transaction.Amount.ToString("N2")@Model.CurrencySymbol</td>
-                                <td>@transaction.RunningBalance.ToString("N2")@Model.CurrencySymbol</td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            }
+        </tbody>
+    </table>
+</div>
 
         <!-- Chart Containers -->
         <div class="chart-container" id="monthlyIncomeExpenditureChartContainer">
