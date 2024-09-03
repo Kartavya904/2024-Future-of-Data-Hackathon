@@ -4,12 +4,25 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    .img-fluid {
+        width: 100%; /* Ensure the image width matches the column width */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 300px; /* Set a max height to control the image's vertical size */
+        object-fit: cover; /* Ensure the image covers the entire container without distorting */
+    }
+
+    .stock-image {
+        object-position: top; /* Focus on the upper part of the stock image */
+    }
+</style>
+
 <div class="container mt-4">
     <div class="card mb-4">
         <div class="card-body text-center">
             <h2 class="card-title">About Us</h2>
             <p class="card-text">
-                We are a dynamic team participating in the 2024 Future of Data Hackathon — Kartavya Singh, Phani Jarugumilli, Saarthak Sinha, and Shivam Kharangate — dedicated to revolutionizing financial data visualization.
+                We are a dynamic team participating in the 2024 Future of Data Hackathon — Kartavya Singh, Phani Bharadwaj Jarugumilli, Saarthak Sinha, and Shivam Kharangate — dedicated to revolutionizing financial data visualization.
             </p>
         </div>
     </div>
@@ -17,7 +30,7 @@
     <div class="card mb-4">
         <div class="card-body row align-items-center">
             <div class="col-md-6 text-center">
-                <img src="~/images/Dashboard.png" alt="Dashboard Interface" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+                <img src="~/images/Dashboard.png" alt="Dashboard Interface" class="img-fluid" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
             </div>
             <div class="col-md-6">
                 <h2 class="card-title">Our Vision</h2>
@@ -31,7 +44,7 @@
     <div class="card mb-4">
         <div class="card-body row align-items-center">
             <div class="col-md-6 order-md-2 text-center">
-                <img src="~/images/BULL.png" alt="Investment Visualization" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+                <img src="~/images/BULL.png" alt="Investment Visualization" class="img-fluid" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
             </div>
             <div class="col-md-6 order-md-1">
                 <h2 class="card-title">Invest with Confidence</h2>
@@ -45,7 +58,7 @@
     <div class="card mb-4">
         <div class="card-body row align-items-center">
             <div class="col-md-6 text-center">
-                <img src="~/images/Stock.png" alt="Interactive Game Mode" class="img-fluid" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+                <img src="~/images/Stock.png" alt="Interactive Game Mode" class="img-fluid stock-image" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
             </div>
             <div class="col-md-6">
                 <h2 class="card-title">Learn by Doing</h2>
