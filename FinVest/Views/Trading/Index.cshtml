@@ -6,73 +6,202 @@
 
 <h2>Paper Trading</h2>
 
-<p>Your current balance: @Model.Balance:C</p>
+<p>Your current balance: $ @Model.Balance</p>
 
 <h3>Check Stock Price</h3>
 <form asp-action="CheckStockPrice" method="post">
     <label for="symbol">Stock Symbol:</label>
-    <input type="text" id="symbol" name="symbol" required />
-    <button type="submit">Check Price</button>
+    <input type="text" id="symbol" name="symbol" class="form-control" required />
+    <button type="submit" class="btn btn-primary">Check Price</button>
 </form>
 
 @if (ViewBag.CurrentStockPrice != null)
 {
-    <p>The current price of @ViewBag.CurrentStockSymbol is @ViewBag.CurrentStockPrice:C</p>
+    <p>The current price of <strong>@ViewBag.CurrentStockSymbol</strong> is <strong>@ViewBag.CurrentStockPrice:C</strong></p>
 }
 
 <h3>Buy Stocks</h3>
 <form asp-action="BuyStock" method="post">
-    <label for="symbol">Stock Symbol:</label>
-    <input type="text" id="symbol" name="symbol" required />
+    <div class="form-group">
+        <label for="symbol">Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol" class="form-control" required />
+    </div>
 
-    <label for="shares">Number of Shares:</label>
-    <input type="number" id="shares" name="shares" required />
+    <div class="form-group">
+        <label for="shares">Number of Shares:</label>
+        <input type="number" id="shares" name="shares" class="form-control" required />
+    </div>
 
-    <button type="submit">Buy</button>
+    <button type="submit" class="btn btn-success">Buy</button>
 </form>
 
 <h3>Your Holdings</h3>
-<table>
-    <tr>
-        <th>Symbol</th>
-        <th>Shares</th>
-        <th>Purchase Price</th>
-        <th>Current Price</th>
-        <th>Profit/Loss</th>
-    </tr>
-    @if (Model.Holdings != null && Model.Holdings.Count > 0)
-    {
-        @foreach (var holding in Model.Holdings)
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Purchase Price</th>
+            <th>Current Price</th>
+            <th>Profit/Loss</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Holdings != null && Model.Holdings.Count > 0)
+        {
+            @foreach (var holding in Model.Holdings)
+            {
+                <tr>
+                    <td>@holding.Value?.Symbol</td>
+                    <td>@holding.Value?.Shares</td>
+                    <td>@holding.Value?.PurchasePrice:C</td>
+                    <td>@holding.Value?.Price:C</td>
+                    <td>@Model.GetProfitMargin(holding.Value.Symbol, holding.Value.Price):C</td>
+                </tr>
+            }
+        }
+        else
         {
             <tr>
-                <td>@holding.Value?.Symbol</td>
-                <td>@holding.Value?.Shares</td>
-                <td>@holding.Value?.PurchasePrice:C</td>
-                <td>@holding.Value?.Price:C</td>
-                <td>@Model.GetProfitMargin(holding.Value.Symbol, holding.Value.Price):C</td>
+                <td colspan="5">You have no holdings yet.</td>
             </tr>
         }
-    }
-    else
-    {
-        <tr>
-            <td colspan="5">You have no holdings yet.</td>
-        </tr>
-    }
+    </tbody>
 </table>
 
 <h3>Sell Stocks</h3>
 <form asp-action="SellStock" method="post">
-    <label for="symbol">Stock Symbol:</label>
-    <input type="text" id="symbol" name="symbol" required />
+    <div class="form-group">
+        <label for="symbol">Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol" class="form-control" required />
+    </div>
 
-    <label for="shares">Number of Shares:</label>
-    <input type="number" id="shares" name="shares" required />
+    <div class="form-group">
+        <label for="shares">Number of Shares:</label>
+        <input type="number" id="shares" name="shares" class="form-control" required />
+    </div>
 
-    <button type="submit">Sell</button>
+    <button type="submit" class="btn btn-danger">Sell</button>
 </form>
 
 @if (TempData["Message"] != null)
 {
-    <p>@TempData["Message"]</p>
+    <p class="alert alert-info">@TempData["Message"]</p>
 }
+
+<style>
+    body {
+        background-color: #122953;
+        font-family: 'Poppins', sans-serif;
+        color: #f0f0f0;
+    }
+
+    h2, h3 {
+        color: #76c7c0;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    p, label, th, td {
+        color: #f0f0f0;
+    }
+
+    .form-control {
+        background-color: #2A2A6A;
+        color: #f0f0f0;
+        border: 1px solid #76c7c0;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        background-color: #3A3A8A;
+        color: #f0f0f0;
+        border-color: #76c7c0;
+        box-shadow: 0 0 5px rgba(118, 199, 192, 0.8);
+    }
+
+    .btn {
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px 20px;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary {
+        background-color: #292959;
+        color: #f0f0f0;
+        border: 2px solid #76c7c0;
+    }
+
+    .btn-primary:hover {
+        background-color: #76c7c0;
+        color: #292959;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-success {
+        background-color: #2A8A59;
+        color: #f0f0f0;
+        border: 2px solid #76c7c0;
+    }
+
+    .btn-success:hover {
+        background-color: #76c7c0;
+        color: #2A8A59;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-danger {
+        background-color: #8A2A2A;
+        color: #f0f0f0;
+        border: 2px solid #76c7c0;
+    }
+
+    .btn-danger:hover {
+        background-color: #76c7c0;
+        color: #8A2A2A;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    table {
+        background-color: #2A2A6A;
+        color: #f0f0f0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    th {
+        background-color: #1B1B50;
+        color: #76c7c0;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    table th, table td {
+        padding: 15px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #32327B;
+    }
+
+    tr:hover {
+        background-color: #1B1B50;
+    }
+
+    .alert-info {
+        background-color: #292959;
+        color: #f0f0f0;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+</style>

@@ -2,15 +2,16 @@
 @model IndexModel
 
 <div class="container">
-    <h1>StockWave Dashboard</h1>
-    <form id="stockForm">
+    <h1 class="dashboard-title">StockWave Dashboard</h1>
+
+    <form id="stockForm" class="form-styled">
         <div class="form-group">
             <label for="symbol">Stock Symbol:</label>
-            <input type="text" id="symbol" class="form-control" placeholder="Enter stock symbol" required>
+            <input type="text" id="symbol" class="form-control input-styled" placeholder="Enter stock symbol" required>
         </div>
         <div class="form-group" id="intervalDiv">
             <label for="interval">Time Interval:</label>
-            <select id="interval" class="form-control" required>
+            <select id="interval" class="form-control select-styled" required>
                 <option value="1min">1 Minute</option>
                 <option value="5min">5 Minutes</option>
                 <option value="15min">15 Minutes</option>
@@ -20,17 +21,100 @@
         </div>
         <div class="form-group">
             <label for="function">Data Type:</label>
-            <select id="function" class="form-control" required>
+            <select id="function" class="form-control select-styled" required>
                 <option value="TIME_SERIES_INTRADAY">Intraday</option>
                 <option value="TIME_SERIES_DAILY">Daily</option>
                 <option value="TIME_SERIES_WEEKLY">Weekly</option>
                 <option value="TIME_SERIES_MONTHLY">Monthly</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Get Data</button>
+        <button type="submit" class="btn btn-primary btn-styled">Get Data</button>
     </form>
-    <canvas id="stockChart" style="margin-top: 20px;"></canvas>
+
+    <canvas id="stockChart" class="chart-styled" style="margin-top: 20px;"></canvas>
+
+    <!-- Start Paper Trading Button -->
+    <button id="startTradingButton" class="btn btn-success btn-styled" style="margin-top: 20px;">Start Paper Trading</button>
+
+    <!-- Container for the embedded page -->
+    <div id="tradingContainer" style="display: none; margin-top: 20px;">
+        <iframe id="tradingFrame" src="" style="width: 100%; height: 1200px; border: none; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></iframe>
+    </div>
 </div>
+
+<style>
+    /* General styling */
+    body {
+        background-color: #122953;
+        font-family: 'Poppins', sans-serif;
+        color: #f0f0f0;
+    }
+
+    .container {
+        margin-top: 20px;
+        max-width: 900px;
+        background-color: #1a2c3b;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .dashboard-title {
+        color: #76c7c0;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2.2em;
+    }
+
+    .form-styled {
+        background-color: #2a3d55;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
+
+    .form-styled label {
+        color: #76c7c0;
+        font-weight: 600;
+    }
+
+    .input-styled, .select-styled {
+        background-color: #1b2b3a;
+        color: #f0f0f0;
+        border: 1px solid #76c7c0;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    .input-styled::placeholder {
+        color: #c0c0c0;
+    }
+
+    .btn-styled {
+        background-color: #76c7c0;
+        color: #292959;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-styled:hover {
+        background-color: #5ba9a6;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .chart-styled {
+        background-color: #2a3d55;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -56,15 +140,15 @@
 
         fetchStockData(symbol, interval, dataType);
     });
+
     function fetchStockData(symbol, interval, dataType) {
         var url;
-        console.log("dataType: " + dataType);
         if (dataType === "TIME_SERIES_INTRADAY") {
             url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&interval=${interval}&apikey=XRD89UZWKY7V5DCX`;
         } else {
             url = `https://www.alphavantage.co/query?function=${dataType}&symbol=${symbol}&apikey=XRD89UZWKY7V5DCX`;
         }
-        console.log(url);
+
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -73,14 +157,12 @@
                 return response.json();
             })
             .then(data => {
-                console.log("data: " + data + " dataType: " + dataType);
                 updateChart(data, dataType)
             })
             .catch(error => console.error('Error fetching stock data:', error));
     }
 
     function updateChart(stockData, dataType) {
-        console.log(stockData);
         let timeSeries;
 
         switch (dataType) {
@@ -142,7 +224,8 @@
                 responsive: true,
                 title: {
                     display: true,
-                    text: 'Stock Price Over Time'
+                    text: 'Stock Price Over Time',
+                    fontColor: '#f0f0f0'
                 },
                 tooltips: {
                     mode: 'index',
@@ -157,14 +240,22 @@
                         display: true,
                         title: {
                             display: true,
-                            text: 'Date'
+                            text: 'Date',
+                            fontColor: '#f0f0f0'
+                        },
+                        ticks: {
+                            fontColor: '#f0f0f0'
                         }
                     },
                     y: {
                         display: true,
                         title: {
                             display: true,
-                            text: 'Price (USD)'
+                            text: 'Price (USD)',
+                            fontColor: '#f0f0f0'
+                        },
+                        ticks: {
+                            fontColor: '#f0f0f0'
                         }
                     }
                 }
@@ -172,4 +263,12 @@
         });
     }
 
+    // Event listener for the "Start Paper Trading" button
+    document.getElementById('startTradingButton').addEventListener('click', function() {
+        var tradingContainer = document.getElementById('tradingContainer');
+        var tradingFrame = document.getElementById('tradingFrame');
+        
+        tradingContainer.style.display = 'block';  // Show the container
+        tradingFrame.src = '/Trading/Index';  // Load the /Trading/Index page into the iframe
+    });
 </script>
