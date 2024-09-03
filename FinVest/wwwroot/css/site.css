@@ -173,6 +173,15 @@ footer a:hover {
   transition: opacity 0.3s ease-in-out;
 }
 
+.img-fluid {
+  width: 100%; /* Ensure the image width matches the column width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Set a max height to control the image's vertical size */
+  object-fit: cover; /* Ensure the image covers the entire container without distorting */
+  object-position: bottom; /* Align the image so that the bottom part is fully visible */
+}
+
+
 .reveal-container:hover .reveal-content {
   opacity: 1;
 }
