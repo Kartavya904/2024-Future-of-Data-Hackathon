@@ -1,10 +1,10 @@
 {
   "Version": 1,
 <<<<<<< HEAD
-  "Hash": "tk84+klitM+zePfbB62MgImuZ0MehTFGG8pco6apTC0=",
-=======
   "Hash": "izBjpHFqP1ncoIGfZSveFU5PAN6IW5uJrMVZaCKFZYs=",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+  "Hash": "st9DO4NbsanUyBSt7Z0rfsNF2PA5Guqx6oF4Kwvzp4Q=",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
   "Source": "FinVest",
   "BasePath": "_content/FinVest",
   "Mode": "Default",
@@ -15,10 +15,10 @@
       "Name": "FinVest\\wwwroot",
       "Source": "FinVest",
 <<<<<<< HEAD
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "Pattern": "**"
     }
@@ -26,16 +26,16 @@
   "Assets": [
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css",
-      "SourceId": "FinVest",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css",
       "SourceId": "FinVest",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css",
+      "SourceId": "FinVest",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "FinVest.styles.css",
       "AssetKind": "All",
@@ -49,20 +49,20 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
 <<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css"
-=======
       "OriginalItemSpec": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css"
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "OriginalItemSpec": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FinVest.styles.css"
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
     },
     {
-      "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css",
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css",
       "SourceId": "FinVest",
       "SourceType": "Computed",
 <<<<<<< HEAD
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
-=======
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "FinVest.bundle.scp.css",
       "AssetKind": "All",
@@ -76,20 +76,20 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
 <<<<<<< HEAD
-      "OriginalItemSpec": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css"
-=======
       "OriginalItemSpec": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css"
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "OriginalItemSpec": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FinVest.bundle.scp.css"
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
     },
     {
-      "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\css\\site.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
 <<<<<<< HEAD
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -106,16 +106,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\favicon.ico",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\favicon.ico",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\favicon.ico",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -132,16 +132,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\images\\BULL.png",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\BULL.png",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\BULL.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "images/BULL.png",
       "AssetKind": "All",
@@ -158,16 +158,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\images\\Dashboard.png",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Dashboard.png",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Dashboard.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "images/Dashboard.png",
       "AssetKind": "All",
@@ -184,16 +184,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\images\\logo.png",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "images/logo.png",
       "AssetKind": "All",
@@ -210,16 +210,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "images/Stock.png",
       "AssetKind": "All",
@@ -236,16 +236,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\js\\site.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\js\\site.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\js\\site.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -262,16 +262,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -288,16 +288,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -314,16 +314,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -340,16 +340,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -366,16 +366,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -392,16 +392,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -418,16 +418,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -444,16 +444,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -470,16 +470,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -496,16 +496,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -522,16 +522,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -548,16 +548,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -574,16 +574,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -600,16 +600,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -626,16 +626,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -652,16 +652,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -678,16 +678,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -704,16 +704,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -730,16 +730,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -756,16 +756,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -782,16 +782,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -808,16 +808,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -834,16 +834,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -860,16 +860,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -886,16 +886,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -912,16 +912,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -938,16 +938,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -964,16 +964,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -990,16 +990,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -1016,16 +1016,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -1042,16 +1042,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -1068,16 +1068,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -1094,16 +1094,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1120,16 +1120,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1146,16 +1146,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1172,16 +1172,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1198,16 +1198,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1224,16 +1224,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1250,16 +1250,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1276,16 +1276,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1302,16 +1302,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1328,16 +1328,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1354,16 +1354,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1380,16 +1380,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1406,16 +1406,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1432,16 +1432,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1458,16 +1458,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1484,16 +1484,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1510,16 +1510,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1536,16 +1536,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1562,16 +1562,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1588,16 +1588,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1614,16 +1614,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1640,16 +1640,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1666,16 +1666,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1692,16 +1692,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1718,16 +1718,16 @@
     },
     {
 <<<<<<< HEAD
-      "Identity": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "SourceId": "FinVest",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\wwwroot\\",
-=======
       "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
->>>>>>> 464a047d4e55d921cb749b7fe6be30522c76c84b
+=======
+      "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 649f8f67e2f6617212401a011a5770cf2aa7d606
       "BasePath": "_content/FinVest",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",

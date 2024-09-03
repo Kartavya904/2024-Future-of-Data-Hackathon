@@ -271,23 +271,79 @@
             })
             .catch(error => console.error('Error fetching stock data:', error));
     }
+    function calculateSMA(data, windowSize) {
+        let sma = [];
+        for (let i = 0; i < data.length; i++) {
+            if (i < windowSize - 1) {
+                sma.push(null);
+            } else {
+                let sum = 0;
+                for (let j = 0; j < windowSize; j++) {
+                    sum += data[i - j];
+                }
+                sma.push(sum / windowSize);
+            }
+        }
+        return sma;
+    }
+
+    function calculateEMA(data, windowSize) {
+        let ema = [];
+        let multiplier = 2 / (windowSize + 1);
+        ema[0] = data[0];
+        for (let i = 1; i < data.length; i++) {
+            ema.push(((data[i] - ema[i - 1]) * multiplier) + ema[i - 1]);
+        }
+        return ema;
+    }
+
+    function calculateRSI(data, windowSize) {
+        let rsi = [];
+        for (let i = 0; i < data.length; i++) {
+            if (i < windowSize) {
+                rsi.push(null);
+            } else {
+                let gains = 0, losses = 0;
+                for (let j = 0; j < windowSize; j++) {
+                    let change = data[i - j] - data[i - j - 1];
+                    if (change > 0) gains += change;
+                    else losses -= change;
+                }
+                let rs = gains / losses;
+                rsi.push(100 - (100 / (1 + rs)));
+            }
+        }
+        return rsi;
+    }
+
+    function calculateMACD(data, shortWindow = 12, longWindow = 26, signalWindow = 9) {
+        let shortEMA = calculateEMA(data, shortWindow);
+        let longEMA = calculateEMA(data, longWindow);
+        let macd = shortEMA.map((val, idx) => val - longEMA[idx]);
+        let signalLine = calculateEMA(macd, signalWindow);
+        let histogram = macd.map((val, idx) => val - signalLine[idx]);
+
+        return { macd, signalLine, histogram };
+    }
+
+    function calculateVWAP(data, volumeData) {
+        let vwap = [];
+        let cumulativePriceVolume = 0;
+        let cumulativeVolume = 0;
+        for (let i = 0; i < data.length; i++) {
+            cumulativePriceVolume += data[i] * volumeData[i];
+            cumulativeVolume += volumeData[i];
+            vwap.push(cumulativePriceVolume / cumulativeVolume);
+        }
+        return vwap;
+    }
 
     function updateChart(stockData, dataType) {
         let timeSeries;
 
         switch (dataType) {
             case "TIME_SERIES_INTRADAY":
-                if (stockData["Time Series (1min)"]) {
-                    timeSeries = stockData["Time Series (1min)"];
-                } else if (stockData["Time Series (5min)"]) {
-                    timeSeries = stockData["Time Series (5min)"];
-                } else if (stockData["Time Series (15min)"]) {
-                    timeSeries = stockData["Time Series (15min)"];
-                } else if (stockData["Time Series (30min)"]) {
-                    timeSeries = stockData["Time Series (30min)"];
-                } else if (stockData["Time Series (60min)"]) {
-                    timeSeries = stockData["Time Series (60min)"];
-                }
+                timeSeries = stockData["Time Series (1min)"] || stockData["Time Series (5min)"] || stockData["Time Series (15min)"] || stockData["Time Series (30min)"] || stockData["Time Series (60min)"];
                 break;
             case "TIME_SERIES_DAILY":
                 timeSeries = stockData["Time Series (Daily)"];
@@ -310,6 +366,15 @@
 
         var labels = Object.keys(timeSeries).reverse();
         var data = labels.map(label => parseFloat(timeSeries[label]["4. close"]));
+        var volumeData = labels.map(label => parseInt(timeSeries[label]["5. volume"]));
+
+        var sma20 = calculateSMA(data, 20);
+        var sma50 = calculateSMA(data, 50);
+        var ema20 = calculateEMA(data, 20);
+        var ema50 = calculateEMA(data, 50);
+        var vwap = calculateVWAP(data, volumeData);
+        var rsi = calculateRSI(data, 14);
+        var { macd, signalLine, histogram } = calculateMACD(data);
 
         var ctx = document.getElementById('stockChart').getContext('2d');
 
@@ -320,21 +385,115 @@
 
         // Create a new chart instance
         window.stockChart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar', // Volume data will be displayed as bars
             data: {
                 labels: labels,
-                datasets: [{
-                    label: 'Stock Prices',
-                    data: data,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    fill: false
-                }]
+                datasets: [
+                    {
+                        label: 'Volume',
+                        data: volumeData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        type: 'bar',
+                        yAxisID: 'y-axis-1'
+                    },
+                    {
+                        label: 'Stock Prices',
+                        data: data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2'
+                    },
+                    {
+                        label: 'SMA 20',
+                        data: sma20,
+                        borderColor: 'rgba(192, 75, 192, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2',
+                        hidden: true
+                    },
+                    {
+                        label: 'SMA 50',
+                        data: sma50,
+                        borderColor: 'rgba(192, 192, 75, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2',
+                        hidden: true
+                    },
+                    {
+                        label: 'EMA 20',
+                        data: ema20,
+                        borderColor: 'rgba(75, 192, 75, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2',
+                        hidden: true
+                    },
+                    {
+                        label: 'EMA 50',
+                        data: ema50,
+                        borderColor: 'rgba(192, 75, 75, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2',
+                        hidden: true
+                    },
+
+
+                    {
+                        label: 'VWAP',
+                        data: vwap,
+                        borderColor: 'rgba(192, 192, 192, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-2',
+                        hidden: true
+                    },
+                    {
+                        label: 'RSI',
+                        data: rsi,
+                        borderColor: 'rgba(192, 75, 75, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-3',
+                        hidden: true
+                    },
+                    {
+                        label: 'MACD',
+                        data: macd,
+                        borderColor: 'rgba(192, 192, 75, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-4',
+                        hidden: true
+                    },
+                    {
+                        label: 'MACD Signal Line',
+                        data: signalLine,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false,
+                        type: 'line',
+                        yAxisID: 'y-axis-4',
+                        hidden: true
+                    },
+                    {
+                        label: 'MACD Histogram',
+                        data: histogram,
+                        backgroundColor: 'rgba(192, 192, 192, 1)',
+                        type: 'bar',
+                        yAxisID: 'y-axis-5',
+                        hidden: true
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 title: {
                     display: true,
-                    text: 'Stock Price Over Time',
+                    text: 'Stock Price and Indicators Over Time',
                     fontColor: '#f0f0f0'
                 },
                 tooltips: {
@@ -346,32 +505,63 @@
                     intersect: true
                 },
                 scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Date',
-                            fontColor: '#f0f0f0'
-                        },
-                        ticks: {
-                            fontColor: '#f0f0f0'
+                    xAxes: [
+                        {
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
                         }
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Price (USD)',
-                            fontColor: '#f0f0f0'
+                    ],
+                    yAxes: [
+                        {
+                            id: 'y-axis-1',
+                            type: 'linear',
+                            position: 'left',
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
                         },
-                        ticks: {
-                            fontColor: '#f0f0f0'
+                        {
+                            id: 'y-axis-2',
+                            type: 'linear',
+                            position: 'right',
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
+                        },
+                        {
+                            id: 'y-axis-3',
+                            type: 'linear',
+                            position: 'left',
+                            display: false, // RSI can be optionally displayed
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
+                        },
+                        {
+                            id: 'y-axis-4',
+                            type: 'linear',
+                            position: 'right',
+                            display: false, // MACD can be optionally displayed
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
+                        },
+                        {
+                            id: 'y-axis-5',
+                            type: 'linear',
+                            position: 'left',
+                            display: false, // MACD Histogram can be optionally displayed
+                            ticks: {
+                                fontColor: '#f0f0f0'
+                            }
                         }
-                    }
+                    ]
                 }
             }
         });
     }
+
 
     // Event listener for the "Start Paper Trading" button
     document.getElementById('startTradingButton').addEventListener('click', function() {
