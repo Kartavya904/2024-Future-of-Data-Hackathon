@@ -932,11 +932,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
       "projectName": "FinVest",
       "projectPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
       "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+      "projectName": "FinVest",
+      "projectPath": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+      "packagesPath": "C:\\Users\\karta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\obj\\",
+>>>>>>> 4c88a17c6a3fc24ff463e476d8d0875886cb73e3
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -951,7 +959,10 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
         "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 4c88a17c6a3fc24ff463e476d8d0875886cb73e3
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

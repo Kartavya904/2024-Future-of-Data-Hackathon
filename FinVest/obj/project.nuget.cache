@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "8wN6DFVkQeo=",
   "success": true,
   "projectFilePath": "C:\\Users\\karta\\OneDrive\\Desktop\\All Projects\\2024 Future of Data Hackathon\\FinVest\\FinVest.csproj",
+=======
+  "dgSpecHash": "5eIiml0gKKs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\karta\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\FinVest.csproj",
+>>>>>>> 4c88a17c6a3fc24ff463e476d8d0875886cb73e3
   "expectedPackageFiles": [
     "C:\\Users\\karta\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\karta\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

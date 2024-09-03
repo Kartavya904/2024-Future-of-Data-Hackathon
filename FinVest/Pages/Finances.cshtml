@@ -216,10 +216,31 @@
         }
 
         /* Hide all charts by default */
-        .chart-container {
-            display: none;
-            margin-top: 40px;
-        }
+/* Style the chart rows */
+/* Style the chart rows */
+.chart-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Ensure that each chart container takes up roughly half the width of the row */
+.chart-container {
+    width: 48%;
+    background-color: #2A2A6A;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+/* Hide all charts initially */
+.chart-container {
+    display: none;
+}
+
+
 
         canvas {
             background-color: #f0f0f0;
@@ -428,9 +449,6 @@
     <p>Total Expenditure: <strong>@Model.CurrencySymbol@Model.TotalExpenditure.ToString("N2")</strong></p>
 </div>
 
-
-
-
 <!-- Filter Options -->
 <div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
     <button type="button" class="btn btn-theme" onclick="showTable('daily')">Daily</button>
@@ -536,67 +554,82 @@
             }
         </tbody>
     </table>
+</div><br><br>
+
+<!-- First Row -->
+<div class="chart-row">
+    <div class="chart-container" id="monthlyIncomeExpenditureChartContainer">
+        <h2>Monthly Income vs Expenditure</h2>
+        <canvas id="monthlyIncomeExpenditureChart"></canvas>
+    </div>
+
+    <div class="chart-container" id="yearlyIncomeExpenditureChartContainer">
+        <h2>Yearly Income vs Expenditure</h2>
+        <canvas id="yearlyIncomeExpenditureChart"></canvas>
+    </div>
 </div>
 
-        <!-- Chart Containers -->
-        <div class="chart-container" id="monthlyIncomeExpenditureChartContainer">
-            <h2>Monthly Income vs Expenditure</h2>
-            <canvas id="monthlyIncomeExpenditureChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="yearlyIncomeExpenditureChartContainer">
-            <h2>Yearly Income vs Expenditure</h2>
-            <canvas id="yearlyIncomeExpenditureChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="categoryWiseExpenditureChartContainer">
-            <h2>Category-wise Expenditure</h2>
-            <canvas id="categoryWiseExpenditureChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="runningBalanceChartContainer">
-            <h2>Running Balance Over Time</h2>
-            <canvas id="runningBalanceChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="monthlyRunningBalanceChartContainer">
-            <h2>Monthly Running Balance</h2>
-            <canvas id="monthlyRunningBalanceChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="yearlyRunningBalanceChartContainer">
-            <h2>Yearly Running Balance</h2>
-            <canvas id="yearlyRunningBalanceChart"></canvas>
-        </div>
-
-        <!-- New 3D Charts -->
-
-        <div class="chart-container" id="3dPieChartContainer">
-            <h2>3D Pie Chart of Expenditure Categories</h2>
-            <canvas id="3dPieChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="3dBarChartContainer">
-            <h2>3D Bar Chart of Monthly Savings</h2>
-            <canvas id="3dBarChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="3dLineChartContainer">
-            <h2>3D Line Chart of Annual Income vs Expenditure</h2>
-            <canvas id="3dLineChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="3dDoughnutChartContainer">
-            <h2>3D Doughnut Chart of Income Distribution</h2>
-            <canvas id="3dDoughnutChart"></canvas>
-        </div>
-
-        <div class="chart-container" id="categoryBarChartContainer">
-            <h2>Bar Chart of Expenditure by Category</h2>
-            <canvas id="categoryBarChart"></canvas>
-        </div>
-
+<!-- Second Row -->
+<div class="chart-row">
+    <div class="chart-container" id="runningBalanceChartContainer">
+        <h2>Running Balance Over Time</h2>
+        <canvas id="runningBalanceChart"></canvas>
     </div>
+
+    <div class="chart-container" id="monthlyRunningBalanceChartContainer">
+        <h2>Monthly Running Balance</h2>
+        <canvas id="monthlyRunningBalanceChart"></canvas>
+    </div>
+
+</div>
+
+<!-- Third Row -->
+<div class="chart-row">
+    <div class="chart-container" id="yearlyRunningBalanceChartContainer">
+        <h2>Yearly Running Balance</h2>
+        <canvas id="yearlyRunningBalanceChart"></canvas>
+    </div>
+
+    <div class="chart-container" id="3dBarChartContainer">
+        <h2>3D Bar Chart of Monthly Savings</h2>
+        <canvas id="3dBarChart"></canvas>
+    </div>
+</div>
+
+<!-- Fourth Row -->
+<div class="chart-row">
+    <div class="chart-container" id="categoryWiseExpenditureChartContainer">
+        <h2>Category-wise Expenditure</h2>
+        <canvas id="categoryWiseExpenditureChart"></canvas>
+    </div>
+
+    <div class="chart-container" id="3dPieChartContainer">
+        <h2>3D Pie Chart of Expenditure Categories</h2>
+        <canvas id="3dPieChart"></canvas>
+    </div>
+</div>
+
+<!-- Fifth Row -->
+<div class="chart-row">
+    <div class="chart-container" id="3dLineChartContainer">
+        <h2>3D Line Chart of Annual Income vs Expenditure</h2>
+        <canvas id="3dLineChart"></canvas>
+    </div>
+    
+    <div class="chart-container" id="categoryBarChartContainer">
+        <h2>Bar Chart of Expenditure by Category</h2>
+        <canvas id="categoryBarChart"></canvas>
+    </div>
+</div>
+
+<!-- Sixth Row -->
+<div class="chart-row">
+    <div class="chart-container" id="3dDoughnutChartContainer">
+        <h2>3D Doughnut Chart of Income Distribution</h2>
+        <canvas id="3dDoughnutChart"></canvas>
+    </div>
+</div>
+
 
     <script type="text/javascript">
         var originalTransactions = @Html.Raw(Json.Serialize(Model.TransactionHistory));
@@ -605,54 +638,55 @@
         var linkToken = "@Model.LinkToken";
 
         var handler = Plaid.create({
-            token: linkToken,
-            onSuccess: function (public_token, metadata) {
-                // Get the anti-forgery token from the form
-                document.getElementById('loadingScreen').style.display = 'block';
-                var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+    token: linkToken,
+    onSuccess: function (public_token, metadata) {
+        // Show the loading screen
+        document.getElementById('loadingScreen').style.display = 'block';
+        var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
-                // Simulate data fetching or processing
-                setTimeout(function() {
-                    document.getElementById('loadingScreen').style.display = 'none';
+        // Simulate data fetching or processing
+        setTimeout(function() {
+            document.getElementById('loadingScreen').style.display = 'none';
 
-                    // Assume fetching transactions and account details is successful
-                    document.getElementById('bankDetails').style.display = 'block';
-                    document.getElementById('transactionSummary').style.display = 'block';
-                    document.getElementById('filterOptions').style.display = 'block';
+            // Assume fetching transactions and account details is successful
+            document.getElementById('bankDetails').style.display = 'block';
+            document.getElementById('transactionSummary').style.display = 'block';
+            document.getElementById('filterOptions').style.display = 'block';
 
-                    // Initially show the daily table
-                    showTable('daily');
+            // Initially show the daily table
+            showTable('daily');
 
-                    // Show all charts
-                    showAllCharts();
-                }, 3000); // 3-second delay
-            },
-            onExit: function (err, metadata) {
-                if (err != null) {
-                    console.error(err);
-                }
-            },
-            onEvent: function (eventName, metadata) {
-                console.log(eventName, metadata);
-            }
-        });
-
-        document.getElementById('linkButton').onclick = function () {
-            handler.open();
-        };
-
-        function showTable(tableId) {
-            // Hide all tables
-            document.querySelectorAll('.transaction-table').forEach(table => table.style.display = 'none');
-
-            // Show the selected table
-            document.getElementById(tableId + 'Table').style.display = 'block';
+            // Show all charts after connection
+            showAllCharts();
+        }, 3000); // 3-second delay
+    },
+    onExit: function (err, metadata) {
+        if (err != null) {
+            console.error(err);
         }
+    },
+    onEvent: function (eventName, metadata) {
+        console.log(eventName, metadata);
+    }
+});
 
-        function showAllCharts() {
-            document.querySelectorAll('.chart-container').forEach(chart => chart.style.display = 'block');
-            renderCharts();
-        }
+document.getElementById('linkButton').onclick = function () {
+    handler.open();
+};
+
+function showTable(tableId) {
+    // Hide all tables
+    document.querySelectorAll('.transaction-table').forEach(table => table.style.display = 'none');
+
+    // Show the selected table
+    document.getElementById(tableId + 'Table').style.display = 'block';
+}
+
+function showAllCharts() {
+    document.querySelectorAll('.chart-container').forEach(chart => chart.style.display = 'block');
+    renderCharts();
+}
+
 
         function renderCharts() {
             var ctxMonthlyIncomeExpenditure = document.getElementById('monthlyIncomeExpenditureChart').getContext('2d');
