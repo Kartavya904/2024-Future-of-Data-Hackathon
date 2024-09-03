@@ -11,30 +11,30 @@
 <h3>Check Stock Price</h3>
 <form asp-action="CheckStockPrice" method="post">
     <label for="symbol">Stock Symbol:</label>
-    <input type="text" id="symbol" name="symbol" class="form-control" required />
-    <button type="submit" class="btn btn-primary">Check Price</button>
+    <input type="text" id="symbol" name="symbol" class="form-control input-styled" required />
+    <br><button type="submit" class="btn btn-primary">Check Price</button>
 </form>
-
+<br>
 @if (ViewBag.CurrentStockPrice != null)
 {
     <p>The current price of <strong>@ViewBag.CurrentStockSymbol</strong> is <strong>@ViewBag.CurrentStockPrice:C</strong></p>
 }
-
+<br>
 <h3>Buy Stocks</h3>
 <form asp-action="BuyStock" method="post">
     <div class="form-group">
         <label for="symbol">Stock Symbol:</label>
-        <input type="text" id="symbol" name="symbol" class="form-control" required />
+        <input type="text" id="symbol" name="symbol" class="form-control input-styled" required />
     </div>
 
     <div class="form-group">
         <label for="shares">Number of Shares:</label>
-        <input type="number" id="shares" name="shares" class="form-control" required />
+        <input type="number" id="shares" name="shares" class="form-control input-styled" required />
     </div>
 
     <button type="submit" class="btn btn-success">Buy</button>
 </form>
-
+<br>
 <h3>Your Holdings</h3>
 <table class="table table-striped">
     <thead>
@@ -68,17 +68,17 @@
         }
     </tbody>
 </table>
-
+<br>
 <h3>Sell Stocks</h3>
 <form asp-action="SellStock" method="post">
     <div class="form-group">
         <label for="symbol">Stock Symbol:</label>
-        <input type="text" id="symbol" name="symbol" class="form-control" required />
+        <input type="text" id="symbol" name="symbol" class="form-control input-styled" required />
     </div>
 
     <div class="form-group">
         <label for="shares">Number of Shares:</label>
-        <input type="number" id="shares" name="shares" class="form-control" required />
+        <input type="number" id="shares" name="shares" class="form-control input-styled" required />
     </div>
 
     <button type="submit" class="btn btn-danger">Sell</button>
@@ -107,17 +107,17 @@
     }
 
     .form-control {
-        background-color: #2A2A6A;
-        color: #f0f0f0;
-        border: 1px solid #76c7c0;
-        border-radius: 5px;
+    border: 2px solid #76c7c0;
+    border-radius: 5px;
+    background-color: #1e2a48;
+    color: #f0f0f0;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
     }
 
     .form-control:focus {
-        background-color: #3A3A8A;
-        color: #f0f0f0;
-        border-color: #76c7c0;
-        box-shadow: 0 0 5px rgba(118, 199, 192, 0.8);
+    border-color: #76c7c0;
+    box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
     }
 
     .btn {
@@ -128,9 +128,14 @@
     }
 
     .btn-primary {
-        background-color: #292959;
+       background-color: rgba(0, 0, 0, 0.1);
         color: #f0f0f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
         border: 2px solid #76c7c0;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     .btn-primary:hover {
@@ -140,54 +145,97 @@
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
-    .btn-success {
-        background-color: #2A8A59;
+    .btn-primary:focus {
+        box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
+    }
+
+    .btn-primary:active {
+        background-color: #1b6ec2;
         color: #f0f0f0;
+        transform: scale(0.95);
+    }
+
+    .btn-success {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: #f0f0f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
         border: 2px solid #76c7c0;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     .btn-success:hover {
-        background-color: #76c7c0;
-        color: #2A8A59;
+        background-color: #2A8A59;
+        color: #f0f0f0;
         transform: scale(1.05);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
     .btn-danger {
-        background-color: #8A2A2A;
+        background-color: rgba(0, 0, 0, 0.1);
         color: #f0f0f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
         border: 2px solid #76c7c0;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
 
     .btn-danger:hover {
-        background-color: #76c7c0;
-        color: #8A2A2A;
+        background-color: #8A2A2A;
+        color: #f0f0f0;
         transform: scale(1.05);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
     table {
-        background-color: #2A2A6A;
-        color: #f0f0f0;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        background: linear-gradient(145deg, #23303d, #1b2b3a);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        overflow: scroll;
     }
 
     th {
-        background-color: #1B1B50;
-        color: #76c7c0;
-        text-align: center;
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #76c7c0;
+        background-color: #1a2c3b;
+        font-weight: bold;
+        color: #66c2a5;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    th:hover {
+        background-color: #76c7c0;
+        color: #1a2c3b;
+    }
+
+    tr:hover {
+        background-color: #2e4053;
+        transition: background-color 0.3s ease;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #23303d;
+    }
+
+    tr:nth-child(even) {
+        background-color: #1b2b3a;
     }
 
     td {
-        text-align: center;
+        font-size: 14px;
+        padding: 12px 15px;
+        text-align: left;
+        color: #ecf0f1;
+        border-bottom: 1px solid #76c7c0;
     }
 
-    table th, table td {
-        padding: 15px;
-    }
 
     tr:nth-child(even) {
         background-color: #32327B;
@@ -203,5 +251,33 @@
         border-radius: 5px;
         padding: 10px;
         margin-top: 20px;
+    }
+
+    .form-group {
+        background-color: #1b2b3a;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        color: #76c7c0;
+        font-weight: 600;
+    }
+
+    .input-styled, .select-styled {
+        background-color: #1b2b3a;
+        color: #f0f0f0;
+        border: 1px solid #76c7c0;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    .input-styled::placeholder {
+        color: #c0c0c0;
+    }
+
+    .form-control:focus {
+    border-color: #76c7c0;
+    box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
     }
 </style>

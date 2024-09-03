@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <style>
-        
         body {
             background-color: #122953;
             font-family: 'Poppins', sans-serif;
@@ -16,7 +15,7 @@
         }
 
         .navbar {
-            background-color: #2A2A6A;
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand, .navbar-nav .nav-link {
@@ -75,34 +74,15 @@
             gap: 15px;
         }
 
-        @* .btn-light {
-            color: #292959;
-            background-color: white;
-            border-radius: 5px;
-            border-color: #292959;
-            padding: 8px 16px;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-light:hover {
-            background-color: #76c7c0;
-            color: white;
-            border-color: #76c7c0;
-        } *@
-
-
-        /* Enhanced button styles */
-        /* Dark theme button styles */
         .btn-dark-custom {
-            background-color: #292959;
+            background-color: rgba(0, 0, 0, 0.1);
             color: #f0f0f0;
             border-radius: 8px;
             padding: 10px 20px;
             font-weight: 600;
             border: 2px solid #76c7c0;
             transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
         }
 
         .btn-dark-custom:hover {
@@ -116,16 +96,11 @@
             box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
         }
 
-
         .btn-dark-custom:active {
             background-color: #1b6ec2;
             color: #f0f0f0;
             transform: scale(0.95);
         }
-
-        
-
-
 
         .profile-button {
             width: 40px;
@@ -144,7 +119,7 @@
         }
 
         footer {
-            background-color: #2A2A6A;
+            background-color: rgba(0, 0, 0, 0.1);
             padding: 20px 0;
             color: #ccc;
             text-align: center;
@@ -160,8 +135,67 @@
         }
 
         /* New Styles for Modals */
-        .modal-body, .modal-title, label, input, select {
-            color: black;
+        .modal-content {
+            background-color: #122953;
+            color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            border-bottom: 2px solid #76c7c0;
+        }
+
+        .modal-title {
+            font-weight: 600;
+            color: #76c7c0;
+        }
+
+        .modal-body {
+            color: #f0f0f0;
+        }
+
+        .form-group label {
+            color: #76c7c0;
+            font-weight: 600;
+        }
+
+        .form-styled {
+            background-color: #1b2b3a;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-styled label {
+            color: #76c7c0;
+            font-weight: 600;
+        }
+
+        .input-styled, .select-styled {
+            background-color: #1b2b3a;
+            color: #f0f0f0;
+            border: 1px solid #76c7c0;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        .input-styled::placeholder {
+            color: #c0c0c0;
+        }
+
+        @* .form-control {
+            border: 2px solid #76c7c0;
+            border-radius: 5px;
+            background-color: #1e2a48;
+            color: #f0f0f0;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+        } *@
+
+        .form-control:focus {
+            border-color: #76c7c0;
+            box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
         }
 
         .switch-link {
@@ -170,6 +204,12 @@
             text-align: center;
             margin-top: 15px;
             display: block;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .switch-link:hover {
+            color: #ffffff;
         }
 
         .currency-option img {
@@ -206,7 +246,7 @@
 
     <footer class="border-top footer">
         <div class="container">
-            &copy; 2024 - FinVest - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2024 - FinVest<br>Produced by Kartavya Singh, Phani Bhardwaj, Saarthak Sinha, Shivam Kharangate
         </div>
     </footer>
 
@@ -215,10 +255,10 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <!-- Sign Up and Login Modals -->
+    <!-- Sign Up Modal -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content input-styled">
                 <div class="modal-header">
                     <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -226,12 +266,13 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="sign-up-email">Email:</label>
-                        <input type="email" id="sign-up-email" class="form-control">
+                        <input type="email" id="sign-up-email" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="sign-up-password">Password:</label>
-                        <input type="password" id="sign-up-password" class="form-control">
-                    </div><br>
+                        <input type="password" id="sign-up-password" class="form-control input-styled">
+                    </div>
+                    <br>
                     <button onclick="signUp()" class="btn btn-dark-custom">Sign Up</button>
                     <span class="switch-link" onclick="switchToLogin()">Already have an account? Log In</span>
                 </div>
@@ -239,9 +280,10 @@
         </div>
     </div>
 
+    <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content input-styled">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Log In</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -249,12 +291,13 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="login-email">Email:</label>
-                        <input type="email" id="login-email" class="form-control">
+                        <input type="email" id="login-email" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="login-password">Password:</label>
-                        <input type="password" id="login-password" class="form-control">
-                    </div><br>
+                        <input type="password" id="login-password" class="form-control input-styled">
+                    </div>
+                    <br>
                     <button onclick="login()" class="btn btn-dark-custom">Login</button>
                     <span class="switch-link" onclick="switchToSignUp()">Don't have an account? Sign Up</span>
                 </div>
@@ -265,7 +308,7 @@
     <!-- Additional Information Modal -->
     <div class="modal fade" id="additionalInfoModal" tabindex="-1" aria-labelledby="additionalInfoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content input-styled">
                 <div class="modal-header">
                     <h5 class="modal-title" id="additionalInfoModalLabel">Complete Your Profile</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -273,23 +316,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" class="form-control">
+                        <input type="text" id="username" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="full-name">Full Name:</label>
-                        <input type="text" id="full-name" class="form-control">
+                        <input type="text" id="full-name" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="phone-number">Phone Number:</label>
-                        <input type="text" id="phone-number" class="form-control">
+                        <input type="text" id="phone-number" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
-                        <input type="date" id="dob" class="form-control">
+                        <input type="date" id="dob" class="form-control input-styled">
                     </div>
                     <div class="form-group">
                         <label for="country">Country of Residence:</label>
-                        <select id="country" class="form-control">
+                        <select id="country" class="form-control input-styled">
                             <option value="USA">United States</option>
                             <option value="CHN">China</option>
                             <option value="IND">India</option>
@@ -304,7 +347,7 @@
                     </div>
                     <div class="form-group">
                         <label for="currency">Preferred Currency:</label>
-                        <select id="currency" class="form-control">
+                        <select id="currency" class="form-control input-styled">
                             <option value="USD" class="currency-option"><img src="~/images/usd.png" alt="USD"> USD - US Dollar</option>
                             <option value="EUR" class="currency-option"><img src="~/images/eur.png" alt="EUR"> EUR - Euro</option>
                             <option value="INR" class="currency-option"><img src="~/images/inr.png" alt="INR"> INR - Indian Rupee</option>
@@ -319,7 +362,7 @@
                     </div>
                     <div class="form-group">
                         <label for="annual-income">Annual Income:</label>
-                        <select id="annual-income" class="form-control">
+                        <select id="annual-income" class="form-control input-styled">
                             <option>Less than $5,000</option>
                             <option>$5,000 - $10,000</option>
                             <option>$10,000 - $25,000</option>
@@ -329,7 +372,7 @@
                     </div>
                     <div class="form-group">
                         <label for="risk-tolerance">Risk Tolerance:</label>
-                        <select id="risk-tolerance" class="form-control">
+                        <select id="risk-tolerance" class="form-control input-styled">
                             <option>Low</option>
                             <option>Medium</option>
                             <option>High</option>
@@ -337,7 +380,7 @@
                     </div>
                     <div class="form-group">
                         <label for="investment-experience">Investment Experience:</label>
-                        <select id="investment-experience" class="form-control">
+                        <select id="investment-experience" class="form-control input-styled">
                             <option>Beginner</option>
                             <option>Intermediate</option>
                             <option>Advanced</option>
@@ -345,7 +388,7 @@
                     </div>
                     <div class="form-group">
                         <label for="investment-goals">Investment Goals:</label>
-                        <input type="text" id="investment-goals" class="form-control">
+                        <input type="text" id="investment-goals" class="form-control input-styled">
                     </div><br>
                     <button onclick="submitAdditionalInfo()" class="btn btn-dark-custom">Submit</button>
                 </div>

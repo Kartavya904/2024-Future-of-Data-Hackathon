@@ -27,7 +27,7 @@
                 <option value="TIME_SERIES_WEEKLY">Weekly</option>
                 <option value="TIME_SERIES_MONTHLY">Monthly</option>
             </select>
-        </div>
+        </div><br>
         <button type="submit" class="btn btn-primary btn-styled">Get Data</button>
     </form>
 
@@ -38,7 +38,7 @@
 
     <!-- Container for the embedded page -->
     <div id="tradingContainer" style="display: none; margin-top: 20px;">
-        <iframe id="tradingFrame" src="" style="width: 100%; height: 1200px; border: none; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></iframe>
+        <iframe id="tradingFrame" src="" style="width: 100%; height: 1400px; border: none; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></iframe>
     </div>
 </div>
 
@@ -50,9 +50,97 @@
         color: #f0f0f0;
     }
 
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand, .navbar-nav .nav-link {
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        height: 75px;
+        margin-right: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .navbar-brand .icon-text {
+        font-size: 24px;
+        font-weight: 600;
+        color: #f0f0f0;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #76c7c0;
+        text-decoration: underline;
+    }
+
+    .icon-text:hover {
+        color: #76c7c0;
+    }
+
+    .slogan {
+        color: #76c7c0;
+        font-size: 28px;
+        font-weight: 600;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .login-signup-links {
+        margin-left: auto;
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn-styled {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: #f0f0f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
+        border: 2px solid #76c7c0;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-styled:hover {
+        background-color: #76c7c0;
+        color: #292959;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-styled:focus {
+        box-shadow: 0 0 0 0.1rem #76c7c0, 0 0 0 0.25rem #292959;
+    }
+
+    .btn-styled:active {
+        background-color: #1b6ec2;
+        color: #f0f0f0;
+        transform: scale(0.95);
+    }
+
     .container {
         margin-top: 20px;
-        max-width: 900px;
+        max-width: 100%;
         background-color: #1a2c3b;
         padding: 20px;
         border-radius: 10px;
@@ -68,10 +156,8 @@
     }
 
     .form-styled {
-        background-color: #2a3d55;
+        background-color: #1b2b3a;
         padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         margin-bottom: 20px;
     }
 
@@ -92,24 +178,9 @@
         color: #c0c0c0;
     }
 
-    .btn-styled {
-        background-color: #76c7c0;
-        color: #292959;
-        font-weight: 600;
-        padding: 10px 20px;
-        border-radius: 8px;
-        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-styled:hover {
-        background-color: #5ba9a6;
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
-
     .chart-styled {
         background-color: #2a3d55;
+        display: none;
         border-radius: 8px;
         padding: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

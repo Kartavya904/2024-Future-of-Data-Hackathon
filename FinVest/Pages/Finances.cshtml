@@ -22,24 +22,24 @@
             color: #f0f0f0;
         }
 
-    .btn-group .btn-theme {
-    background-color: #292959;
-    color: #f0f0f0;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-weight: 600;
-    border: 2px solid #76c7c0;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 5px;
-    }
+        .btn-group .btn-theme {
+        background-color: #292959;
+        color: #f0f0f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
+        border: 2px solid #76c7c0;
+        transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 0 5px;
+        }
 
-    .btn-group .btn-theme:hover {
-        background-color: #76c7c0;
-        color: #292959;
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
+        .btn-group .btn-theme:hover {
+            background-color: #76c7c0;
+            color: #292959;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
 
         .content {
             margin-top: 20px;
@@ -96,31 +96,48 @@
             color: #f0f0f0;
         }
 
-        .connect-bank-section {
-            padding: 60px 0;
-            background-color: #1b2b3a;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px; /* Adjust the gap between the sections as needed */
             margin-top: 40px;
-            text-align: center;
-            color: #f0f0f0;
         }
 
-        .connect-bank-section h3 {
+        .connect-bank-section, .start-trading-section {
+            background-color: #1b2b3a;
+            padding: 60px 20px; /* Adjust the padding as needed */
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        .connect-bank-section h3, .start-trading-section h3 {
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
             color: #76c7c0;
         }
 
-        .connect-bank-section p {
+        .connect-bank-section p, .start-trading-section p {
             font-size: 18px;
             margin-bottom: 30px;
             color: #e0e0e0;
         }
 
-        .btn-connect-bank {
-            background-color: #292959;
+        .btn-theme {
+            background-color: #1b2b3a;
+            color: #f0f0f0;
+            border-radius: 8px;
+            border: 2px solid #76c7c0;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            width: 50%; /* Adjust the width of the button */
+        }
+
+        .btn-connect-bank, .btn-start-trading  {
+            background-color: #1b2b3a;
             color: #f0f0f0;
             border-radius: 8px;
             padding: 12px 24px;
@@ -128,12 +145,11 @@
             border: 2px solid #76c7c0;
             transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 40%;
-            margin-top: 20px;
             font-size: 18px;
+            width: 50%; /* Adjust the width of the button */
         }
 
-        .btn-connect-bank:hover {
+        .btn-connect-bank:hover, .btn-start-trading:hover, .btn-change-table:hover {
             background-color: #76c7c0;
             color: #292959;
             transform: scale(1.05);
@@ -216,31 +232,29 @@
         }
 
         /* Hide all charts by default */
-/* Style the chart rows */
-/* Style the chart rows */
-.chart-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+        /* Style the chart rows */
+        /* Style the chart rows */
+        .chart-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
 
-/* Ensure that each chart container takes up roughly half the width of the row */
-.chart-container {
-    width: 48%;
-    background-color: #2A2A6A;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-
-/* Hide all charts initially */
-.chart-container {
-    display: none;
-}
+        /* Ensure that each chart container takes up roughly half the width of the row */
+        .chart-container {
+            width: 48%;
+            background-color: #1b2b3a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
 
+        /* Hide all charts initially */
+        .chart-container {
+            display: none;
+        }
 
         canvas {
             background-color: #f0f0f0;
@@ -406,16 +420,23 @@
             </div>
         </div>
 
-        <section class="connect-bank-section">
-            <div class="container text-center">
-                <h3>Connect Your Bank</h3>
-                <p class="mb-4">Easily link your bank account to FinVest for seamless financial tracking and management.</p>
-                <form id="plaidForm">
-                    @Html.AntiForgeryToken()
-                </form>
-                <button id="linkButton" class="btn btn-connect-bank">Connect Your Bank</button>
-            </div>
-        </section>
+        <div class="grid-container">
+            <section class="connect-bank-section">
+                <div class="container text-center">
+                    <h3>Connect Your Bank</h3>
+                    <p class="mb-4">Easily link your bank account to FinVest for seamless financial tracking and management.</p>
+                    <button id="linkButton" class="btn btn-connect-bank">Connect Your Bank</button>
+                </div>
+            </section>
+
+            <section class="start-trading-section">
+                <div class="container text-center">
+                    <h3>Start Your Trading Journey Here</h3>
+                    <p class="mb-4">Begin your journey into paper trading and learn the ropes of stock trading without any risk.</p>
+                    <button id="startTradingButton" class="btn btn-start-trading" onclick="location.href='/Stocks'">Start Trading</button>
+                </div>
+            </section>
+        </div>
 
         <!-- Bank Details Section (hidden until successful connection) -->
   <div id="bankDetails" style="display: none;">
@@ -451,9 +472,9 @@
 
 <!-- Filter Options -->
 <div id="filterOptions" class="btn-group mb-3" role="group" aria-label="Filter Transactions" style="display: none;">
-    <button type="button" class="btn btn-theme" onclick="showTable('daily')">Daily</button>
-    <button type="button" class="btn btn-theme" onclick="showTable('monthly')">Monthly</button>
-    <button type="button" class="btn btn-theme" onclick="showTable('yearly')">Yearly</button>
+    <button type="button" class="btn-change-table input-styled" onclick="showTable('daily')">Daily</button>
+    <button type="button" class="btn-change-table input-styled" onclick="showTable('monthly')">Monthly</button>
+    <button type="button" class="btn-change-table input-styled" onclick="showTable('yearly')">Yearly</button>
 </div>
 
        
@@ -558,12 +579,12 @@
 
 <!-- First Row -->
 <div class="chart-row">
-    <div class="chart-container" id="monthlyIncomeExpenditureChartContainer">
+    <div class="chart-container card" id="monthlyIncomeExpenditureChartContainer">
         <h2>Monthly Income vs Expenditure</h2>
         <canvas id="monthlyIncomeExpenditureChart"></canvas>
     </div>
 
-    <div class="chart-container" id="yearlyIncomeExpenditureChartContainer">
+    <div class="chart-container card" id="yearlyIncomeExpenditureChartContainer">
         <h2>Yearly Income vs Expenditure</h2>
         <canvas id="yearlyIncomeExpenditureChart"></canvas>
     </div>
@@ -571,12 +592,12 @@
 
 <!-- Second Row -->
 <div class="chart-row">
-    <div class="chart-container" id="runningBalanceChartContainer">
+    <div class="chart-container card" id="runningBalanceChartContainer">
         <h2>Running Balance Over Time</h2>
         <canvas id="runningBalanceChart"></canvas>
     </div>
 
-    <div class="chart-container" id="monthlyRunningBalanceChartContainer">
+    <div class="chart-container card" id="monthlyRunningBalanceChartContainer">
         <h2>Monthly Running Balance</h2>
         <canvas id="monthlyRunningBalanceChart"></canvas>
     </div>
@@ -585,12 +606,12 @@
 
 <!-- Third Row -->
 <div class="chart-row">
-    <div class="chart-container" id="yearlyRunningBalanceChartContainer">
+    <div class="chart-container card" id="yearlyRunningBalanceChartContainer">
         <h2>Yearly Running Balance</h2>
         <canvas id="yearlyRunningBalanceChart"></canvas>
     </div>
 
-    <div class="chart-container" id="3dBarChartContainer">
+    <div class="chart-container card" id="3dBarChartContainer">
         <h2>3D Bar Chart of Monthly Savings</h2>
         <canvas id="3dBarChart"></canvas>
     </div>
@@ -598,12 +619,12 @@
 
 <!-- Fourth Row -->
 <div class="chart-row">
-    <div class="chart-container" id="categoryWiseExpenditureChartContainer">
+    <div class="chart-container card" id="categoryWiseExpenditureChartContainer">
         <h2>Category-wise Expenditure</h2>
         <canvas id="categoryWiseExpenditureChart"></canvas>
     </div>
 
-    <div class="chart-container" id="3dPieChartContainer">
+    <div class="chart-container card" id="3dPieChartContainer">
         <h2>3D Pie Chart of Expenditure Categories</h2>
         <canvas id="3dPieChart"></canvas>
     </div>
@@ -611,12 +632,12 @@
 
 <!-- Fifth Row -->
 <div class="chart-row">
-    <div class="chart-container" id="3dLineChartContainer">
+    <div class="chart-container card" id="3dLineChartContainer">
         <h2>3D Line Chart of Annual Income vs Expenditure</h2>
         <canvas id="3dLineChart"></canvas>
     </div>
     
-    <div class="chart-container" id="categoryBarChartContainer">
+    <div class="chart-container card" id="categoryBarChartContainer">
         <h2>Bar Chart of Expenditure by Category</h2>
         <canvas id="categoryBarChart"></canvas>
     </div>
@@ -624,7 +645,7 @@
 
 <!-- Sixth Row -->
 <div class="chart-row">
-    <div class="chart-container" id="3dDoughnutChartContainer">
+    <div class="chart-container card" id="3dDoughnutChartContainer">
         <h2>3D Doughnut Chart of Income Distribution</h2>
         <canvas id="3dDoughnutChart"></canvas>
     </div>
@@ -638,54 +659,54 @@
         var linkToken = "@Model.LinkToken";
 
         var handler = Plaid.create({
-    token: linkToken,
-    onSuccess: function (public_token, metadata) {
-        // Show the loading screen
-        document.getElementById('loadingScreen').style.display = 'block';
-        var token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            token: linkToken,
+            onSuccess: function (public_token, metadata) {
+                console.log("Successfully created transactions!")
+                // Show the loading screen
+                document.getElementById('loadingScreen').style.display = 'block';
 
-        // Simulate data fetching or processing
-        setTimeout(function() {
-            document.getElementById('loadingScreen').style.display = 'none';
+                // Simulate data fetching or processing
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
 
-            // Assume fetching transactions and account details is successful
-            document.getElementById('bankDetails').style.display = 'block';
-            document.getElementById('transactionSummary').style.display = 'block';
-            document.getElementById('filterOptions').style.display = 'block';
+                    // Assume fetching transactions and account details is successful
+                    document.getElementById('bankDetails').style.display = 'block';
+                    document.getElementById('transactionSummary').style.display = 'block';
+                    document.getElementById('filterOptions').style.display = 'block';
 
-            // Initially show the daily table
-            showTable('daily');
+                    // Initially show the daily table
+                    showTable('daily');
 
-            // Show all charts after connection
-            showAllCharts();
-        }, 3000); // 3-second delay
-    },
-    onExit: function (err, metadata) {
-        if (err != null) {
-            console.error(err);
+                    // Show all charts after connection
+                    showAllCharts();
+                }, 3000); // 3-second delay
+            },
+            onExit: function (err, metadata) {
+                if (err != null) {
+                    console.error("Error Is: " + err);
+                }
+            },
+            onEvent: function (eventName, metadata) {
+                console.log(eventName, metadata);
+            }
+        });
+
+        document.getElementById('linkButton').onclick = function () {
+            handler.open();
+        };
+
+        function showTable(tableId) {
+            // Hide all tables
+            document.querySelectorAll('.transaction-table').forEach(table => table.style.display = 'none');
+
+            // Show the selected table
+            document.getElementById(tableId + 'Table').style.display = 'block';
         }
-    },
-    onEvent: function (eventName, metadata) {
-        console.log(eventName, metadata);
-    }
-});
 
-document.getElementById('linkButton').onclick = function () {
-    handler.open();
-};
-
-function showTable(tableId) {
-    // Hide all tables
-    document.querySelectorAll('.transaction-table').forEach(table => table.style.display = 'none');
-
-    // Show the selected table
-    document.getElementById(tableId + 'Table').style.display = 'block';
-}
-
-function showAllCharts() {
-    document.querySelectorAll('.chart-container').forEach(chart => chart.style.display = 'block');
-    renderCharts();
-}
+        function showAllCharts() {
+            document.querySelectorAll('.chart-container').forEach(chart => chart.style.display = 'block');
+            renderCharts();
+        }
 
 
         function renderCharts() {
