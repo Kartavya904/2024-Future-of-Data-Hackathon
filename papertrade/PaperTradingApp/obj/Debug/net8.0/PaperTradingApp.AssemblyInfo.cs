@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaperTradingApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d753be371583f45a3c1f0ea1a650bbedced93a13")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+019223cbdd1a363660e18306c8d5164aa2f3c54d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaperTradingApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaperTradingApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
