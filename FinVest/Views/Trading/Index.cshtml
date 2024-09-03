@@ -1,10 +1,12 @@
-﻿@{
+﻿@model UserPortfolio
+
+@{
     ViewBag.Title = "Paper Trading Dashboard";
 }
 
-<h2>Paper Trading Dashboard</h2>
+<h2>Paper Trading</h2>
 
-<p>Your current balance: @ViewBag.Balance:C</p>
+<p>Your current balance: @Model.Balance:C</p>
 
 <h3>Check Stock Price</h3>
 <form asp-action="CheckStockPrice" method="post">
@@ -18,7 +20,7 @@
     <p>The current price of @ViewBag.CurrentStockSymbol is @ViewBag.CurrentStockPrice:C</p>
 }
 
-
+<h3>Buy Stocks</h3>
 <form asp-action="BuyStock" method="post">
     <label for="symbol">Stock Symbol:</label>
     <input type="text" id="symbol" name="symbol" required />
@@ -38,16 +40,16 @@
         <th>Current Price</th>
         <th>Profit/Loss</th>
     </tr>
-    @if (ViewBag.Holdings != null && ViewBag.Holdings.Count > 0)
+    @if (Model.Holdings != null && Model.Holdings.Count > 0)
     {
-        @foreach (var holding in ViewBag.Holdings)
+        @foreach (var holding in Model.Holdings)
         {
             <tr>
-                <td>@holding.Value.Symbol</td>
-                <td>@holding.Value.Shares</td>
-                <td>@holding.Value.PurchasePrice:C</td>
-                <td>@holding.Value.Price:C</td>
-                <td>@ViewBag.Portfolio.GetProfitMargin(holding.Value.Symbol, holding.Value.Price):C</td>
+                <td>@holding.Value?.Symbol</td>
+                <td>@holding.Value?.Shares</td>
+                <td>@holding.Value?.PurchasePrice:C</td>
+                <td>@holding.Value?.Price:C</td>
+                <td>@Model.GetProfitMargin(holding.Value.Symbol, holding.Value.Price):C</td>
             </tr>
         }
     }

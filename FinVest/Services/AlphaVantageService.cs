@@ -8,7 +8,7 @@ namespace StockWave.Services
     public class AlphaVantageService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "1MXKI700UECA14HK"; // Replace with your API key
+        private readonly string _apiKey = "XRD89UZWKY7V5DCX"; // Replace with your API key
 
         public AlphaVantageService(HttpClient httpClient)
         {
