@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/3df5af42-bbde-4c42-809f-bc8dac91cf06/resourceGroups/FinVest-KPSS/providers/Microsoft.Web/sites/FinVest-KPSS",
+    "appService.deploySubpath": "FinVest"
+}
