@@ -21,15 +21,11 @@
       "PackagePath": "staticwebassets\\images\\Dashboard.png"
     },
     {
-<<<<<<< HEAD
-      "Id": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
-=======
-      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
+      "Id": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
       "PackagePath": "staticwebassets\\images\\FinVest.png"
     },
     {
-      "Id": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
->>>>>>> 67a17435a430ab46fbe82b5244fe4d45e1761665
+      "Id": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\Stock.png",
       "PackagePath": "staticwebassets\\images\\Stock.png"
     },
     {
