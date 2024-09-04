@@ -9,87 +9,87 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FinVest
 build_property.RootNamespace = FinVest
-build_property.ProjectDir = C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest\
+build_property.ProjectDir = C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\skhar\Downloads\2024-Future-of-Data-Hackathon\FinVest
+build_property.MSBuildProjectDirectory = C:\Users\Maddi\2024-Future-of-Data-Hackathon\FinVest
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Analysis.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Analysis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5hbHlzaXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Error.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Finances.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Finances.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYW5jZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Index.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Privacy.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Profile.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Shared/_Layout.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Stocks.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Stocks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RvY2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/_ViewImports.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/_ViewStart.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/Error.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Stocks/Predict.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Stocks/Predict.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvY2tzXFByZWRpY3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Trading/Index.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Trading/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Trading/Privacy.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Trading/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhZGluZ1xQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/_ViewImports.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/_ViewStart.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/_Layout.cshtml]
+[C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-kjpgqawb9d
