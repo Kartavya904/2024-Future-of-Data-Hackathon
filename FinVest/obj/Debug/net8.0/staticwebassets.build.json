@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "CCYZ5z0uHyc3koZgp57YaRcWnqTMmUWW1RLjCkhvZx0=",
+=======
+  "Hash": "rz8GAUzgLhrPX6fUWGqZijSHz0ZbNwu0Cbd3a2EzazI=",
+>>>>>>> 38ca3a74649f68c221288e73b33bee421eb07666
   "Source": "FinVest",
   "BasePath": "_content/FinVest",
   "Mode": "Default",
@@ -131,10 +135,14 @@
       "OriginalItemSpec": "wwwroot\\images\\Dashboard.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
+=======
+      "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\FinVest.png",
+>>>>>>> 38ca3a74649f68c221288e73b33bee421eb07666
       "SourceId": "FinVest",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
       "BasePath": "_content/FinVest",
       "RelativePath": "images/FinVest.png",
       "AssetKind": "All",
@@ -150,10 +158,17 @@
       "OriginalItemSpec": "wwwroot\\images\\FinVest.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",
       "SourceId": "FinVest",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Maddi\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\images\\logo.png",
+      "SourceId": "FinVest",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\skhar\\Downloads\\2024-Future-of-Data-Hackathon\\FinVest\\wwwroot\\",
+>>>>>>> 38ca3a74649f68c221288e73b33bee421eb07666
       "BasePath": "_content/FinVest",
       "RelativePath": "images/logo.png",
       "AssetKind": "All",

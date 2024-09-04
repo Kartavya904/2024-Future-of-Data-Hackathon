@@ -1,0 +1,239 @@
+@{
+    ViewData["Title"] = "Stock Data Visualization";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Load PapaParse -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+
+    <!-- Correlation Matrix Heatmap -->
+    <canvas id="correlationMatrix" width="400" height="400"></canvas>
+
+    <!-- Risk vs. Return Analysis Scatter Plot -->
+    <canvas id="riskReturnScatter" width="400" height="400"></canvas>
+
+    <!-- Percentage Change in Closing Prices Bar Chart -->
+    <canvas id="percentageChangeBar" width="400" height="400"></canvas>
+
+    <script>
+        // Load the CSV file from the server path
+        Papa.parse('@Url.Content("~/FinVest/data/stocks.csv")', {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            complete: function(results) {
+                const data = results.data;
+
+                // Prepare data for visualizations
+                const pivotData = preparePivotData(data);
+
+                // Generate visualizations
+                generateCorrelationMatrix(pivotData);
+                generateRiskReturnScatter(pivotData);
+                generatePercentageChangeBar(pivotData);
+            }
+        });
+
+        // Function to pivot the data as needed
+        function preparePivotData(data) {
+            const pivotData = {};
+
+            data.forEach(row => {
+                Object.keys(row).forEach(ticker => {
+                    if (!pivotData[ticker]) {
+                        pivotData[ticker] = [];
+                    }
+                    pivotData[ticker].push(row[ticker]);
+                });
+            });
+
+            return pivotData;
+        }
+
+        // Correlation Matrix Heatmap
+        function generateCorrelationMatrix(pivotData) {
+            const correlationMatrix = calculateCorrelationMatrix(pivotData);
+            const labels = Object.keys(pivotData);
+
+            const data = {
+                labels: labels,
+                datasets: correlationMatrix.map((row, index) => ({
+                    label: labels[index],
+                    data: row,
+                    backgroundColor: row.map(value => `rgba(0, 0, 255, ${value})`),
+                    borderWidth: 1
+                }))
+            };
+
+            new Chart(document.getElementById('correlationMatrix'), {
+                type: 'bar',
+                data: data,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Correlation Matrix of Closing Prices'
+                    },
+                    scales: {
+                        xAxes: [{ title: { display: true, text: 'Ticker' } }],
+                        yAxes: [{ title: { display: true, text: 'Ticker' } }]
+                    }
+                }
+            });
+        }
+
+        // Risk vs. Return Analysis Scatter Plot
+        function generateRiskReturnScatter(pivotData) {
+            const dailyReturns = calculateDailyReturns(pivotData);
+            const riskReturnData = calculateRiskReturn(dailyReturns);
+            
+            const data = {
+                datasets: [{
+                    label: 'Risk vs. Return',
+                    data: riskReturnData,
+                    backgroundColor: 'rgba(0, 123, 255, 0.7)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1,
+                    pointRadius: 10
+                }]
+            };
+
+            new Chart(document.getElementById('riskReturnScatter'), {
+                type: 'scatter',
+                data: data,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Risk vs. Return Analysis'
+                    },
+                    scales: {
+                        xAxes: [{ title: { display: true, text: 'Risk (Standard Deviation)' } }],
+                        yAxes: [{ title: { display: true, text: 'Average Daily Return' } }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].label;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Percentage Change in Closing Prices Bar Chart
+        function generatePercentageChangeBar(pivotData) {
+            const percentageChange = calculatePercentageChange(pivotData);
+            const labels = Object.keys(percentageChange);
+            const data = Object.values(percentageChange);
+
+            new Chart(document.getElementById('percentageChangeBar'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Percentage Change (%)',
+                        data: data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Percentage Change in Closing Prices'
+                    },
+                    scales: {
+                        xAxes: [{ title: { display: true, text: 'Ticker' } }],
+                        yAxes: [{
+                            title: { display: true, text: 'Percentage Change (%)' },
+                            ticks: { beginAtZero: true }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Utility Functions to Calculate Required Data
+        function calculateCorrelationMatrix(pivotData) {
+            const keys = Object.keys(pivotData);
+            const matrix = [];
+
+            for (let i = 0; i < keys.length; i++) {
+                const row = [];
+                for (let j = 0; j < keys.length; j++) {
+                    row.push(correlation(pivotData[keys[i]], pivotData[keys[j]]));
+                }
+                matrix.push(row);
+            }
+
+            return matrix;
+        }
+
+        function correlation(x, y) {
+            const n = x.length;
+            const sum_x = x.reduce((a, b) => a + b, 0);
+            const sum_y = y.reduce((a, b) => a + b, 0);
+            const sum_xy = x.reduce((acc, cur, idx) => acc + cur * y[idx], 0);
+            const sum_x_square = x.reduce((acc, cur) => acc + cur * cur, 0);
+            const sum_y_square = y.reduce((acc, cur) => acc + cur * cur, 0);
+
+            const numerator = (n * sum_xy) - (sum_x * sum_y);
+            const denominator = Math.sqrt(((n * sum_x_square) - (sum_x * sum_x)) * ((n * sum_y_square) - (sum_y * sum_y)));
+
+            return numerator / denominator;
+        }
+
+        function calculateDailyReturns(pivotData) {
+            const dailyReturns = {};
+
+            Object.keys(pivotData).forEach(ticker => {
+                dailyReturns[ticker] = pivotData[ticker].map((price, index, arr) => {
+                    return index === 0 ? 0 : (price - arr[index - 1]) / arr[index - 1];
+                }).slice(1); // Remove the first entry as it is NaN
+            });
+
+            return dailyReturns;
+        }
+
+        function calculateRiskReturn(dailyReturns) {
+            const riskReturnData = [];
+
+            Object.keys(dailyReturns).forEach(ticker => {
+                const returns = dailyReturns[ticker];
+                const averageReturn = returns.reduce((a, b) => a + b, 0) / returns.length;
+                const risk = Math.sqrt(returns.map(ret => Math.pow(ret - averageReturn, 2)).reduce((a, b) => a + b, 0) / returns.length);
+
+                riskReturnData.push({
+                    x: risk,
+                    y: averageReturn,
+                    label: ticker
+                });
+            });
+
+            return riskReturnData;
+        }
+
+        function calculatePercentageChange(pivotData) {
+            const percentageChange = {};
+
+            Object.keys(pivotData).forEach(ticker => {
+                const prices = pivotData[ticker];
+                const change = ((prices[prices.length - 1] - prices[0]) / prices[0]) * 100;
+                percentageChange[ticker] = change;
+            });
+
+            return percentageChange;
+        }
+    </script>
+</body>
+</html>

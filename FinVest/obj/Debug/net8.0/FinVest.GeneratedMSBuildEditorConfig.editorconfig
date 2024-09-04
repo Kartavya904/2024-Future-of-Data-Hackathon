@@ -22,7 +22,15 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5hbHlzaXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< HEAD
 [C:/Users/Maddi/2024-Future-of-Data-Hackathon/FinVest/Pages/Error.cshtml]
+=======
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Dash.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/skhar/Downloads/2024-Future-of-Data-Hackathon/FinVest/Pages/Error.cshtml]
+>>>>>>> 38ca3a74649f68c221288e73b33bee421eb07666
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
